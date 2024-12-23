@@ -1,0 +1,27 @@
+{
+  "login_label": "Đăng nhập",
+  "confirm_label": "Xác nhận",
+  "continue_label": "Tiếp tục",
+  "field_not_empty": "Thông tin này không được để trống",
+  "email_invalid": "Email không đúng định dạng",
+  "phone_invalid": "Số điện thoại không đúng định dạng",
+  "password": "Mật khẩu",
+  "notify": "Thông báo",
+  "acc_wrong": "Sai tài khoản đăng nhập, vui lòng kiểm tra lại!",
+  "error_when_login": "Đã xảy ra vấn đề khi đăng nhập: ",
+  "@error_when_login": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "close": "Đóng",
+  "account_not_valid": "Thông tin tài khoản không hợp lệ",
+  "check": "Check in",
+  "input_info": "Nhập thông tin",
+  "proudly_by_unit": "Được cung cấp bởi UNIT CORP",
+  "please_enter_info": "Vui lòng điền thông tin để tiếp tục!",
+  "sys_response_invalid": "Hệ thống phản hồi không hợp lệ!",
+  "input_phone_number": "Số điện thoại"
+}
