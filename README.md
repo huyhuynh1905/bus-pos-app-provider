@@ -1,5 +1,5 @@
 # Pos App
-- Ứng dụng bán vé xe bus chạy trên thiết bị sunmi p2 pro.
+- Ứng dụng bán vé xe bus chạy trên thiết bị Sunmi P2 Pro.
 
 ## Getting Started:
 Dùng thư viện change_app_package_name để đổi tên package (thêm ở dev_dependencies):
@@ -14,16 +14,16 @@ Dùng thư viện change_app_package_name để đổi tên package (thêm ở d
 ## Edit Configurations:
 - Thêm main 3 môi trường: 
   - main_prod.dart
-  - main_staging.dart
+  - main_uat.dart
   - main_dev.dart
   - Thêm flavor ( để change package) Additionals run args:
     - Môi trường prod: --flavor prod
-    - Môi trường staging: --flavor staging
-    - Môi trường dev: --flavor dev
+    - Môi trường uat: --flavor uat
+    - Môi trường develop: --flavor develop
   - Build flavor:
     - Môi trường prod: prod
-    - Môi trường staging: staging
-    - Môi trường dev: dev
+    - Môi trường uat: uat
+    - Môi trường develop: develop
 
 
   

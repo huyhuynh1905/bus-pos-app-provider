@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'dart:io' show Platform;
 
 void customLog(String message) {
-  var tag = "AAAAAAAAAA";
+  var tag = "${DateTime.now()}-LOG===>";
 
   if (Platform.isAndroid) {
     // On Android, use ANSI escape codes
