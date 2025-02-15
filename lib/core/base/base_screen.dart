@@ -1,3 +1,4 @@
+import 'package:bus_pos_app/shared/res/themes_and_color/themes_custom.dart';
 import 'package:bus_pos_app/shared/routers/navigation_services.dart';
 import 'package:bus_pos_app/shared/utils/supports.dart';
 import 'package:bus_pos_app/shared/utils/utils.dart';
@@ -15,8 +16,7 @@ abstract class BaseScreen extends StatefulWidget {
   BaseScreenState createState();
 }
 
-abstract class BaseScreenState<T extends BaseViewModel> extends State<BaseScreen>
-    implements AppBarSupport {
+abstract class BaseScreenState<T extends BaseViewModel> extends State<BaseScreen> {
   T provider = getIt<T>();
 
   @override
@@ -49,8 +49,8 @@ abstract class BaseScreenState<T extends BaseViewModel> extends State<BaseScreen
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(
-        ".................................buildChild ${widget.getNameScreen()}......................................");
+    AppThemesColors.of(context);
+    debugPrint( "======> buildChild ${widget.getNameScreen()} -----------------------------------");
     return ChangeNotifierProvider<T>(
       create: (context) => provider,
       child: handlerBuild(context),
@@ -75,33 +75,4 @@ abstract class BaseScreenState<T extends BaseViewModel> extends State<BaseScreen
 
   bool get hidenKeyBoardOutSide => false;
 
-  @override
-  String? titleAppbar(BuildContext context) {
-    return "";
-  }
-
-  @override
-  Widget? rightAppbarComponent(BuildContext context) {
-    return null;
-  }
-
-  @override
-  Widget? leftAppbarComponent(BuildContext context) {
-    return null;
-  }
-
-  @override
-  Widget? titleByWidget(BuildContext context) {
-    return null;
-  }
-}
-
-abstract class AppBarSupport {
-  String? titleAppbar(BuildContext context);
-
-  Widget? rightAppbarComponent(BuildContext context);
-
-  Widget? leftAppbarComponent(BuildContext context);
-
-  Widget? titleByWidget(BuildContext context);
 }

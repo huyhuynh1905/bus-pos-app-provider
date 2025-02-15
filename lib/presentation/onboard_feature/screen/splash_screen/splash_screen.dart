@@ -4,10 +4,7 @@ import 'package:bus_pos_app/core/base/base_screen.dart';
 import 'package:bus_pos_app/core/base/base_view_model.dart';
 import 'package:bus_pos_app/generated/assets.gen.dart';
 import 'package:bus_pos_app/presentation/onboard_feature/screen/splash_screen/splash_viewmodel.dart';
-import 'package:bus_pos_app/shared/components/button/button_loading_grad.dart';
-import 'package:bus_pos_app/shared/res/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class SplashScreen extends BaseScreen {
   const SplashScreen({super.key});
@@ -25,7 +22,7 @@ class _SplashScreenState extends BaseScreenState<SplashViewModel> {
   @override
   void initFunction() async {
     await provider.getPackageInfo();
-    await provider.countDownToNext(context);
+    // await provider.countDownToNext(context);
   }
 
 
@@ -35,9 +32,9 @@ class _SplashScreenState extends BaseScreenState<SplashViewModel> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: AppColors.redGradientVertical
-        ),
+        // decoration: const BoxDecoration(
+        //   gradient: AppColors.redGradientVertical
+        // ),
         child: Center(
           child: Assets.svgs.logoMedicWhite.svg(),
         ),

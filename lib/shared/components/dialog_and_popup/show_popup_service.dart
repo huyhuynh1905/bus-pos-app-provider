@@ -1,9 +1,8 @@
 import 'package:bus_pos_app/generated/assets.gen.dart';
 import 'package:bus_pos_app/shared/components/dialog_and_popup/dialog_custom_view.dart';
-import 'package:bus_pos_app/shared/components/text_field/custom_text_field.dart';
-import 'package:bus_pos_app/shared/res/colors.dart';
+import 'package:bus_pos_app/shared/components/text_field/text_field_component.dart';
 import 'package:bus_pos_app/shared/res/dimens.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:bus_pos_app/shared/res/themes_and_color/themes_custom.dart';
 import 'package:flutter/material.dart';
 
 class ShowDialogServices{
@@ -164,7 +163,7 @@ class ShowDialogServices{
                 rightBtnTextStyle: btnTextStyle,
                 rightAction: btnAction,
                 iconCenter: iconWidget,
-                widgetCenter: UCustomTextField(controller: controller, labelText: labelText),
+                widgetCenter: TextFieldComponent(controller: controller, labelText: labelText),
               ),
             ),
           );
@@ -185,9 +184,9 @@ class ShowDialogServices{
     return Container(
       width: Dimens.size_45,
       height: Dimens.size_45,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: AppColors.whiteColor,
+        color: AppThemesColors.current.surfaceBright,
       ),
       padding: const EdgeInsets.all(Dimens.size_2half),
       alignment: Alignment.center,

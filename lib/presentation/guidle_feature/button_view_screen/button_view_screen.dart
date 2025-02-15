@@ -1,10 +1,12 @@
-import 'package:bus_pos_app/shared/components/app_bar/u_appbar.dart';
+import 'package:bus_pos_app/core/common/app_provider.dart';
+import 'package:bus_pos_app/di/locator.dart';
+import 'package:bus_pos_app/shared/components/app_bar/appbar.dart';
 import 'package:bus_pos_app/shared/components/button/button_gradient.dart';
 import 'package:bus_pos_app/shared/components/button/button_normal.dart';
 import 'package:bus_pos_app/shared/components/button/button_outline.dart';
-import 'package:bus_pos_app/shared/components/button/button_loading_grad.dart';
-import 'package:bus_pos_app/shared/res/colors.dart';
 import 'package:bus_pos_app/shared/res/dimens.dart';
+import 'package:bus_pos_app/shared/res/themes_and_color/colors.dart';
+import 'package:bus_pos_app/shared/res/themes_and_color/themes_custom.dart';
 import 'package:flutter/material.dart';
 
 class ButtonViewScreen extends StatefulWidget {
@@ -24,11 +26,27 @@ class _ButtonViewScreenState extends State<ButtonViewScreen> {
 
   @override
   Widget build(BuildContext context) {
+    AppThemesColors.of(context);
     return Scaffold(
-      appBar: UAppbar(
+      appBar: Appbar(
         title: "Button View",
         showIconBack: true,
         isHasShadow: false,
+        rightIcon: GestureDetector(
+          onTap: (){
+            //đổi theme
+            getIt<AppProvider>().onChangesThemes();
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: Dimens.spaKPadding,
+            ),
+            child: Icon(
+              Icons.lightbulb_circle_outlined,
+              color: AppThemesColors.current.onPrimary,
+            ),
+          ),
+        ),
       ),
       body: Container(
         padding: EdgeInsets.all(Dimens.spasPadding),
@@ -48,16 +66,6 @@ class _ButtonViewScreenState extends State<ButtonViewScreen> {
                 return _buildItem(listItem[index]);
               },
             ),
-            const SizedBox(height: Dimens.size_20,),
-            Padding(
-              padding: EdgeInsets.only(
-                left: Dimens.spaKPadding,
-                right: Dimens.spaKPadding,
-              ),
-              child: UButtonLoadingGradient(title: "LoadingButton", action: (){
-                setLoading();
-              }, isLoading: isLoadingButton,),
-            ),
           ],
         ),
       ),
@@ -76,11 +84,10 @@ class _ButtonViewScreenState extends State<ButtonViewScreen> {
   }
 
   final listItem = <Widget>[
-    UButtonGradient(title: "primaryGradient", action: (){}, gradientColor: AppColors.primaryGradient,),
-    UButtonGradient(title: "redGradientVertical", action: (){},),
-    UButtonOutline(title: "UButtonOutline", action: (){},),
-    UButtonNormal(title: "UButtonNormal", action: (){},),
-    UButtonNormal(title: "Button Disable", action: (){}, isDisable: true,),
+    ButtonGradient(title: "primaryGradient", action: (){}, gradient: AppColors.primaryGradient,),
+    ButtonOutline(title: "UButtonOutline", action: (){},),
+    ButtonNormal(title: "UButtonNormal", action: (){},),
+    ButtonNormal(title: "Button Disable", action: (){}, isDisable: true,),
   ];
 
 

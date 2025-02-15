@@ -1,10 +1,11 @@
 import 'package:bus_pos_app/generated/l10n.dart';
 import 'package:bus_pos_app/shared/components/button/button_normal.dart';
 import 'package:bus_pos_app/shared/components/button/button_outline.dart';
-import 'package:bus_pos_app/shared/res/style_text.dart';
-import 'package:flutter/material.dart';
-import 'package:bus_pos_app/shared/res/colors.dart';
+import 'package:bus_pos_app/shared/components/text/text_default.dart';
+import 'package:bus_pos_app/shared/components/text/text_title.dart';
 import 'package:bus_pos_app/shared/res/dimens.dart';
+import 'package:bus_pos_app/shared/res/themes_and_color/themes_custom.dart';
+import 'package:flutter/material.dart';
 
 class DialogCustomView extends StatelessWidget {
 
@@ -48,7 +49,7 @@ class DialogCustomView extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            color: AppColors.whiteColor,
+            color: AppThemesColors.current.surfaceBright,
             borderRadius: BorderRadius.circular(Dimens.borderRadiusDialog),
           ),
           margin: EdgeInsets.only(
@@ -63,17 +64,16 @@ class DialogCustomView extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                title,
-                style: textStyleTitle??Styles.textStyleTitle,
+              TextTitle(
+                text: title,
+                textColor: AppThemesColors.current.primary,
               ),
               const SizedBox(height: Dimens.spasPadding),
               Visibility(
                 visible: description.isNotEmpty,
-                child: Text(
-                  description,
+                child: TextDefault(
+                  text: description,
                   textAlign: TextAlign.center,
-                  style: textStyleDes??Styles.textStyleBody1,
                 ),
               ),
               const SizedBox(height: Dimens.spaKPadding),
@@ -91,7 +91,7 @@ class DialogCustomView extends StatelessWidget {
                 child: Container(
                   height: 1,
                   width: double.infinity,
-                  color: AppColors.colorStrockMain,
+                  color: AppThemesColors.current.onSurface,
                 ),
               ),
               const SizedBox(height: Dimens.spasPadding),
@@ -105,10 +105,8 @@ class DialogCustomView extends StatelessWidget {
                   //button 1
                   Visibility(
                     visible: isShowLeftBtn,
-                    child: UButtonOutline(
+                    child: ButtonOutline(
                       title: leftBtnTitle??S.current.close,
-                      titleStyle: leftBtnTextStyle,
-                      height: Dimens.size_45,
                       action: (){
                         Navigator.of(context).maybePop();
                         try{
@@ -125,10 +123,8 @@ class DialogCustomView extends StatelessWidget {
                   ),
                   Visibility(
                     visible: isShowRightBtn,
-                    child: UButtonNormal(
+                    child: ButtonNormal(
                       title: rightBtnTitle??S.current.confirm_label,
-                      titleStyle: rightBtnTextStyle,
-                      height: Dimens.size_45,
                       action: (){
                         Navigator.of(context).maybePop();
                         try{

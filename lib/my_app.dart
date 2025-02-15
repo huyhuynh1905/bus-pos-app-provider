@@ -1,8 +1,10 @@
 import 'package:bus_pos_app/core/common/app_provider.dart';
 import 'package:bus_pos_app/core/common/multi_provider.dart';
-import 'package:bus_pos_app/shared/res/colors.dart';
+import 'package:bus_pos_app/shared/res/themes_and_color/app_themes.dart';
+import 'package:bus_pos_app/shared/res/themes_and_color/colors.dart';
 import 'package:bus_pos_app/shared/res/dimens.dart';
 import 'package:bus_pos_app/shared/res/strings.dart';
+import 'package:bus_pos_app/shared/res/themes_and_color/themes_custom.dart';
 import 'package:bus_pos_app/shared/routers/navigation_services.dart';
 import 'package:bus_pos_app/shared/routers/router_constant.dart';
 import 'package:bus_pos_app/shared/routers/routers.dart';
@@ -27,6 +29,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    AppThemesColors.of(context);
     _appNotifier.init();
   }
 
@@ -44,12 +47,10 @@ class _MyAppState extends State<MyApp> {
             return MaterialApp(
               title: 'Flutter Demo',
               debugShowCheckedModeBanner: false,
-              theme: ThemeData(
-                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-                useMaterial3: true,
-              ),
-              themeMode: ThemeMode.light,
-              initialRoute: RouteConstant.splashScreen,
+              theme: AppThemes.lightTheme,
+              themeMode: model.isDarkThemes ? ThemeMode.dark : ThemeMode.light,
+              darkTheme: AppThemes.darkTheme,
+              initialRoute: RouteConstant.sampleScreen,
               onGenerateRoute: Routers.generateRoute,
               navigatorKey: getIt<NavigationService>().navigatorKey,
               builder: EasyLoading.init(),

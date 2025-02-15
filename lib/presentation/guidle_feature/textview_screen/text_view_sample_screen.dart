@@ -1,6 +1,12 @@
-import 'package:bus_pos_app/shared/components/app_bar/u_appbar.dart';
+import 'package:bus_pos_app/core/common/app_provider.dart';
+import 'package:bus_pos_app/di/locator.dart';
+import 'package:bus_pos_app/shared/components/app_bar/appbar.dart';
+import 'package:bus_pos_app/shared/components/text/text_component.dart';
+import 'package:bus_pos_app/shared/components/text/text_default.dart';
+import 'package:bus_pos_app/shared/components/text/text_sub_content.dart';
+import 'package:bus_pos_app/shared/components/text/text_title.dart';
 import 'package:bus_pos_app/shared/res/dimens.dart';
-import 'package:bus_pos_app/shared/res/style_text.dart';
+import 'package:bus_pos_app/shared/res/themes_and_color/themes_custom.dart';
 import 'package:flutter/material.dart';
 
 class TextViewSampleScreen extends StatelessWidget {
@@ -8,11 +14,33 @@ class TextViewSampleScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppThemesColors.of(context);
+    final listItem = [
+      TextDefault(text: "TextDefault",),
+      TextSubContent(text: "TextSubContent",),
+      TextTitle(text: "TextTitle",),
+    ];
+
     return Scaffold(
-      appBar: UAppbar(
+      appBar: Appbar(
         title: "Text View",
         showIconBack: true,
         isHasShadow: false,
+        rightIcon: GestureDetector(
+          onTap: (){
+            //đổi theme
+            getIt<AppProvider>().onChangesThemes();
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: Dimens.spaKPadding,
+            ),
+            child: Icon(
+              Icons.lightbulb_circle_outlined,
+              color: AppThemesColors.current.onPrimary,
+            ),
+          ),
+        ),
       ),
       body: Container(
         padding: EdgeInsets.all(Dimens.spasPadding),
@@ -29,29 +57,16 @@ class TextViewSampleScreen extends StatelessWidget {
     );
   }
 
-  Widget _itemText(ItemTextView item) {
+  Widget _itemText(TextComponent item) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.only(
         left: Dimens.spaKPadding,
         right: Dimens.spaKPadding,
       ),
-      child: Text(
-        item.title,
-        style: item.textStyle,
-      ),
+      child: item,
     );
   }
-
-  final listItem = [
-    ItemTextView("Heading Bold 16px: Styles.textStyleHeading", Styles.textStyleHeading),
-    ItemTextView("Title SemiBold 16px: Styles.textStyleTitle", Styles.textStyleTitle),
-    ItemTextView("Subtile SemiBold 14px: textStyleSubTitle", Styles.textStyleSubTitle),
-    ItemTextView("Body1 Medium 14px: Styles.textStyleBody1", Styles.textStyleBody1),
-    ItemTextView("Body2 Regular 14px: Styles.textStyleBody2", Styles.textStyleBody2),
-    ItemTextView("Content Medium 12px: Styles.textStyleContent", Styles.textStyleContent),
-  ];
-
 
 }
 

@@ -1,9 +1,10 @@
-import 'package:bus_pos_app/shared/res/colors.dart';
+import 'package:bus_pos_app/shared/components/text/text_sub_content.dart';
 import 'package:bus_pos_app/shared/res/dimens.dart';
 import 'package:bus_pos_app/shared/res/style_text.dart';
+import 'package:bus_pos_app/shared/res/themes_and_color/themes_custom.dart';
 import 'package:flutter/material.dart';
 
-class UCustomTextField extends StatelessWidget {
+class TextFieldComponent extends StatelessWidget {
   final TextEditingController controller;
   final FocusNode? focusNode;
   final String labelText;
@@ -19,16 +20,16 @@ class UCustomTextField extends StatelessWidget {
   final TextInputAction? textInputAction;
   final TextInputType? textInputType;
   final int? countLength;
-  final Color backgroundColor;
-  final Color disableBackgroundColor;
-  final Color borderColor;
-  final Color errorBorderColor;
+  final Color? backgroundColor;
+  final Color? disableBackgroundColor;
+  final Color? borderColor;
+  final Color? errorBorderColor;
   final bool enable;
   final bool secure;
   final Widget? leftWidget;
   final Widget? rightWidget;
 
-  UCustomTextField({
+  TextFieldComponent({
     super.key,
     required this.controller,
     required this.labelText,
@@ -49,10 +50,10 @@ class UCustomTextField extends StatelessWidget {
     this.paddingHoz = Dimens.spasPadding,
     this.enable = true,
     this.secure = false,
-    this.backgroundColor = AppColors.whiteColor,
-    this.disableBackgroundColor = AppColors.grayColor,
-    this.borderColor = AppColors.grayBorderColor,
-    this.errorBorderColor = AppColors.coralRed,
+    this.backgroundColor,
+    this.disableBackgroundColor,
+    this.borderColor,
+    this.errorBorderColor,
   });
 
   @override
@@ -69,9 +70,9 @@ class UCustomTextField extends StatelessWidget {
             // top: Dimens.size_5
           ),
           decoration: BoxDecoration(
-            color: enable ? backgroundColor : disableBackgroundColor,
+            color: enable ? backgroundColor??AppThemesColors.current.surface : disableBackgroundColor??AppThemesColors.current.outlineVar,
             borderRadius: BorderRadius.circular(borderRadius),
-            border: Border.all(color: errorText?.isNotEmpty == true ? errorBorderColor : borderColor)
+            border: Border.all(color: errorText?.isNotEmpty == true ? errorBorderColor??AppThemesColors.current.error : borderColor??AppThemesColors.current.outline)
           ),
           child: Row(
             children: [
@@ -86,7 +87,7 @@ class UCustomTextField extends StatelessWidget {
                   obscureText: secure,
                   focusNode: focusNode,
                   cursorHeight: Dimens.size_18,
-                  cursorColor: AppColors.blackColor,
+                  cursorColor: AppThemesColors.current.onSurface,
                   textAlignVertical: TextAlignVertical.bottom,
                   decoration: InputDecoration(
                     isDense: true,
@@ -95,7 +96,7 @@ class UCustomTextField extends StatelessWidget {
                       top: Dimens.size_5
                     ),
                     filled: true,
-                    fillColor: enable ? backgroundColor : disableBackgroundColor,
+                    fillColor: enable ? backgroundColor??AppThemesColors.current.surface : disableBackgroundColor??AppThemesColors.current.outlineVar,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(borderRadius),
                       borderSide: BorderSide.none, //const BorderSide(color: AppColors.marineBlue, width: 2),
@@ -109,10 +110,14 @@ class UCustomTextField extends StatelessWidget {
                       borderSide: BorderSide.none, //const BorderSide(color: AppColors.marineBlue, width: 2),
                     ),
                     labelText: labelText,
-                    labelStyle: Styles.textStyleLabelTextField,
+                    labelStyle: Styles.textStyleContent.copyWith(
+                      color: AppThemesColors.current.onSurface
+                    ),
                     counterText: "",
                   ),
-                  style: textStyle ?? Styles.textStyleBody1,
+                  style: textStyle ?? Styles.textStyleContent.copyWith(
+                    color: AppThemesColors.current.onSurface
+                  ),
                   maxLines: 1,
                   maxLength: countLength,
                   keyboardType: textInputType??TextInputType.text,
@@ -136,11 +141,10 @@ class UCustomTextField extends StatelessWidget {
               vertical: Dimens.size_3,
               horizontal: Dimens.spasPadding
             ),
-            child: Text(
-              errorText??"",
-              style: errorTextStyle??Styles.textFieldErrorStyle,
+            child: TextSubContent(
+              text: errorText??"",
+              textColor: AppThemesColors.current.error,
               maxLines: 2,
-              overflow: TextOverflow.ellipsis,
             ),
           ),
         )

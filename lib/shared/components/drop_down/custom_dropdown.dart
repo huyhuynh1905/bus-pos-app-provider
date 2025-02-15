@@ -2,6 +2,7 @@ library animated_custom_dropdown;
 
 import 'dart:async';
 
+import 'package:bus_pos_app/shared/res/themes_and_color/themes_custom.dart';
 import 'package:flutter/material.dart';
 
 export 'custom_dropdown.dart';
@@ -26,7 +27,7 @@ enum _DropdownType { singleSelect, multipleSelect }
 
 enum _SearchType { onListData, onRequestData }
 
-const _defaultErrorColor = Colors.red;
+var _defaultErrorColor = AppThemesColors.current.error;
 
 const _defaultBorderRadius = BorderRadius.all(
   Radius.circular(12),
@@ -37,7 +38,7 @@ final Border _defaultErrorBorder = Border.all(
   width: 1.5,
 );
 
-const _defaultErrorStyle = TextStyle(
+final _defaultErrorStyle = TextStyle(
   color: _defaultErrorColor,
   fontSize: 14,
   height: 0.5,

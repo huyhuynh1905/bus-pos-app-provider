@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:bus_pos_app/shared/components/border_shape/bg_border_share.dart';
-import 'package:bus_pos_app/shared/utils/common.dart';
+import 'package:flutter/material.dart';
 
 class DropdownListItem extends StatefulWidget {
   String labelText;
@@ -29,7 +28,7 @@ class _DropdownListItemState extends State<DropdownListItem> {
           showListView = !showListView;
         });
       },
-      child: UBackgroundBorderShape(
+      child: ContainerComponent(
         childWidget: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: (showListView)

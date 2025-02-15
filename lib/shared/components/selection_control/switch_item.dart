@@ -1,5 +1,4 @@
-import 'package:bus_pos_app/shared/res/colors.dart';
-import 'package:bus_pos_app/shared/res/dimens.dart';
+import 'package:bus_pos_app/shared/res/themes_and_color/themes_custom.dart';
 import 'package:flutter/material.dart';
 
 class SwitchItem extends StatelessWidget {
@@ -9,8 +8,8 @@ class SwitchItem extends StatelessWidget {
   final ValueChanged<bool> onChanged;
   final MaterialStateProperty<Icon?>? iconThumb;
 
-  final Color activeTrackColor;
-  final Color activeColor;
+  final Color? activeTrackColor;
+  final Color? activeColor;
   final Color? inactiveTrackColor;
   final Color? inactiveThumbColor;
 
@@ -23,8 +22,8 @@ class SwitchItem extends StatelessWidget {
     this.iconThumb,
     this.inactiveTrackColor,
     this.inactiveThumbColor,
-    this.activeTrackColor = AppColors.primaryColor,
-    this.activeColor = AppColors.whiteColor,
+    this.activeTrackColor,
+    this.activeColor,
   });
 
   ///default
@@ -45,8 +44,8 @@ class SwitchItem extends StatelessWidget {
   Widget get _customRadioButton {
     return Switch(
       value: isOn,
-      activeColor: Colors.white,
-      activeTrackColor: activeTrackColor,
+      activeColor: AppThemesColors.current.onPrimary,
+      activeTrackColor: activeTrackColor??AppThemesColors.current.primary,
       inactiveTrackColor: inactiveTrackColor,
       inactiveThumbColor: inactiveThumbColor,
       thumbIcon: isHasThumb ? (iconThumb ?? thumbIconDefault) : null,

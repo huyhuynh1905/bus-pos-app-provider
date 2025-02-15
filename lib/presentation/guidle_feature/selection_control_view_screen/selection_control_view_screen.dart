@@ -1,10 +1,14 @@
-import 'package:bus_pos_app/shared/components/app_bar/u_appbar.dart';
-import 'package:bus_pos_app/shared/components/selection_control/checkbox_item.dart';
-import 'package:bus_pos_app/shared/components/selection_control/radio_item.dart';
+import 'package:bus_pos_app/core/common/app_provider.dart';
+import 'package:bus_pos_app/di/locator.dart';
+import 'package:bus_pos_app/shared/components/app_bar/appbar.dart';
+import 'package:bus_pos_app/shared/components/selection_control/checkbox_component.dart';
+import 'package:bus_pos_app/shared/components/selection_control/radio_component.dart';
 import 'package:bus_pos_app/shared/components/selection_control/switch_item.dart';
-import 'package:bus_pos_app/shared/res/colors.dart';
+import 'package:bus_pos_app/shared/components/text/text_title.dart';
+import 'package:bus_pos_app/shared/res/themes_and_color/colors.dart';
 import 'package:bus_pos_app/shared/res/dimens.dart';
 import 'package:bus_pos_app/shared/res/style_text.dart';
+import 'package:bus_pos_app/shared/res/themes_and_color/themes_custom.dart';
 import 'package:flutter/material.dart';
 
 class SelectionControlViewScreen extends StatefulWidget {
@@ -38,11 +42,27 @@ class _SelectionControlViewScreenState extends State<SelectionControlViewScreen>
 
   @override
   Widget build(BuildContext context) {
+    AppThemesColors.of(context);
     return Scaffold(
-      appBar: UAppbar(
+      appBar: Appbar(
         title: "Selection Control View",
         showIconBack: true,
         isHasShadow: false,
+        rightIcon: GestureDetector(
+          onTap: (){
+            //đổi theme
+            getIt<AppProvider>().onChangesThemes();
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: Dimens.spaKPadding,
+            ),
+            child: Icon(
+              Icons.lightbulb_circle_outlined,
+              color: AppThemesColors.current.onPrimary,
+            ),
+          ),
+        ),
       ),
       body: Container(
         padding: const EdgeInsets.all(Dimens.spasPadding),
@@ -57,9 +77,8 @@ class _SelectionControlViewScreenState extends State<SelectionControlViewScreen>
                   left: Dimens.spaKPadding,
                   right: Dimens.spaKPadding,
                 ),
-                child: Text(
-                  "Radio Button",
-                  style: Styles.textStyleSubTitle.copyWith(color: AppColors.marineBlue),
+                child: TextTitle(
+                  text: "Radio Button",
                 ),
               ),
               const SizedBox(height: Dimens.size_10,),
@@ -76,9 +95,8 @@ class _SelectionControlViewScreenState extends State<SelectionControlViewScreen>
                   left: Dimens.spaKPadding,
                   right: Dimens.spaKPadding,
                 ),
-                child: Text(
-                  "Checkbox Button",
-                  style: Styles.textStyleSubTitle.copyWith(color: AppColors.marineBlue),
+                child: TextTitle(
+                  text: "Checkbox Button",
                 ),
               ),
               const SizedBox(height: Dimens.size_10,),
@@ -95,9 +113,8 @@ class _SelectionControlViewScreenState extends State<SelectionControlViewScreen>
                   left: Dimens.spaKPadding,
                   right: Dimens.spaKPadding,
                 ),
-                child: Text(
-                  "Switch Button",
-                  style: Styles.textStyleSubTitle.copyWith(color: AppColors.marineBlue),
+                child: TextTitle(
+                  text: "Switch Button",
                 ),
               ),
               const SizedBox(height: Dimens.size_10,),
@@ -196,7 +213,7 @@ class _SelectionControlViewScreenState extends State<SelectionControlViewScreen>
 
 
   Widget _buildItemRadio(String e) {
-    return RadioItem(value: e, isDisable: e=="Option 3", groupValue: currentRadio, onChanged: (value){
+    return RadioComponent(value: e, isDisable: e=="Option 3", groupValue: currentRadio, onChanged: (value){
       setState(() {
         currentRadio = value??"";
       });
@@ -205,7 +222,7 @@ class _SelectionControlViewScreenState extends State<SelectionControlViewScreen>
 
   Widget _buildItemCheckbox (ItemCheckBox e) {
     final index = listCheckbox.indexOf(e);
-    return CheckboxItem(value: e.title, isDisable: e.isDisable, onChanged: (value){
+    return CheckboxComponent(value: e.title, isDisable: e.isDisable, onChanged: (value){
       setState(() {
         listCheckbox[index].isChecked = value??false;
       });

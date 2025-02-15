@@ -44,8 +44,8 @@ class LoginViewModel extends BaseViewModel{
       final baseResponse = result.dataState;
       if(baseResponse?.data!=null) {
         var authenticationString = const JsonEncoder().convert(baseResponse?.data);
-        preferences.setString(PrefsSharedKey.keyAuthenticate, authenticationString);
-        preferences.setString(PrefsSharedKey.keyUser, username);
+        // preferences.setString(PrefsSharedKey.keyAuthenticate, authenticationString);
+        // preferences.setString(PrefsSharedKey.keyUser, username);
         _moveToNextScreen(context);
       } else {
         ShowDialogServices.showOneButtonDialog(

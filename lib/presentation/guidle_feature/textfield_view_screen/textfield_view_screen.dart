@@ -1,7 +1,9 @@
-import 'package:bus_pos_app/shared/components/app_bar/u_appbar.dart';
-import 'package:bus_pos_app/shared/components/button/button_loading_grad.dart';
-import 'package:bus_pos_app/shared/components/text_field/custom_text_field.dart';
+import 'package:bus_pos_app/core/common/app_provider.dart';
+import 'package:bus_pos_app/di/locator.dart';
+import 'package:bus_pos_app/shared/components/app_bar/appbar.dart';
+import 'package:bus_pos_app/shared/components/text_field/text_field_component.dart';
 import 'package:bus_pos_app/shared/res/dimens.dart';
+import 'package:bus_pos_app/shared/res/themes_and_color/themes_custom.dart';
 import 'package:flutter/material.dart';
 
 class TextfieldViewScreen extends StatefulWidget {
@@ -25,11 +27,27 @@ class _TextfieldViewScreenState extends State<TextfieldViewScreen> {
 
   @override
   Widget build(BuildContext context) {
+    AppThemesColors.of(context);
     return Scaffold(
-      appBar: UAppbar(
+      appBar: Appbar(
         title: "Textfield View",
         showIconBack: true,
         isHasShadow: false,
+        rightIcon: GestureDetector(
+          onTap: (){
+            //đổi theme
+            getIt<AppProvider>().onChangesThemes();
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(
+              horizontal: Dimens.spaKPadding,
+            ),
+            child: Icon(
+              Icons.lightbulb_circle_outlined,
+              color: AppThemesColors.current.onPrimary,
+            ),
+          ),
+        ),
       ),
       body: Container(
         padding: const EdgeInsets.all(Dimens.spasPadding),
@@ -41,7 +59,7 @@ class _TextfieldViewScreenState extends State<TextfieldViewScreen> {
                 left: Dimens.spaKPadding,
                 right: Dimens.spaKPadding,
               ),
-              child: UCustomTextField(
+              child: TextFieldComponent(
                 controller: defaultCtl,
                 labelText: 'Default Textfield',
               ),
@@ -53,7 +71,7 @@ class _TextfieldViewScreenState extends State<TextfieldViewScreen> {
                 left: Dimens.spaKPadding,
                 right: Dimens.spaKPadding,
               ),
-              child: UCustomTextField(
+              child: TextFieldComponent(
                 controller: defaultCtl,
                 labelText: 'Error TextField',
                 errorText: "Vui lòng không để trống",
@@ -66,7 +84,7 @@ class _TextfieldViewScreenState extends State<TextfieldViewScreen> {
                 left: Dimens.spaKPadding,
                 right: Dimens.spaKPadding,
               ),
-              child: UCustomTextField(
+              child: TextFieldComponent(
                 controller: passsCtl,
                 labelText: 'Password TextField',
                 secure: secure,
@@ -85,7 +103,7 @@ class _TextfieldViewScreenState extends State<TextfieldViewScreen> {
                 left: Dimens.spaKPadding,
                 right: Dimens.spaKPadding,
               ),
-              child: UCustomTextField(
+              child: TextFieldComponent(
                 controller: disableCtl,
                 labelText: 'Disable/readOnly TextField',
                 enable: false,

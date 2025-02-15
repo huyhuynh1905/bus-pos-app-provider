@@ -1,12 +1,6 @@
 import 'package:bus_pos_app/data/local/prefs_shared_key.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-/*
- * Created by DinhTC on 26/01/2024.
- * Company UNIT
- * Code is not just a tool; it's the art of turning ideas into reality.
- */
-
 class PrefsShared {
   PrefsShared(this._sharedPreference);
 
@@ -17,5 +11,11 @@ class PrefsShared {
 
   Future<bool> saveLanguageCode(String languageCode) {
     return _sharedPreference.setString(PrefsSharedKey.keyLanguageCode, languageCode);
+  }
+
+  bool get isDarkMode => _sharedPreference.getBool(PrefsSharedKey.keyThemesMode) ?? false;
+
+  Future<bool> saveThemes(bool isDarkMode) {
+    return _sharedPreference.setBool(PrefsSharedKey.keyThemesMode, isDarkMode);
   }
 }

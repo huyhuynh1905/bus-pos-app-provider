@@ -3,9 +3,8 @@ import 'package:bus_pos_app/core/base/base_view_model.dart';
 import 'package:bus_pos_app/generated/assets.gen.dart';
 import 'package:bus_pos_app/generated/l10n.dart';
 import 'package:bus_pos_app/presentation/onboard_feature/screen/login_screen/login_viewmodel.dart';
-import 'package:bus_pos_app/shared/components/button/button_gradient.dart';
-import 'package:bus_pos_app/shared/components/text_field/custom_text_field.dart';
-import 'package:bus_pos_app/shared/res/colors.dart';
+import 'package:bus_pos_app/shared/components/button/button_normal.dart';
+import 'package:bus_pos_app/shared/components/text_field/text_field_component.dart';
 import 'package:bus_pos_app/shared/res/dimens.dart';
 import 'package:bus_pos_app/shared/res/style_text.dart';
 import 'package:bus_pos_app/shared/utils/common.dart';
@@ -52,9 +51,9 @@ class _LoginScreenState extends BaseScreenState<LoginViewModel> with WidgetsBind
           body: Container(
             width: double.infinity,
             height: double.infinity,
-            decoration: const BoxDecoration(
-              gradient: AppColors.pinkGradientVertical
-            ),
+            // decoration: const BoxDecoration(
+            //   gradient: AppColors.pinkGradientVertical
+            // ),
             child: Center(
               child: SingleChildScrollView(
                 child: Column(
@@ -86,7 +85,7 @@ class _LoginScreenState extends BaseScreenState<LoginViewModel> with WidgetsBind
                         left: Dimens.spaKPadding,
                         right: Dimens.spaKPadding,
                       ),
-                      child: UCustomTextField(
+                      child: TextFieldComponent(
                         controller: emailController,
                         labelText: 'Email',
                       ),
@@ -102,7 +101,7 @@ class _LoginScreenState extends BaseScreenState<LoginViewModel> with WidgetsBind
                             left: Dimens.spaKPadding,
                             right: Dimens.spaKPadding,
                           ),
-                          child: UCustomTextField(
+                          child: TextFieldComponent(
                             controller: passwordController,
                             labelText: S.current.password,
                             secure: provider.isSecurePass,
@@ -130,9 +129,9 @@ class _LoginScreenState extends BaseScreenState<LoginViewModel> with WidgetsBind
                           child: Text(
                             "Quên mật khẩu?",
                             style: Styles.textStyleBody2.copyWith(
-                              color: AppColors.primaryColor,
-                              decoration: TextDecoration.underline,
-                              decorationColor: AppColors.primaryColor
+                              // color: AppColors.primaryColor,
+                              // decoration: TextDecoration.underline,
+                              // decorationColor: AppColors.primaryColor
                             ),
                           ),
                         ),
@@ -145,8 +144,7 @@ class _LoginScreenState extends BaseScreenState<LoginViewModel> with WidgetsBind
                         horizontal: Dimens.spaKPadding,
                         vertical: Dimens.spaKPadding
                       ),
-                      child: UButtonGradient(
-                        width: double.infinity,
+                      child: ButtonNormal(
                         title: S.current.login_label,
                         action: () {
                           hideKeyBoard(context);
