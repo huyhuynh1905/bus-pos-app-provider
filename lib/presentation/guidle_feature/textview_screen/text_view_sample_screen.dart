@@ -22,7 +22,7 @@ class TextViewSampleScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: Appbar(
+      appBar: AppbarComponent(
         title: "Text View",
         showIconBack: true,
         isHasShadow: false,

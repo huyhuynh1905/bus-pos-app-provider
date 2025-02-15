@@ -11,5 +11,5 @@ class BaseViewModel extends ChangeNotifier {
   late Map<String, dynamic> arguments;
   late NavigationService navigationService;
   late Utils utilsCommon;
-  final preferences = getIt.get<PrefsShared>();
+  final prefShared = getIt.get<PrefsShared>();
 }

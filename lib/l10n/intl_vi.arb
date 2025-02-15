@@ -23,5 +23,18 @@
   "proudly_by_unit": "Được cung cấp bởi UNIT CORP",
   "please_enter_info": "Vui lòng điền thông tin để tiếp tục!",
   "sys_response_invalid": "Hệ thống phản hồi không hợp lệ!",
-  "input_phone_number": "Số điện thoại"
+  "input_phone_number": "Số điện thoại",
+  "label_title_splash": "Phương tiện giao thông công cộng thân thiện với môi trường.",
+  "label_des_splash": "Ứng dụng bán vé giao thông công cộng trên các phương tiện xe bus di chuyển xanh. Thuận tiện, nhanh chóng và minh bạch để quản lý và đồng bộ vé hành khách.",
+  "version": "Phiên bản: {version}",
+  "@version": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "username": "Tên tài khoản",
+  "acc_loged_in": "Tài khoản đang được đăng nhập, vui lòng đăng xuất hoặc liên hệ với QTV để được hỗ trợ!",
+  "sync_date": "Đồng bộ đầu ngày"
 }

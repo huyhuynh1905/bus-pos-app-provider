@@ -28,7 +28,7 @@ class _ButtonViewScreenState extends State<ButtonViewScreen> {
   Widget build(BuildContext context) {
     AppThemesColors.of(context);
     return Scaffold(
-      appBar: Appbar(
+      appBar: AppbarComponent(
         title: "Button View",
         showIconBack: true,
         isHasShadow: false,

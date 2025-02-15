@@ -2,9 +2,9 @@ import 'package:bus_pos_app/app_config.dart';
 import 'package:bus_pos_app/shared/utils/common.dart';
 
 class NetworkConstants {
-  static const baseUrlDev = "https://api.checkinpro.vn/";
-  static const baseUrlStaging = "https://api.checkinpro.vn/";
-  static const baseUrlProd = "https://api.checkinpro.vn/";
+  static const baseUrlDev = "https://pos-uat.unit.vn/";
+  static const baseUrlStaging = "https://pos-uat.unit.vn/";
+  static const baseUrlProd = "https://pos-uat.unit.vn/";
 
   static Map<String, String> headers = {
     "Accept": "application/json; charset=utf-8",

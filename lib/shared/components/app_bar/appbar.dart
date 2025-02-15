@@ -7,7 +7,7 @@ import 'package:bus_pos_app/shared/res/themes_and_color/themes_custom.dart';
 import 'package:flutter/material.dart';
 
 
-class Appbar extends StatelessWidget implements PreferredSizeWidget {
+class AppbarComponent extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final Color? titleColor;
   final Function? actionBack;
@@ -15,7 +15,7 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
   bool isHasShadow;
   Widget? rightIcon;
 
-  Appbar({
+  AppbarComponent({
     super.key,
     required this.title,
     this.actionBack,

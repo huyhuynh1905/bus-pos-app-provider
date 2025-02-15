@@ -22,34 +22,55 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(error) => "Đã xảy ra vấn đề khi đăng nhập: ${error}";
 
+  static String m1(version) => "Phiên bản: ${version}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "acc_wrong": MessageLookupByLibrary.simpleMessage(
-            "Sai tài khoản đăng nhập, vui lòng kiểm tra lại!"),
-        "account_not_valid": MessageLookupByLibrary.simpleMessage(
-            "Thông tin tài khoản không hợp lệ"),
-        "check": MessageLookupByLibrary.simpleMessage("Check in"),
-        "close": MessageLookupByLibrary.simpleMessage("Đóng"),
-        "confirm_label": MessageLookupByLibrary.simpleMessage("Xác nhận"),
-        "continue_label": MessageLookupByLibrary.simpleMessage("Tiếp tục"),
-        "email_invalid":
-            MessageLookupByLibrary.simpleMessage("Email không đúng định dạng"),
-        "error_when_login": m0,
-        "field_not_empty": MessageLookupByLibrary.simpleMessage(
-            "Thông tin này không được để trống"),
-        "input_info": MessageLookupByLibrary.simpleMessage("Nhập thông tin"),
-        "input_phone_number":
-            MessageLookupByLibrary.simpleMessage("Số điện thoại"),
-        "login_label": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
-        "notify": MessageLookupByLibrary.simpleMessage("Thông báo"),
-        "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
-        "phone_invalid": MessageLookupByLibrary.simpleMessage(
-            "Số điện thoại không đúng định dạng"),
-        "please_enter_info": MessageLookupByLibrary.simpleMessage(
-            "Vui lòng điền thông tin để tiếp tục!"),
-        "proudly_by_unit":
-            MessageLookupByLibrary.simpleMessage("Được cung cấp bởi UNIT CORP"),
-        "sys_response_invalid": MessageLookupByLibrary.simpleMessage(
-            "Hệ thống phản hồi không hợp lệ!")
-      };
+    "acc_loged_in": MessageLookupByLibrary.simpleMessage(
+      "Tài khoản đang được đăng nhập, vui lòng đăng xuất hoặc liên hệ với QTV để được hỗ trợ!",
+    ),
+    "acc_wrong": MessageLookupByLibrary.simpleMessage(
+      "Sai tài khoản đăng nhập, vui lòng kiểm tra lại!",
+    ),
+    "account_not_valid": MessageLookupByLibrary.simpleMessage(
+      "Thông tin tài khoản không hợp lệ",
+    ),
+    "check": MessageLookupByLibrary.simpleMessage("Check in"),
+    "close": MessageLookupByLibrary.simpleMessage("Đóng"),
+    "confirm_label": MessageLookupByLibrary.simpleMessage("Xác nhận"),
+    "continue_label": MessageLookupByLibrary.simpleMessage("Tiếp tục"),
+    "email_invalid": MessageLookupByLibrary.simpleMessage(
+      "Email không đúng định dạng",
+    ),
+    "error_when_login": m0,
+    "field_not_empty": MessageLookupByLibrary.simpleMessage(
+      "Thông tin này không được để trống",
+    ),
+    "input_info": MessageLookupByLibrary.simpleMessage("Nhập thông tin"),
+    "input_phone_number": MessageLookupByLibrary.simpleMessage("Số điện thoại"),
+    "label_des_splash": MessageLookupByLibrary.simpleMessage(
+      "Ứng dụng bán vé giao thông công cộng trên các phương tiện xe bus di chuyển xanh. Thuận tiện, nhanh chóng và minh bạch để quản lý và đồng bộ vé hành khách.",
+    ),
+    "label_title_splash": MessageLookupByLibrary.simpleMessage(
+      "Phương tiện giao thông công cộng thân thiện với môi trường.",
+    ),
+    "login_label": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
+    "notify": MessageLookupByLibrary.simpleMessage("Thông báo"),
+    "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
+    "phone_invalid": MessageLookupByLibrary.simpleMessage(
+      "Số điện thoại không đúng định dạng",
+    ),
+    "please_enter_info": MessageLookupByLibrary.simpleMessage(
+      "Vui lòng điền thông tin để tiếp tục!",
+    ),
+    "proudly_by_unit": MessageLookupByLibrary.simpleMessage(
+      "Được cung cấp bởi UNIT CORP",
+    ),
+    "sync_date": MessageLookupByLibrary.simpleMessage("Đồng bộ đầu ngày"),
+    "sys_response_invalid": MessageLookupByLibrary.simpleMessage(
+      "Hệ thống phản hồi không hợp lệ!",
+    ),
+    "username": MessageLookupByLibrary.simpleMessage("Tên tài khoản"),
+    "version": m1,
+  };
 }

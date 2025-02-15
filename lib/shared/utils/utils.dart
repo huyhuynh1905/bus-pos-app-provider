@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:bus_pos_app/data/local/prefs_shared.dart';
 import 'package:bus_pos_app/data/local/prefs_shared_key.dart';
+import 'package:bus_pos_app/di/locator.dart';
 import 'package:bus_pos_app/domain/entity/authenticate.dart';
 import 'package:bus_pos_app/domain/entity/device_info.dart';
 import 'package:bus_pos_app/shared/res/strings.dart';
@@ -13,6 +15,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class Utils{
   late BuildContext context;
+  final _prefShared = getIt<PrefsShared>();
 
   Utils();
 
@@ -65,25 +68,27 @@ class Utils{
 
   Future<String> getVersion() async {
     PackageInfo packageInfo = await PackageInfo.fromPlatform();
-    return "${packageInfo.version}_${packageInfo.buildNumber}";
+    return "${packageInfo.version} (${packageInfo.buildNumber})";
   }
 
 
+  ///token
   Future<String> getToken() async {
-    var preferences = await SharedPreferences.getInstance();
-    var authentication = preferences.getString(PrefsSharedKey.keyAuthenticate) ?? "";
+    var authentication = _prefShared.authenticateModelStr;
     var token = Authenticate.fromJson(json.decode(authentication)).accessToken ?? "";
     return Constants.fieldBearer + token;
   }
 
+  ///model auth
   Future<Authenticate?> getTokenAuthModel() async {
     try {
-      var preferences = await SharedPreferences.getInstance();
-      var authentication = preferences.getString(PrefsSharedKey.keyAuthenticate) ?? "";
+      var authentication = _prefShared.authenticateModelStr;
       var model = Authenticate.fromJson(json.decode(authentication));
       return model;
     } catch(e){
       return null;
     }
   }
+
+
 }

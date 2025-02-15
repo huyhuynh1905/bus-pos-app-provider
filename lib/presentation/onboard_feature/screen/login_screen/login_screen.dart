@@ -4,10 +4,9 @@ import 'package:bus_pos_app/generated/assets.gen.dart';
 import 'package:bus_pos_app/generated/l10n.dart';
 import 'package:bus_pos_app/presentation/onboard_feature/screen/login_screen/login_viewmodel.dart';
 import 'package:bus_pos_app/shared/components/button/button_normal.dart';
+import 'package:bus_pos_app/shared/components/text/text_default.dart';
 import 'package:bus_pos_app/shared/components/text_field/text_field_component.dart';
 import 'package:bus_pos_app/shared/res/dimens.dart';
-import 'package:bus_pos_app/shared/res/style_text.dart';
-import 'package:bus_pos_app/shared/utils/common.dart';
 import 'package:bus_pos_app/shared/utils/supports.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -36,24 +35,19 @@ class _LoginScreenState extends BaseScreenState<LoginViewModel> with WidgetsBind
   @override
   void initFunction() {
     if(kDebugMode){
-      emailController.text = "unit_cip@unit.com.vn";
-      passwordController.text = "Cip!@#2020";
+      emailController.text = "usersaleman1";
+      passwordController.text = "PosUserSale1!@";
     }
   }
 
   @override
   Widget buildChild(BuildContext context) {
-    int sizeRender = 50;
-
     return Stack(
       children: [
         Scaffold(
-          body: Container(
+          body: SizedBox(
             width: double.infinity,
             height: double.infinity,
-            // decoration: const BoxDecoration(
-            //   gradient: AppColors.pinkGradientVertical
-            // ),
             child: Center(
               child: SingleChildScrollView(
                 child: Column(
@@ -64,17 +58,19 @@ class _LoginScreenState extends BaseScreenState<LoginViewModel> with WidgetsBind
                     Container(
                       width: double.infinity,
                       alignment: Alignment.center,
-                      child: Assets.svgs.logoMedicRed.svg()
+                      child: Assets.images.vinbusLogo.image(
+                        width: Dimens.current.screenWidth*0.25
+                      )
                     ),
-                    const SizedBox(height: Dimens.scrollviewPaddingHoz,),
+                    const SizedBox(height: Dimens.spaLPadding,),
 
                     Container(
                       padding: const EdgeInsets.symmetric(
                         horizontal: Dimens.spaKPadding
                       ),
-                      child: Text(
-                        S.current.login_label,
-                        style: Styles.textStyleSubTitle,
+                      child: TextDefault(
+                        text: S.current.login_label,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     const SizedBox(height: Dimens.scrollviewPaddingHoz,),
@@ -87,10 +83,10 @@ class _LoginScreenState extends BaseScreenState<LoginViewModel> with WidgetsBind
                       ),
                       child: TextFieldComponent(
                         controller: emailController,
-                        labelText: 'Email',
+                        labelText: S.current.username,
                       ),
                     ),
-                    const SizedBox(height: Dimens.spasPadding,),
+                    const SizedBox(height: Dimens.spaKPadding,),
 
                     //text field passowrd
                     Selector<LoginViewModel,bool>(
@@ -116,33 +112,12 @@ class _LoginScreenState extends BaseScreenState<LoginViewModel> with WidgetsBind
                         );
                       }
                     ),
-                    Container(
-                      width: double.infinity,
-                      alignment: Alignment.centerRight,
-                      child: GestureDetector(
-                        onTap: (){
-                          customLog("Click quên mật khẩu");
-                        },
-                        child: Container(
-                          color: Colors.transparent,
-                          padding: const EdgeInsets.all(Dimens.spaKPadding),
-                          child: Text(
-                            "Quên mật khẩu?",
-                            style: Styles.textStyleBody2.copyWith(
-                              // color: AppColors.primaryColor,
-                              // decoration: TextDecoration.underline,
-                              // decorationColor: AppColors.primaryColor
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
 
                     //button
                     Padding(
                       padding: const EdgeInsets.symmetric(
                         horizontal: Dimens.spaKPadding,
-                        vertical: Dimens.spaKPadding
+                        vertical: Dimens.spaLPadding
                       ),
                       child: ButtonNormal(
                         title: S.current.login_label,

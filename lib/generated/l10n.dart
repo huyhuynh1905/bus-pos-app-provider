@@ -18,17 +18,20 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    assert(
+      _current != null,
+      'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.',
+    );
     return _current!;
   }
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final name =
+        (locale.countryCode?.isEmpty ?? false)
+            ? locale.languageCode
+            : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -41,8 +44,10 @@ class S {
 
   static S of(BuildContext context) {
     final instance = S.maybeOf(context);
-    assert(instance != null,
-        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -52,32 +57,17 @@ class S {
 
   /// `Đăng nhập`
   String get login_label {
-    return Intl.message(
-      'Đăng nhập',
-      name: 'login_label',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Đăng nhập', name: 'login_label', desc: '', args: []);
   }
 
   /// `Xác nhận`
   String get confirm_label {
-    return Intl.message(
-      'Xác nhận',
-      name: 'confirm_label',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Xác nhận', name: 'confirm_label', desc: '', args: []);
   }
 
   /// `Tiếp tục`
   String get continue_label {
-    return Intl.message(
-      'Tiếp tục',
-      name: 'continue_label',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Tiếp tục', name: 'continue_label', desc: '', args: []);
   }
 
   /// `Thông tin này không được để trống`
@@ -112,22 +102,12 @@ class S {
 
   /// `Mật khẩu`
   String get password {
-    return Intl.message(
-      'Mật khẩu',
-      name: 'password',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Mật khẩu', name: 'password', desc: '', args: []);
   }
 
   /// `Thông báo`
   String get notify {
-    return Intl.message(
-      'Thông báo',
-      name: 'notify',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Thông báo', name: 'notify', desc: '', args: []);
   }
 
   /// `Sai tài khoản đăng nhập, vui lòng kiểm tra lại!`
@@ -140,10 +120,10 @@ class S {
     );
   }
 
-  /// `Đã xảy ra vấn đề khi đăng nhập: `
+  /// `Đã xảy ra vấn đề khi đăng nhập: {error}`
   String error_when_login(String error) {
     return Intl.message(
-      'Đã xảy ra vấn đề khi đăng nhập: ',
+      'Đã xảy ra vấn đề khi đăng nhập: $error',
       name: 'error_when_login',
       desc: '',
       args: [error],
@@ -152,12 +132,7 @@ class S {
 
   /// `Đóng`
   String get close {
-    return Intl.message(
-      'Đóng',
-      name: 'close',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Đóng', name: 'close', desc: '', args: []);
   }
 
   /// `Thông tin tài khoản không hợp lệ`
@@ -172,12 +147,7 @@ class S {
 
   /// `Check in`
   String get check {
-    return Intl.message(
-      'Check in',
-      name: 'check',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('Check in', name: 'check', desc: '', args: []);
   }
 
   /// `Nhập thông tin`
@@ -225,6 +195,61 @@ class S {
     return Intl.message(
       'Số điện thoại',
       name: 'input_phone_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Environmentally friendly public transport.`
+  String get label_title_splash {
+    return Intl.message(
+      'Environmentally friendly public transport.',
+      name: 'label_title_splash',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Application for selling public transport tickets on green moving buses. Convenient, fast and transparent to manage and synchronize passenger tickets.`
+  String get label_des_splash {
+    return Intl.message(
+      'Application for selling public transport tickets on green moving buses. Convenient, fast and transparent to manage and synchronize passenger tickets.',
+      name: 'label_des_splash',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Version: {version}`
+  String version(String version) {
+    return Intl.message(
+      'Version: $version',
+      name: 'version',
+      desc: '',
+      args: [version],
+    );
+  }
+
+  /// `Username`
+  String get username {
+    return Intl.message('Username', name: 'username', desc: '', args: []);
+  }
+
+  /// `Account is logged in, please log out or contact the administrator for support!`
+  String get acc_loged_in {
+    return Intl.message(
+      'Account is logged in, please log out or contact the administrator for support!',
+      name: 'acc_loged_in',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sync at the beginning of the day`
+  String get sync_date {
+    return Intl.message(
+      'Sync at the beginning of the day',
+      name: 'sync_date',
       desc: '',
       args: [],
     );

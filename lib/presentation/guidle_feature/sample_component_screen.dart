@@ -36,7 +36,7 @@ class _SampleComponentScreenState extends BaseScreenState<SampleComponentViewMod
     AppThemesColors.of(context);
     return Scaffold(
       backgroundColor: AppThemesColors.current.surface,
-      appBar: Appbar(
+      appBar: AppbarComponent(
         title: "Sample Component",
         showIconBack: false,
         rightIcon: GestureDetector(

@@ -25,7 +25,7 @@ class _DialogAndPopupViewScreenState extends State<DialogAndPopupViewScreen> {
   Widget build(BuildContext context) {
     AppThemesColors.of(context);
     return Scaffold(
-      appBar: Appbar(
+      appBar: AppbarComponent(
         title: "DialogAndPopup View",
         showIconBack: true,
         isHasShadow: false,

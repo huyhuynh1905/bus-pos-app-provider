@@ -29,7 +29,7 @@ class _TextfieldViewScreenState extends State<TextfieldViewScreen> {
   Widget build(BuildContext context) {
     AppThemesColors.of(context);
     return Scaffold(
-      appBar: Appbar(
+      appBar: AppbarComponent(
         title: "Textfield View",
         showIconBack: true,
         isHasShadow: false,

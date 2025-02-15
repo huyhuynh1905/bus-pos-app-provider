@@ -4,6 +4,7 @@ import 'package:bus_pos_app/domain/repository/auth_repository.dart';
 import 'package:bus_pos_app/domain/usecase/auth_usecase.dart';
 import 'package:bus_pos_app/presentation/guidle_feature/sample_component_viewmodel.dart';
 import 'package:bus_pos_app/presentation/onboard_feature/screen/login_screen/login_viewmodel.dart';
+import 'package:bus_pos_app/presentation/onboard_feature/screen/sync_date_screen/sync_date_screen_viewmodel.dart';
 import 'package:bus_pos_app/shared/routers/navigation_services.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
@@ -44,4 +45,5 @@ setupLocator() async {
   getIt.registerLazySingleton<SampleComponentViewModel>(() => SampleComponentViewModel());
   getIt.registerFactory(() => SplashViewModel());
   getIt.registerFactory(() => LoginViewModel());
+  getIt.registerFactory(() => SyncDateViewModel());
 }

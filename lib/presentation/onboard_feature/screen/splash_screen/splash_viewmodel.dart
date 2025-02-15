@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bus_pos_app/core/base/base_view_model.dart';
 import 'package:bus_pos_app/shared/routers/navigation_services.dart';
 import 'package:bus_pos_app/shared/routers/router_constant.dart';
-import 'package:flutter/material.dart';
+import 'package:bus_pos_app/shared/utils/date_time_utils.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 class SplashViewModel extends BaseViewModel {
@@ -11,44 +11,53 @@ class SplashViewModel extends BaseViewModel {
   PackageInfo? packageInfo;
   var isRequestDone = true;//false;
   var isCountDownDone = false;
-  var isLoadingButton = false;
 
   Future<void> getPackageInfo() async {
     packageInfo = await PackageInfo.fromPlatform();
   }
 
-  Future<void> countDownToNext(BuildContext context) async {
+  ///Kiểm tra điều kiện để check next screen
+  Future<void> countDownToNext() async {
     final dataAccount = await utilsCommon.getTokenAuthModel();
     if(dataAccount!=null){
       final expiredTimeStr = dataAccount.expired;
-      //final exporedTime = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
-      Timer(const Duration(seconds: 2), () {
-        isCountDownDone = true;
-        if (isRequestDone) {
-          moveToNext(context);
-        }
-      });
+      if(DateTimeUtils.isAfterNow(expiredTimeStr??"")){
+        //token còn hạn
+        _timerNextScreen((){
+          moveToSyncDateScreen();
+        });
+      } else {
+        _timerNextScreen((){
+          moveToLoginScreen(context);
+        });
+      }
+
     } else {
-      Timer(const Duration(seconds: 2), () {
-        isCountDownDone = true;
-        if (isRequestDone) {
-          moveToNext(context);
-        }
+      _timerNextScreen((){
+        moveToLoginScreen(context);
       });
     }
   }
 
-  changeLoading(){
-    isLoadingButton = true;
-    notifyListeners();
-    Timer(const Duration(seconds: 5), () {
-      isLoadingButton = false;
-      notifyListeners();
+  _timerNextScreen(Function nextScreenFunction){
+    Timer(const Duration(seconds: 2), () {
+      isCountDownDone = true;
+      if (isRequestDone) {
+        nextScreenFunction();
+      }
     });
   }
 
 
-  moveToNext(context){
+  ///Đi đến màn hình login
+  moveToLoginScreen(context){
     navigationService.navigateTo(RouteConstant.loginScreen,type: NavigationService.pushAndRemoveUntil);
   }
+
+  ///Đi đến màn hình đồng bộ đầu ngày
+  moveToSyncDateScreen(){
+    navigationService.navigateTo(RouteConstant.syncDateScreen,type: NavigationService.pushAndRemoveUntil);
+  }
+
+
 }

@@ -15,24 +15,12 @@ class AuthRepositoryImpl extends AuthRepository{
   final apiAuth = getIt<APIAuthentication>();
 
   @override
-  Future<DataState<BaseResponse>> loginAccount(String email, String password) async {
+  Future<DataState<BaseResponse>> loginAccount(String username, String password) async {
     try {
-      final deviceInfo = await Utils().getDeviceInfo();
-      String version = await Utils().getVersion();
-      String os = Constants.iosCode;
-      if (Platform.isAndroid) {
-        os = Constants.androidCode;
-      } else if (Platform.isIOS) {
-        os = Constants.iosCode;
-      }
       final map = {
-        Constants.fieldUsername:email,
+        Constants.fieldUsername:username,
         Constants.fieldPassword:password,
-        Constants.fieldType: deviceInfo.model,
-        Constants.fieldLanguage: LocaleConstants.vi,
-        Constants.fieldOS: os,
-        Constants.fieldAppVersion: version,
-        Constants.fieldDomain: "unit",
+        Constants.fieldType: Constants.typePOS,
       };
       var dataResponse = await apiAuth.authAccount(map);
       if (dataResponse.success == true) {

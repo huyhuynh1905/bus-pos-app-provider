@@ -4,16 +4,19 @@ class Constants{
   static const androidCode = "ANDROID";
   static const iosCode = "IOS";
 
+  //constant
+  static const typePOS = "POS";
+
   //field:
   static const String fieldAuthorization = "Authorization";
   static const String fieldBearer = "Bearer ";
   static const String fieldUsername = "username";
   static const String fieldPassword = "password";
+  static const String fieldType = "type";
   static const String fieldSystemCode = "systemCode";
   static const String fieldFirebaseToken = "firebaseId";
   static const String fieldLanguage = "language";
   static const String fieldOS = "osMobile";
-  static const String fieldType = "type";
   static const String fieldAppVersion = "appVersion";
   static const String fieldDomain = "domain";
 }

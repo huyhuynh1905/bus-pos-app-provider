@@ -8,7 +8,7 @@
   "password": "Mật khẩu",
   "notify": "Thông báo",
   "acc_wrong": "Sai tài khoản đăng nhập, vui lòng kiểm tra lại!",
-  "error_when_login": "Đã xảy ra vấn đề khi đăng nhập: ",
+  "error_when_login": "Đã xảy ra vấn đề khi đăng nhập: {error}",
   "@error_when_login": {
     "placeholders": {
       "error": {
@@ -23,5 +23,18 @@
   "proudly_by_unit": "Được cung cấp bởi UNIT CORP",
   "please_enter_info": "Vui lòng điền thông tin để tiếp tục!",
   "sys_response_invalid": "Hệ thống phản hồi không hợp lệ!",
-  "input_phone_number": "Số điện thoại"
+  "input_phone_number": "Số điện thoại",
+  "label_title_splash": "Environmentally friendly public transport.",
+  "label_des_splash": "Application for selling public transport tickets on green moving buses. Convenient, fast and transparent to manage and synchronize passenger tickets.",
+  "version": "Version: {version}",
+  "@version": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "username": "Username",
+  "acc_loged_in": "Account is logged in, please log out or contact the administrator for support!",
+  "sync_date": "Sync at the beginning of the day"
 }

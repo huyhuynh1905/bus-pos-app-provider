@@ -3,7 +3,13 @@
 import 'package:bus_pos_app/core/base/base_screen.dart';
 import 'package:bus_pos_app/core/base/base_view_model.dart';
 import 'package:bus_pos_app/generated/assets.gen.dart';
+import 'package:bus_pos_app/generated/l10n.dart';
 import 'package:bus_pos_app/presentation/onboard_feature/screen/splash_screen/splash_viewmodel.dart';
+import 'package:bus_pos_app/shared/components/loading/loading_component.dart';
+import 'package:bus_pos_app/shared/components/text/text_default.dart';
+import 'package:bus_pos_app/shared/components/text/text_sub_content.dart';
+import 'package:bus_pos_app/shared/components/text/text_title.dart';
+import 'package:bus_pos_app/shared/res/dimens.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends BaseScreen {
@@ -19,24 +25,64 @@ class SplashScreen extends BaseScreen {
 }
 
 class _SplashScreenState extends BaseScreenState<SplashViewModel> {
+
+  String version = "";
+
   @override
   void initFunction() async {
     await provider.getPackageInfo();
-    // await provider.countDownToNext(context);
+    version = await provider.utilsCommon.getVersion();
+    //do next job
+    await provider.countDownToNext();
   }
 
 
   @override
   Widget buildChild(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         height: double.infinity,
-        // decoration: const BoxDecoration(
-        //   gradient: AppColors.redGradientVertical
-        // ),
-        child: Center(
-          child: Assets.svgs.logoMedicWhite.svg(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            //ảnh và tiêu đề
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Assets.images.imgBusBg.image(),
+                  const SizedBox(height: Dimens.size_50,),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: Dimens.spaMPadding
+                    ),
+                    child: TextTitle(
+                      text: S.current.label_title_splash,
+                    ),
+                  ),
+                  const SizedBox(height: Dimens.spaKPadding,),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: Dimens.spaMPadding
+                    ),
+                    child: TextDefault(
+                      text: S.current.label_des_splash,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            //loading
+            const SizedBox(height: Dimens.spaKPadding,),
+            const LoadingComponent(),
+            const SizedBox(height: Dimens.spaMPadding,),
+            //phiên bản
+            TextSubContent(
+              text: S.current.version(version),
+            ),
+            const SizedBox(height: Dimens.spaKPadding,)
+          ],
         ),
       ),
     );

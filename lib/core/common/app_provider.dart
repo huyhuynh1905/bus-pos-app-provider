@@ -8,7 +8,7 @@ class AppProvider extends BaseViewModel {
 
   init() {
     //themes
-    isDarkThemes = preferences.isDarkMode;
+    isDarkThemes = prefShared.isDarkMode;
     AppThemeSetting.currentAppThemeType = isDarkThemes ? AppThemeType.dark : AppThemeType.light;
   }
 
@@ -20,7 +20,7 @@ class AppProvider extends BaseViewModel {
       isDarkThemes = true;
       AppThemeSetting.currentAppThemeType = AppThemeType.dark;
     }
-    preferences.saveThemes(isDarkThemes);
+    prefShared.saveThemes(isDarkThemes);
     notifyListeners();
   }
 }

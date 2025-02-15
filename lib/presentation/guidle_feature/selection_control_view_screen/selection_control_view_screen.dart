@@ -44,7 +44,7 @@ class _SelectionControlViewScreenState extends State<SelectionControlViewScreen>
   Widget build(BuildContext context) {
     AppThemesColors.of(context);
     return Scaffold(
-      appBar: Appbar(
+      appBar: AppbarComponent(
         title: "Selection Control View",
         showIconBack: true,
         isHasShadow: false,

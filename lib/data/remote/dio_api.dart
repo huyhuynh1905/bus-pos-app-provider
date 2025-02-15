@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:flutter/foundation.dart';
 import 'package:bus_pos_app/data/remote/network_constants.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class AppDio with DioMixin implements Dio {
   AppDio([BaseOptions? options]) {
@@ -17,7 +18,10 @@ class AppDio with DioMixin implements Dio {
     interceptors.add(CustomInterceptor(this));
     if (kDebugMode) {
       // Local Log
-      interceptors.add(LogInterceptor(responseBody: true, requestBody: true));
+      interceptors.add(PrettyDioLogger(
+        responseBody: true,
+        requestBody: true,
+      ));
     }
 
     httpClientAdapter = IOHttpClientAdapter();

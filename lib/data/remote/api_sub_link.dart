@@ -5,6 +5,6 @@
  */
 
 class ApiSubLink {
-  static const String pathLogin = "/api/v1/account/authenticate";
+  static const String pathLogin = "api/v1/authentication/authenticate";
   static const String pathCheckShinhan = "/api/v2/setting/app";
 }

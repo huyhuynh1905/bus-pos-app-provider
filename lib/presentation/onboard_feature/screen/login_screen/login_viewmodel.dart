@@ -12,6 +12,7 @@ import 'package:bus_pos_app/shared/components/dialog_and_popup/show_popup_servic
 import 'package:bus_pos_app/shared/routers/navigation_services.dart';
 import 'package:bus_pos_app/shared/routers/router_constant.dart';
 import 'package:bus_pos_app/shared/utils/common.dart';
+import 'package:bus_pos_app/shared/utils/error_code.dart';
 import 'package:bus_pos_app/shared/utils/supports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -44,8 +45,7 @@ class LoginViewModel extends BaseViewModel{
       final baseResponse = result.dataState;
       if(baseResponse?.data!=null) {
         var authenticationString = const JsonEncoder().convert(baseResponse?.data);
-        // preferences.setString(PrefsSharedKey.keyAuthenticate, authenticationString);
-        // preferences.setString(PrefsSharedKey.keyUser, username);
+        prefShared.saveAuthenticateModel(authenticationString);
         _moveToNextScreen(context);
       } else {
         ShowDialogServices.showOneButtonDialog(
@@ -57,24 +57,27 @@ class LoginViewModel extends BaseViewModel{
     } else {
       final baseError = result.error;
       customLog("doLogin baseError: ${baseError?.message}");
-      if(baseError?.message == "ACC_WrongUsername"){
-        ShowDialogServices.showOneButtonDialog(
-          context: context,
-          title: S.current.notify,
-          message: S.current.acc_wrong,
-        );
-      } else {
-        ShowDialogServices.showOneButtonDialog(
-          context: context,
-          title: S.current.notify,
-          message: S.current.error_when_login(baseError?.message??""),
-        );
-      }
+      ShowDialogServices.showOneButtonDialog(
+        context: context,
+        title: S.current.notify,
+        message: _getMessageLoginFail(baseError?.message??""),
+      );
     }
   }
 
   _moveToNextScreen(BuildContext context) {
     navigationService.navigateTo(RouteConstant.sampleScreen,type: NavigationService.pushAndRemoveUntil);
+  }
+
+  String _getMessageLoginFail(String message){
+    switch(message){
+      case ErrorCode.wrongUsername:
+        return S.current.acc_wrong;
+      case ErrorCode.accAlreadyLogedIn:
+        return S.current.acc_loged_in;
+      default:
+        return S.current.error_when_login(message);
+    }
   }
 
 
