@@ -7,7 +7,7 @@ Dùng thư viện change_app_package_name để đổi tên package (thêm ở d
 
 
 ## Thông tin:
-- Flutter version: 3.16.8 (stable).
+- Flutter version: 3.27.1 (stable).
 - build runner: flutter pub run build_runner build --delete-conflicting-outputs
 
 
