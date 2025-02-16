@@ -25,6 +25,12 @@ class SyncDateScreen extends BaseScreen {
 }
 
 class _SyncDateScreenState extends BaseScreenState<SyncDateViewModel> {
+
+  @override
+  void initFunction() async {
+    provider.init();
+  }
+
   @override
   Widget buildChild(BuildContext context) {
     return Scaffold(
