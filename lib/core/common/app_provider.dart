@@ -6,6 +6,7 @@ class AppProvider extends BaseViewModel {
   String appLanguageCode = "vi";
   bool isDarkThemes = false;
 
+  @override
   init() {
     //themes
     isDarkThemes = prefShared.isDarkMode;

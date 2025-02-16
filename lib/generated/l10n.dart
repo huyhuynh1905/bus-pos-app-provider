@@ -254,6 +254,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Synchronize schedule`
+  String get sync_schedule {
+    return Intl.message(
+      'Synchronize schedule',
+      name: 'sync_schedule',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `List of route information`
+  String get sync_route {
+    return Intl.message(
+      'List of route information',
+      name: 'sync_route',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `List of one-way tickets`
+  String get sync_tickets {
+    return Intl.message(
+      'List of one-way tickets',
+      name: 'sync_tickets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Information on ATM card lock generation`
+  String get sync_lock_atm {
+    return Intl.message(
+      'Information on ATM card lock generation',
+      name: 'sync_lock_atm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Information on all locked ATM cards`
+  String get sync_all_lock_atm {
+    return Intl.message(
+      'Information on all locked ATM cards',
+      name: 'sync_all_lock_atm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `List of monthly card objects`
+  String get sync_object_month {
+    return Intl.message(
+      'List of monthly card objects',
+      name: 'sync_object_month',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `POS machine configuration information`
+  String get sync_pos_info {
+    return Intl.message(
+      'POS machine configuration information',
+      name: 'sync_pos_info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `List of monthly cards of the route`
+  String get sync_month_card_route {
+    return Intl.message(
+      'List of monthly cards of the route',
+      name: 'sync_month_card_route',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

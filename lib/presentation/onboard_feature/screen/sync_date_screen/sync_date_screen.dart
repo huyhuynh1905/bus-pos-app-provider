@@ -1,8 +1,17 @@
 import 'package:bus_pos_app/core/base/base_screen.dart';
+import 'package:bus_pos_app/domain/entity/support_ui/item_sync_entity.dart';
+import 'package:bus_pos_app/generated/assets.gen.dart';
 import 'package:bus_pos_app/generated/l10n.dart';
 import 'package:bus_pos_app/presentation/onboard_feature/screen/sync_date_screen/sync_date_screen_viewmodel.dart';
 import 'package:bus_pos_app/shared/components/app_bar/appbar.dart';
+import 'package:bus_pos_app/shared/components/app_bar/settings_icon.dart';
+import 'package:bus_pos_app/shared/components/border_shape/bg_border_share.dart';
+import 'package:bus_pos_app/shared/components/item/item_sync_widget.dart';
+import 'package:bus_pos_app/shared/res/dimens.dart';
+import 'package:bus_pos_app/shared/res/themes_and_color/themes_custom.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:provider/provider.dart';
 
 class SyncDateScreen extends BaseScreen {
   const SyncDateScreen({super.key});
@@ -23,12 +32,48 @@ class _SyncDateScreenState extends BaseScreenState<SyncDateViewModel> {
       appBar: AppbarComponent(
         title: S.current.sync_date,
         showIconBack: false,
-        rightIcon: Container( //icon click đi đến settings
-          child: Center(),
-        ),
+        rightIcon: const SettingsIcon(),
       ),
-      body: SingleChildScrollView(
-
+      body: Consumer<SyncDateViewModel>(
+        builder: (context,model,child) {
+          return Column(
+            children: [
+              Expanded(
+                child: Column(
+                  children: [
+                    ContainerComponent(
+                      childWidget: ListView.separated(
+                        itemCount: provider.listSync.length,
+                        shrinkWrap: true,
+                        itemBuilder: (ctx,index){
+                          final item = provider.listSync[index];
+                          return ItemSyncData(
+                            onTap: (){
+                              if(item.status==ItemSyncEntity.statusFailed){
+                                provider.resyncItem(item.type, index);
+                              }
+                            },
+                            item: item,
+                          );
+                        },
+                        separatorBuilder: (ctx,index){
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: Dimens.spasPadding
+                            ),
+                            child: Divider(
+                              color: AppThemesColors.current.onTertiaryContainer,
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          );
+        }
       ),
     );
   }

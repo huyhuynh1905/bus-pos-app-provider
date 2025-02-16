@@ -36,5 +36,13 @@
   },
   "username": "Username",
   "acc_loged_in": "Account is logged in, please log out or contact the administrator for support!",
-  "sync_date": "Sync at the beginning of the day"
+  "sync_date": "Sync at the beginning of the day",
+  "sync_schedule": "Synchronize schedule",
+  "sync_route": "List of route information",
+  "sync_tickets": "List of one-way tickets",
+  "sync_lock_atm": "Information on ATM card lock generation",
+  "sync_all_lock_atm": "Information on all locked ATM cards",
+  "sync_object_month": "List of monthly card objects",
+  "sync_pos_info": "POS machine configuration information",
+  "sync_month_card_route": "List of monthly cards of the route"
 }

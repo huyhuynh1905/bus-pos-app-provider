@@ -66,7 +66,27 @@ class MessageLookup extends MessageLookupByLibrary {
     "proudly_by_unit": MessageLookupByLibrary.simpleMessage(
       "Được cung cấp bởi UNIT CORP",
     ),
+    "sync_all_lock_atm": MessageLookupByLibrary.simpleMessage(
+      "Thông tin toàn bộ thẻ ATM bị khoá",
+    ),
     "sync_date": MessageLookupByLibrary.simpleMessage("Đồng bộ đầu ngày"),
+    "sync_lock_atm": MessageLookupByLibrary.simpleMessage(
+      "Thông tin phát sinh khoá thẻ ATM",
+    ),
+    "sync_month_card_route": MessageLookupByLibrary.simpleMessage(
+      "Danh sách thẻ tháng của tuyến",
+    ),
+    "sync_object_month": MessageLookupByLibrary.simpleMessage(
+      "Danh sách đối tượng thẻ tháng",
+    ),
+    "sync_pos_info": MessageLookupByLibrary.simpleMessage(
+      "Thông tin cấu hình máy POS",
+    ),
+    "sync_route": MessageLookupByLibrary.simpleMessage(
+      "Danh sách thông tin tuyến",
+    ),
+    "sync_schedule": MessageLookupByLibrary.simpleMessage("Đồng bộ lịch"),
+    "sync_tickets": MessageLookupByLibrary.simpleMessage("Danh sách vé lượt"),
     "sys_response_invalid": MessageLookupByLibrary.simpleMessage(
       "Hệ thống phản hồi không hợp lệ!",
     ),

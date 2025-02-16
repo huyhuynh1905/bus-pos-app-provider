@@ -12,4 +12,8 @@ class BaseViewModel extends ChangeNotifier {
   late NavigationService navigationService;
   late Utils utilsCommon;
   final prefShared = getIt.get<PrefsShared>();
+
+  void init(){
+
+  }
 }

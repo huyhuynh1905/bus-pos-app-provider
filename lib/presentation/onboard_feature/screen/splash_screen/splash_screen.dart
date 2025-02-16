@@ -10,6 +10,7 @@ import 'package:bus_pos_app/shared/components/text/text_default.dart';
 import 'package:bus_pos_app/shared/components/text/text_sub_content.dart';
 import 'package:bus_pos_app/shared/components/text/text_title.dart';
 import 'package:bus_pos_app/shared/res/dimens.dart';
+import 'package:bus_pos_app/shared/res/themes_and_color/themes_custom.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends BaseScreen {
@@ -68,6 +69,7 @@ class _SplashScreenState extends BaseScreenState<SplashViewModel> {
                     ),
                     child: TextDefault(
                       text: S.current.label_des_splash,
+                      textColor: AppThemesColors.current.onSurface,
                     ),
                   ),
                 ],
@@ -80,6 +82,7 @@ class _SplashScreenState extends BaseScreenState<SplashViewModel> {
             //phiên bản
             TextSubContent(
               text: S.current.version(version),
+              textColor: AppThemesColors.current.onSurface,
             ),
             const SizedBox(height: Dimens.spaKPadding,)
           ],

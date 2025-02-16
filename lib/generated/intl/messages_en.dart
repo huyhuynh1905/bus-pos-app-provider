@@ -66,8 +66,32 @@ class MessageLookup extends MessageLookupByLibrary {
     "proudly_by_unit": MessageLookupByLibrary.simpleMessage(
       "Được cung cấp bởi UNIT CORP",
     ),
+    "sync_all_lock_atm": MessageLookupByLibrary.simpleMessage(
+      "Information on all locked ATM cards",
+    ),
     "sync_date": MessageLookupByLibrary.simpleMessage(
       "Sync at the beginning of the day",
+    ),
+    "sync_lock_atm": MessageLookupByLibrary.simpleMessage(
+      "Information on ATM card lock generation",
+    ),
+    "sync_month_card_route": MessageLookupByLibrary.simpleMessage(
+      "List of monthly cards of the route",
+    ),
+    "sync_object_month": MessageLookupByLibrary.simpleMessage(
+      "List of monthly card objects",
+    ),
+    "sync_pos_info": MessageLookupByLibrary.simpleMessage(
+      "POS machine configuration information",
+    ),
+    "sync_route": MessageLookupByLibrary.simpleMessage(
+      "List of route information",
+    ),
+    "sync_schedule": MessageLookupByLibrary.simpleMessage(
+      "Synchronize schedule",
+    ),
+    "sync_tickets": MessageLookupByLibrary.simpleMessage(
+      "List of one-way tickets",
     ),
     "sys_response_invalid": MessageLookupByLibrary.simpleMessage(
       "Hệ thống phản hồi không hợp lệ!",

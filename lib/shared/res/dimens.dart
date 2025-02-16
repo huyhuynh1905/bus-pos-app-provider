@@ -29,6 +29,7 @@ class Dimens {
   static const double scrollviewPaddingHoz = 20;
   static const double topPadding = 45;
   static const double contentPaddingVerSmaller = 6.0;
+  static const double contentPaddingSmaller = 5.0;
 
   //item
   static const double selectedHozPadding = 10.0;
@@ -56,6 +57,7 @@ class Dimens {
   static const double size_3 = 3;
   static const double size_4 = 4;
   static const double size_5 = 5;
+  static const double size_6 = 6;
   static const double size_8 = 8;
   static const double size_10 = 10;
   static const double size_11 = 11;
@@ -90,6 +92,7 @@ class Dimens {
   static const double miniItemHeight = 32;
   static const double miniItemSize = 32;
   static const double scrolltextSize = 100;
+  static const double iconSyncSize = 35;
 
   //radius
   static const double radiusBottomSheet = 25;

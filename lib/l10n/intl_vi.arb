@@ -36,5 +36,13 @@
   },
   "username": "Tên tài khoản",
   "acc_loged_in": "Tài khoản đang được đăng nhập, vui lòng đăng xuất hoặc liên hệ với QTV để được hỗ trợ!",
-  "sync_date": "Đồng bộ đầu ngày"
+  "sync_date": "Đồng bộ đầu ngày",
+  "sync_schedule": "Đồng bộ lịch",
+  "sync_route": "Danh sách thông tin tuyến",
+  "sync_tickets": "Danh sách vé lượt",
+  "sync_lock_atm": "Thông tin phát sinh khoá thẻ ATM",
+  "sync_all_lock_atm": "Thông tin toàn bộ thẻ ATM bị khoá",
+  "sync_object_month": "Danh sách đối tượng thẻ tháng",
+  "sync_pos_info": "Thông tin cấu hình máy POS",
+  "sync_month_card_route": "Danh sách thẻ tháng của tuyến"
 }

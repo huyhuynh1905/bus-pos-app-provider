@@ -4,18 +4,26 @@ import 'package:flutter/material.dart';
 
 class ContainerComponent extends StatelessWidget {
   final Widget childWidget;
-  const ContainerComponent({super.key, required this.childWidget});
+  final EdgeInsets? margin;
+  final EdgeInsets? padding;
+  const ContainerComponent({
+    super.key,
+    required this.childWidget,
+    this.margin,
+    this.padding
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(Dimens.size_10),
+      padding: padding??const EdgeInsets.all(Dimens.contentPaddingSmaller),
+      margin: margin??const EdgeInsets.all(Dimens.contentPaddingHoz),
       decoration: BoxDecoration(
         color: AppThemesColors.current.tertiaryContainer,
         borderRadius: BorderRadius.circular(Dimens.borderRadiusButton),
         boxShadow: [
           BoxShadow(
-            color: AppThemesColors.current.shadow.withOpacity(0.5),
+            color: AppThemesColors.current.shadow.withOpacity(0.05),
             blurRadius: 2,
             offset: const Offset(0, 3),
             spreadRadius: 1,
