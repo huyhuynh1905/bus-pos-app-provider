@@ -3,6 +3,8 @@ import 'package:bus_pos_app/domain/entity/support_ui/item_sync_entity.dart';
 import 'package:bus_pos_app/generated/l10n.dart';
 
 class SyncDateViewModel extends BaseViewModel{
+
+  bool isCanNext = true;
   
   List<ItemSyncEntity> listSync = [
     ItemSyncEntity(S.current.sync_schedule, ItemSyncEntity.typeScheduler, ItemSyncEntity.statusLoading),

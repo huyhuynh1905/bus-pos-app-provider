@@ -1,7 +1,7 @@
 {
   "login_label": "Đăng nhập",
   "confirm_label": "Xác nhận",
-  "continue_label": "Tiếp tục",
+  "continue_label": "Continue",
   "field_not_empty": "Thông tin này không được để trống",
   "email_invalid": "Email không đúng định dạng",
   "phone_invalid": "Số điện thoại không đúng định dạng",
@@ -44,5 +44,6 @@
   "sync_all_lock_atm": "Information on all locked ATM cards",
   "sync_object_month": "List of monthly card objects",
   "sync_pos_info": "POS machine configuration information",
-  "sync_month_card_route": "List of monthly cards of the route"
+  "sync_month_card_route": "List of monthly cards of the route",
+  "accinfo_error": "Cannot get accoun sale info."
 }

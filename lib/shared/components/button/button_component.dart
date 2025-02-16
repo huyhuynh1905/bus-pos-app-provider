@@ -63,9 +63,12 @@ class ButtonComponent extends StatelessWidget {
           width: width,
           height: height,
           alignment: Alignment.center,
+          padding: const EdgeInsets.symmetric(
+            horizontal: Dimens.spasPadding
+          ),
           child: TextDefault(
             text: title,
-            textColor: isOutline ? AppThemesColors.current.onSurface : textColor ?? AppThemesColors.current.onPrimary,
+            textColor: isOutline ? AppThemesColors.current.onSurface : textColor ?? (isDisable ? AppThemesColors.current.onSurface : AppThemesColors.current.onPrimary),
           ),
         ),
       ),

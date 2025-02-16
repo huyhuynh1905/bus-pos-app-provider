@@ -32,6 +32,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "acc_wrong": MessageLookupByLibrary.simpleMessage(
       "Sai tài khoản đăng nhập, vui lòng kiểm tra lại!",
     ),
+    "accinfo_error": MessageLookupByLibrary.simpleMessage(
+      "Không thể lấy được thông tin tài khoản.",
+    ),
     "account_not_valid": MessageLookupByLibrary.simpleMessage(
       "Thông tin tài khoản không hợp lệ",
     ),

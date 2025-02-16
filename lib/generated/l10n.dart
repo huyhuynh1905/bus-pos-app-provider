@@ -65,9 +65,9 @@ class S {
     return Intl.message('Xác nhận', name: 'confirm_label', desc: '', args: []);
   }
 
-  /// `Tiếp tục`
+  /// `Continue`
   String get continue_label {
-    return Intl.message('Tiếp tục', name: 'continue_label', desc: '', args: []);
+    return Intl.message('Continue', name: 'continue_label', desc: '', args: []);
   }
 
   /// `Thông tin này không được để trống`
@@ -330,6 +330,16 @@ class S {
     return Intl.message(
       'List of monthly cards of the route',
       name: 'sync_month_card_route',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cannot get accoun sale info.`
+  String get accinfo_error {
+    return Intl.message(
+      'Cannot get accoun sale info.',
+      name: 'accinfo_error',
       desc: '',
       args: [],
     );

@@ -32,13 +32,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "acc_wrong": MessageLookupByLibrary.simpleMessage(
       "Sai tài khoản đăng nhập, vui lòng kiểm tra lại!",
     ),
+    "accinfo_error": MessageLookupByLibrary.simpleMessage(
+      "Cannot get accoun sale info.",
+    ),
     "account_not_valid": MessageLookupByLibrary.simpleMessage(
       "Thông tin tài khoản không hợp lệ",
     ),
     "check": MessageLookupByLibrary.simpleMessage("Check in"),
     "close": MessageLookupByLibrary.simpleMessage("Đóng"),
     "confirm_label": MessageLookupByLibrary.simpleMessage("Xác nhận"),
-    "continue_label": MessageLookupByLibrary.simpleMessage("Tiếp tục"),
+    "continue_label": MessageLookupByLibrary.simpleMessage("Continue"),
     "email_invalid": MessageLookupByLibrary.simpleMessage(
       "Email không đúng định dạng",
     ),

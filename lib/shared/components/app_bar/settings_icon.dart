@@ -10,6 +10,7 @@ class SettingsIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppThemesColors.of(context);
     return GestureDetector(
       onTap: (){
         //đi đến màn hình settings

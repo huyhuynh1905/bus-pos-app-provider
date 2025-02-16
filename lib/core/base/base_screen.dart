@@ -28,7 +28,7 @@ abstract class BaseScreenState<T extends BaseViewModel> extends State<BaseScreen
   void initValue(BuildContext context) {
     provider.navigationService = getIt<NavigationService>();
     provider.context = context;
-    provider.utilsCommon = Utils();
+    provider.utilsCommon = getIt<Utils>();
     if (ModalRoute.of(context)?.settings.arguments != null) {
       provider.arguments = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
     } else {

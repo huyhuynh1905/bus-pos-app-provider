@@ -1,3 +1,4 @@
+import 'package:bus_pos_app/data/local/prefs_crypt.dart';
 import 'package:bus_pos_app/data/local/prefs_shared.dart';
 import 'package:bus_pos_app/di/locator.dart';
 import 'package:bus_pos_app/shared/routers/navigation_services.dart';
@@ -12,6 +13,7 @@ class BaseViewModel extends ChangeNotifier {
   late NavigationService navigationService;
   late Utils utilsCommon;
   final prefShared = getIt.get<PrefsShared>();
+  final prefsScrypt = getIt.get<PrefsCrypt>();
 
   void init(){
 

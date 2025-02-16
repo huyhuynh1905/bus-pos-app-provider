@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:bus_pos_app/data/local/prefs_crypt.dart';
 import 'package:bus_pos_app/data/local/prefs_shared.dart';
 import 'package:bus_pos_app/data/local/prefs_shared_key.dart';
 import 'package:bus_pos_app/di/locator.dart';
@@ -16,8 +17,17 @@ import 'package:shared_preferences/shared_preferences.dart';
 class Utils{
   late BuildContext context;
   final _prefShared = getIt<PrefsShared>();
+  final _prefsScrypt = getIt<PrefsCrypt>();
 
   Utils();
+
+  String convertJsonMapToStr(Map<String, dynamic>? json){
+    if(json==null){
+      return "";
+    }
+    final convert = const JsonEncoder().convert(json);
+    return convert;
+  }
 
   Future<DeviceInfo> getDeviceInfo() async {
     var data = DeviceInfo();
@@ -74,7 +84,8 @@ class Utils{
 
   ///token
   Future<String> getToken() async {
-    var authentication = _prefShared.authenticateModelStr;
+    var authentication = await _prefsScrypt.authenticateModelStr;
+    if(authentication==null) return "";
     var token = Authenticate.fromJson(json.decode(authentication)).accessToken ?? "";
     return Constants.fieldBearer + token;
   }
@@ -82,7 +93,8 @@ class Utils{
   ///model auth
   Future<Authenticate?> getTokenAuthModel() async {
     try {
-      var authentication = _prefShared.authenticateModelStr;
+      var authentication = await _prefsScrypt.authenticateModelStr;
+      if(authentication==null) return null;
       var model = Authenticate.fromJson(json.decode(authentication));
       return model;
     } catch(e){

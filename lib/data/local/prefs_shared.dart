@@ -19,11 +19,7 @@ class PrefsShared {
     return _sharedPreference.setBool(PrefsSharedKey.keyThemesMode, isDarkMode);
   }
 
-  //auth
-  String get authenticateModelStr => _sharedPreference.getString(PrefsSharedKey.keyAuthenticate) ?? '';
-
-  Future<bool> saveAuthenticateModel(String authModel) {
-    return _sharedPreference.setString(PrefsSharedKey.keyAuthenticate, authModel);
+  Future<void> deleteAll() async {
+    await _sharedPreference.clear();
   }
-
 }

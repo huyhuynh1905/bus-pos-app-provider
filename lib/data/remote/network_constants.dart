@@ -21,8 +21,6 @@ class NetworkConstants {
         return baseUrlStaging;
       case Environment.prod:
         return baseUrlProd;
-      default:
-        return baseUrlProd;
-    }
+      }
   }
 }

@@ -44,29 +44,22 @@ class LoginViewModel extends BaseViewModel{
     if (result is DataSuccess) {
       final baseResponse = result.dataState;
       if(baseResponse?.data!=null) {
-        var authenticationString = const JsonEncoder().convert(baseResponse?.data);
-        prefShared.saveAuthenticateModel(authenticationString);
-        _moveToNextScreen(context);
+        var authenticationString = utilsCommon.convertJsonMapToStr(baseResponse?.data);
+        await prefsScrypt.saveAuthenticateModel(authenticationString);
+        //tiếp tục lấy account info
+        await _getAccountInfo();
       } else {
-        ShowDialogServices.showOneButtonDialog(
-          context: context,
-          title: S.current.notify,
-          message: S.current.account_not_valid,
-        );
+        showErrorDialog(_getMessageLoginFail(S.current.account_not_valid));
       }
     } else {
       final baseError = result.error;
       customLog("doLogin baseError: ${baseError?.message}");
-      ShowDialogServices.showOneButtonDialog(
-        context: context,
-        title: S.current.notify,
-        message: _getMessageLoginFail(baseError?.message??""),
-      );
+      showErrorDialog(_getMessageLoginFail(baseError?.message??""));
     }
   }
 
-  _moveToNextScreen(BuildContext context) {
-    navigationService.navigateTo(RouteConstant.sampleScreen,type: NavigationService.pushAndRemoveUntil);
+  _moveToNextScreen() {
+    navigationService.navigateTo(RouteConstant.syncDateScreen,type: NavigationService.pushAndRemoveUntil);
   }
 
   String _getMessageLoginFail(String message){
@@ -90,4 +83,47 @@ class LoginViewModel extends BaseViewModel{
     }
   }
 
+  ///lấy thông tin tài khoản
+  _getAccountInfo() async {
+    changeLoadingScreen(true);
+    var result = await authUseCase.getAccountInfo();
+    changeLoadingScreen(false);
+    if(result is DataSuccess){
+      if(result.dataState!=null) {
+        //có account info
+        final account = result.dataState;
+
+        //lấy company info ra lưu
+        final companyInfo = account?.companyInfo;
+        await prefsScrypt.saveCompanyInfo(utilsCommon.convertJsonMapToStr(companyInfo?.toJson()));
+
+        //lấy account info ra lưu
+        await prefsScrypt.saveAccountInfo(utilsCommon.convertJsonMapToStr(account?.toJson()));
+
+        //next screen
+        _moveToNextScreen();
+      } else {
+        //báo lỗi và đăng xuất
+        showErrorDialog(S.current.accinfo_error, acction: (){
+          //đăng xuất để cover token
+          prefsScrypt.deleteAll();
+        });
+      }
+    } else {
+      final baseError = result.error;
+      showErrorDialog(baseError?.message??"");
+    }
+
+  }
+
+
+  showErrorDialog(String message,{Function? acction}){
+    ShowDialogServices.showOneButtonDialog(
+      context: context,
+      title: S.current.notify,
+      btnTitle: S.current.close,
+      message: message,
+      btnAction: acction
+    );
+  }
 }

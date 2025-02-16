@@ -28,6 +28,7 @@ class ItemSyncData extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: height,
+        color: Colors.transparent,
         child: Row(
           children: [
             SizedBox(
