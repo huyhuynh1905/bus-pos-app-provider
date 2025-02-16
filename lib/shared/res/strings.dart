@@ -19,6 +19,9 @@ class Constants{
   static const String fieldOS = "osMobile";
   static const String fieldAppVersion = "appVersion";
   static const String fieldDomain = "domain";
+  static const String sellerIdCard = "sellerIdCard";
+  static const String scheduleId = "scheduleId";
+  static const String scheduleTime = "scheduleTime";
 }
 
 class LocaleConstants {

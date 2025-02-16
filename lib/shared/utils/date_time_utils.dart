@@ -5,6 +5,8 @@ import 'package:intl/intl.dart';
 
 class DateTimeUtils {
   static String hourFm = "hh:mm";
+  static String databaseFm = "yyyy-MM-dd'T'HH:mm:ss";
+
   static String dateFmShow = "EEEE, d MMMM, yyyy";
 
   static String convertDateToYYMMDDDob(String inputDate) {

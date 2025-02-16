@@ -1,11 +1,5 @@
 import 'dart:convert';
 
-/*
- * Created by DinhTC on 26/01/2024.
- * Company UNIT
- * Code is not just a tool; it's the art of turning ideas into reality.
- */
-
 class AppSettingEntity {
   String headPhoneNumber;
   String urlNoticeOfProcessingOfPersionalData;

@@ -4,6 +4,7 @@ import 'package:bus_pos_app/di/locator.dart';
 import 'package:bus_pos_app/shared/routers/navigation_services.dart';
 import 'package:bus_pos_app/shared/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 
 class BaseViewModel extends ChangeNotifier {
@@ -15,7 +16,15 @@ class BaseViewModel extends ChangeNotifier {
   final prefShared = getIt.get<PrefsShared>();
   final prefsScrypt = getIt.get<PrefsCrypt>();
 
-  void init(){
+  init(){
 
+  }
+
+  changeLoadingScreen(bool value){
+    if(value){
+      EasyLoading.show();
+    } else {
+      EasyLoading.dismiss();
+    }
   }
 }

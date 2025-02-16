@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'api_feature_client.dart';
+part of 'api_sync_data_client.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'api_feature_client.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations
 
-class _APIPaymentClient implements APIPaymentClient {
-  _APIPaymentClient(
+class _APISyncDataClient implements APISyncDataClient {
+  _APISyncDataClient(
     this._dio, {
     this.baseUrl,
     this.errorLogger,
@@ -22,24 +22,24 @@ class _APIPaymentClient implements APIPaymentClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<BaseResponse> checkFieldShinhan(
-    dynamic token,
+  Future<BaseResponseList> getShiftScheduler(
+    String accessToken,
     Map<String, dynamic> map,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
+    final _headers = <String, dynamic>{r'Authorization': accessToken};
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     _data.addAll(map);
-    final _options = _setStreamType<BaseResponse>(Options(
+    final _options = _setStreamType<BaseResponseList>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          '/api/v2/setting/app',
+          'pos/v2/shiftscheduler/getbydate',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -49,9 +49,9 @@ class _APIPaymentClient implements APIPaymentClient {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late BaseResponse _value;
+    late BaseResponseList _value;
     try {
-      _value = BaseResponse.fromJson(_result.data!);
+      _value = BaseResponseList.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
