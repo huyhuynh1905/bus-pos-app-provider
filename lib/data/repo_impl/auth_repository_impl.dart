@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bus_pos_app/core/base_handler/api_handler.dart';
 import 'package:bus_pos_app/core/base_handler/base_data_state.dart';
 import 'package:bus_pos_app/core/base_handler/base_error.dart';
 import 'package:bus_pos_app/data/remote/api_auth/api_authentication.dart';
@@ -52,33 +53,14 @@ class AuthRepositoryImpl extends AuthRepository{
 
   @override
   Future<DataState<AccountInfoEntity>> getAccountInfo() async {
-    try {
-      final accessToken = await utils.getToken();
-      var dataResponse = await apiAuth.getAccountInfo(accessToken);
-      if (dataResponse.success == true && dataResponse.data!=null) {
-        final data = AccountInfoEntity.fromJson(dataResponse.data??{});
-        return DataSuccess(data);
-      } else {
-        final dataError = BaseError(
-          data: dataResponse.data,
-          message: dataResponse.errors?[0]??"",
-        );
-        return DataError(dataError);
-      }
-    } on DioException catch (e) {
-      customLog("DioException: $e");
-      final dataError = BaseError(
-        data: null,
-        message: "DioException: $e",
-      );
-      return DataError(dataError);
-    } catch (e){
-      final dataError = BaseError(
-        data: null,
-        message: e.toString(),
-      );
-      return DataError(dataError);
-    }
+    final accessToken = await utils.getToken();
+    var dataResponse = await apiAuth.getAccountInfo(accessToken);
+
+    return ApiHandler.handleResponseObj<AccountInfoEntity>(
+      named: "getAccountInfo",
+      dataResponse: dataResponse,
+      fromJson: AccountInfoEntity.fromJson
+    );
   }
 
 }
