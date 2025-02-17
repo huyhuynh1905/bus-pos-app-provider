@@ -22,6 +22,7 @@ class Constants{
   static const String sellerIdCard = "sellerIdCard";
   static const String scheduleId = "scheduleId";
   static const String scheduleTime = "scheduleTime";
+  static const String sessionToken = "sessionToken";
 }
 
 class LocaleConstants {

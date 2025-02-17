@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:flutter/foundation.dart';
@@ -21,6 +23,8 @@ class AppDio with DioMixin implements Dio {
       interceptors.add(PrettyDioLogger(
         responseBody: true,
         requestBody: true,
+        requestHeader: true,
+        enabled: kDebugMode
       ));
     }
 
@@ -37,6 +41,12 @@ class CustomInterceptor extends Interceptor {
   void onError(DioException err, ErrorInterceptorHandler handler) {
     debugPrint('CustomInterceptor onError ${err.response} = code: ${err.response?.statusCode}');
     return super.onError(err, handler);
+  }
+
+  @override
+  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
+    // log('REQUEST[${options.method}] => PATH: ${options.path} \n Headers: ${options.headers} \nBody: ${options.data}');
+    super.onRequest(options, handler);
   }
 }
 

@@ -87,7 +87,16 @@ class Utils{
     var authentication = await _prefsScrypt.authenticateModelStr;
     if(authentication==null) return "";
     var token = Authenticate.fromJson(json.decode(authentication)).accessToken ?? "";
+    debugPrint("getToken => $token");
     return Constants.fieldBearer + token;
+  }
+
+  Future<String> getSessionToken() async {
+    var authentication = await _prefsScrypt.authenticateModelStr;
+    if(authentication==null) return "";
+    var token = Authenticate.fromJson(json.decode(authentication)).refreshToken ?? "";
+    debugPrint("refreshToken => $token");
+    return token;
   }
 
   ///model auth

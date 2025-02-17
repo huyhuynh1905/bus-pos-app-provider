@@ -19,7 +19,7 @@ class ShiftSchedulerEntity {
   String? driverLicense;
 
   @JsonKey(name: 'goBack')
-  int? goBack;
+  String? goBack;
 
   @JsonKey(name: 'routeId')
   int? routeId;

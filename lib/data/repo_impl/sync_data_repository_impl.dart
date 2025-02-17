@@ -26,9 +26,11 @@ class SyncDataRepositoryImpl extends SyncDataRepository{
   Future<DataState<List<ShiftSchedulerEntity>>> getShiftScheduler(String? sellerIdCard, String? scheduleTime) async {
     try {
       final accessToken = await utils.getToken();
+      final sessionToken = await utils.getSessionToken();
       final body = {
         Constants.sellerIdCard: sellerIdCard,
         Constants.scheduleTime: scheduleTime,
+        Constants.sessionToken: sessionToken,
       };
       var dataResponse = await posApi.getShiftScheduler(accessToken, body);
 

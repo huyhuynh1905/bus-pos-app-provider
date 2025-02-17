@@ -13,7 +13,7 @@ ShiftSchedulerEntity _$ShiftSchedulerEntityFromJson(
       (json['id'] as num?)?.toInt(),
       json['carId'] as String?,
       json['driverLicense'] as String?,
-      (json['goBack'] as num?)?.toInt(),
+      json['goBack'] as String?,
       (json['routeId'] as num?)?.toInt(),
       json['scheduleId'] as String?,
       json['routeCode'] as String?,
