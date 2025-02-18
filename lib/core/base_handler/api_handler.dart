@@ -16,7 +16,7 @@ class ApiHandler {
           data: dataResponse.data,
           message: dataResponse.errors?[0]??"",
         );
-        return DataError(dataError);
+        return DataError<List<T>>(dataError);
       }
     } on DioException catch (e) {
       customLog("$named - handleResponseList DioException: $e");
@@ -24,14 +24,14 @@ class ApiHandler {
         data: null,
         message: "DioException: $e",
       );
-      return DataError(dataError);
+      return DataError<List<T>>(dataError);
     } catch (e){
       customLog("$named - handleResponseList catch: $e");
       final dataError = BaseError(
         data: null,
         message: e.toString(),
       );
-      return DataError(dataError);
+      return DataError<List<T>>(dataError);
     }
   }
 
@@ -45,7 +45,7 @@ class ApiHandler {
           data: dataResponse.data,
           message: dataResponse.errors?[0]??"",
         );
-        return DataError(dataError);
+        return DataError<T>(dataError);
       }
     } on DioException catch (e) {
       customLog("$named - DioException: $e");
@@ -53,14 +53,14 @@ class ApiHandler {
         data: null,
         message: "DioException: $e",
       );
-      return DataError(dataError);
+      return DataError<T>(dataError);
     } catch (e){
       customLog("$named - catch: $e");
       final dataError = BaseError(
         data: null,
         message: e.toString(),
       );
-      return DataError(dataError);
+      return DataError<T>(dataError);
     }
   }
 

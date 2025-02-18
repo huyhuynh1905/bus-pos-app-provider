@@ -23,7 +23,6 @@ class AppDio with DioMixin implements Dio {
       interceptors.add(PrettyDioLogger(
         responseBody: true,
         requestBody: true,
-        requestHeader: true,
         enabled: kDebugMode
       ));
     }
@@ -45,7 +44,9 @@ class CustomInterceptor extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    // log('REQUEST[${options.method}] => PATH: ${options.path} \n Headers: ${options.headers} \nBody: ${options.data}');
+    if(kDebugMode) {
+      log('REQUEST[${options.method}] => PATH: ${options.path} \n Headers: ${options.headers} \nBody: ${options.data}');
+    }
     super.onRequest(options, handler);
   }
 }

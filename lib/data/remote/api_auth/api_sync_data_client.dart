@@ -18,4 +18,21 @@ abstract class APISyncDataClient {
     @Header(Constants.fieldAuthorization) String accessToken,
     @Body() Map<String, dynamic> map
   );
+
+  @POST(ApiSubLink.pathRouteInfo)
+  Future<BaseResponse> getRouteInfo(
+      @Header(Constants.fieldAuthorization) String accessToken,
+      @Body() Map<String, dynamic> map
+  );
+
+  @POST(ApiSubLink.pathTicketProducts)
+  Future<BaseResponse> getTicketProducts(
+      @Header(Constants.fieldAuthorization) String accessToken,
+      @Query(Constants.routeId) routeId
+  );
+
+  @GET(ApiSubLink.pathPosPara)
+  Future<BaseResponseList> getPosPara(
+      @Header(Constants.fieldAuthorization) String accessToken,
+  );
 }

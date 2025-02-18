@@ -23,6 +23,8 @@ class Constants{
   static const String scheduleId = "scheduleId";
   static const String scheduleTime = "scheduleTime";
   static const String sessionToken = "sessionToken";
+  static const String routeId = "routeId";
+  static const String note = "note";
 }
 
 class LocaleConstants {
