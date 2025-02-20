@@ -54,11 +54,10 @@ class AuthRepositoryImpl extends AuthRepository{
   @override
   Future<DataState<AccountInfoEntity>> getAccountInfo() async {
     final accessToken = await utils.getToken();
-    var dataResponse = await apiAuth.getAccountInfo(accessToken);
 
-    return ApiHandler.handleResponseObj<AccountInfoEntity>(
+    return await ApiHandler.handleResponseObj<AccountInfoEntity>(
       named: "getAccountInfo",
-      dataResponse: dataResponse,
+      callApi: apiAuth.getAccountInfo(accessToken),
       fromJson: AccountInfoEntity.fromJson
     );
   }

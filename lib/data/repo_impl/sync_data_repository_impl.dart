@@ -26,10 +26,9 @@ class SyncDataRepositoryImpl extends SyncDataRepository{
       Constants.scheduleTime: scheduleTime,
       Constants.sessionToken: sessionToken,
     };
-    var dataResponse = await posApi.getShiftScheduler(accessToken, body);
-    return ApiHandler.handleResponseList<ShiftSchedulerEntity>(
+    return await ApiHandler.handleResponseList<ShiftSchedulerEntity>(
       named: "getShiftScheduler",
-      dataResponse: dataResponse,
+      callApi: posApi.getShiftScheduler(accessToken, body),
       fromJson: ShiftSchedulerEntity.fromJson
     );
   }
@@ -37,10 +36,9 @@ class SyncDataRepositoryImpl extends SyncDataRepository{
   @override
   Future<DataState<List<PosParaEntity>>> getPosPara() async {
     final accessToken = await utils.getToken();
-    var dataResponse = await posApi.getPosPara(accessToken);
-    return ApiHandler.handleResponseList<PosParaEntity>(
+    return await ApiHandler.handleResponseList<PosParaEntity>(
         named: "getPosPara",
-        dataResponse: dataResponse,
+        callApi: posApi.getPosPara(accessToken),
         fromJson: PosParaEntity.fromJson
     );
   }
@@ -52,10 +50,9 @@ class SyncDataRepositoryImpl extends SyncDataRepository{
       Constants.routeId: routeId,
       Constants.note: node,
     };
-    var dataResponse = await posApi.getRouteInfo(accessToken, body);
-    return ApiHandler.handleResponseObj<RouteInfoEntity>(
+    return await ApiHandler.handleResponseObj<RouteInfoEntity>(
         named: "getRouteInfo",
-        dataResponse: dataResponse,
+        callApi: posApi.getRouteInfo(accessToken, body),
         fromJson: RouteInfoEntity.fromJson
     );
   }
@@ -63,10 +60,9 @@ class SyncDataRepositoryImpl extends SyncDataRepository{
   @override
   Future<DataState<TicketResponseEntity>> getTicketProduct(int? routeId) async {
     final accessToken = await utils.getToken();
-    var dataResponse = await posApi.getTicketProducts(accessToken, routeId);
-    return ApiHandler.handleResponseObj<TicketResponseEntity>(
+    return await ApiHandler.handleResponseObj<TicketResponseEntity>(
         named: "getTicketProduct",
-        dataResponse: dataResponse,
+        callApi: posApi.getTicketProducts(accessToken, routeId),
         fromJson: TicketResponseEntity.fromJson
     );
   }

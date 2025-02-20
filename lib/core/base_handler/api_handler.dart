@@ -6,8 +6,13 @@ import 'package:bus_pos_app/shared/utils/common.dart';
 import 'package:dio/dio.dart';
 
 class ApiHandler {
-  static dynamic handleResponseList<T>({String? named, required BaseResponseList dataResponse, required T Function(Map<String, dynamic>) fromJson}) {
+  static dynamic handleResponseList<T>({
+    String? named,
+    required Future<BaseResponseList> callApi,
+    required T Function(Map<String, dynamic>) fromJson
+  }) async  {
     try {
+      final dataResponse = await callApi;
       if (dataResponse.success == true && dataResponse.data!=null) {
         List<T>? listData = dataResponse.data?.map((data) => fromJson(data)).toList();
         return DataSuccess(listData??[]);
@@ -35,8 +40,13 @@ class ApiHandler {
     }
   }
 
-  static dynamic handleResponseObj<T>({String? named, required BaseResponse dataResponse, required T Function(Map<String, dynamic>) fromJson}) {
+  static dynamic handleResponseObj<T>({
+    String? named,
+    required Future<BaseResponse> callApi,
+    required T Function(Map<String, dynamic>) fromJson
+  }) async {
     try {
+      final dataResponse = await callApi;
       if (dataResponse.success == true && dataResponse.data!=null) {
         T object = fromJson(dataResponse.data!);
         return DataSuccess(object);
