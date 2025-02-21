@@ -45,5 +45,6 @@
   "sync_object_month": "List of monthly card objects",
   "sync_pos_info": "POS machine configuration information",
   "sync_month_card_route": "List of monthly cards of the route",
-  "accinfo_error": "Cannot get accoun sale info."
+  "accinfo_error": "Cannot get accoun sale info.",
+  "settings": "Settings"
 }

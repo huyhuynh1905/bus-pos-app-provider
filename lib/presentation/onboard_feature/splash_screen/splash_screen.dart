@@ -4,7 +4,7 @@ import 'package:bus_pos_app/core/base/base_screen.dart';
 import 'package:bus_pos_app/core/base/base_view_model.dart';
 import 'package:bus_pos_app/generated/assets.gen.dart';
 import 'package:bus_pos_app/generated/l10n.dart';
-import 'package:bus_pos_app/presentation/onboard_feature/screen/splash_screen/splash_viewmodel.dart';
+import 'package:bus_pos_app/presentation/onboard_feature/splash_screen/splash_viewmodel.dart';
 import 'package:bus_pos_app/shared/components/loading/loading_component.dart';
 import 'package:bus_pos_app/shared/components/text/text_default.dart';
 import 'package:bus_pos_app/shared/components/text/text_sub_content.dart';

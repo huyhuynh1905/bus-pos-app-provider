@@ -2,7 +2,7 @@ import 'package:bus_pos_app/core/base/base_screen.dart';
 import 'package:bus_pos_app/core/base/base_view_model.dart';
 import 'package:bus_pos_app/generated/assets.gen.dart';
 import 'package:bus_pos_app/generated/l10n.dart';
-import 'package:bus_pos_app/presentation/onboard_feature/screen/login_screen/login_viewmodel.dart';
+import 'package:bus_pos_app/presentation/onboard_feature/login_screen/login_viewmodel.dart';
 import 'package:bus_pos_app/shared/components/button/button_normal.dart';
 import 'package:bus_pos_app/shared/components/text/text_default.dart';
 import 'package:bus_pos_app/shared/components/text_field/text_field_component.dart';

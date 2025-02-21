@@ -5,4 +5,5 @@ class RouteConstant {
   static const String checkFormScreen = 'checkFormScreen';
   static const String sampleScreen = 'sampleScreen';
   static const String syncDateScreen = 'syncDateScreen';
+  static const String settingsScreen = 'settingsScreen';
 }

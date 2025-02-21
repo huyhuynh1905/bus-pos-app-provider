@@ -1,7 +1,7 @@
 import 'package:bus_pos_app/core/base/base_screen.dart';
 import 'package:bus_pos_app/domain/entity/support_ui/item_sync_entity.dart';
 import 'package:bus_pos_app/generated/l10n.dart';
-import 'package:bus_pos_app/presentation/onboard_feature/screen/sync_date_screen/sync_date_screen_viewmodel.dart';
+import 'package:bus_pos_app/presentation/sync_feature/sync_date_screen/sync_date_screen_viewmodel.dart';
 import 'package:bus_pos_app/shared/components/app_bar/appbar.dart';
 import 'package:bus_pos_app/shared/components/app_bar/settings_icon.dart';
 import 'package:bus_pos_app/shared/components/border_shape/bg_border_share.dart';

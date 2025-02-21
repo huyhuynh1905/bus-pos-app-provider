@@ -69,6 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "proudly_by_unit": MessageLookupByLibrary.simpleMessage(
       "Được cung cấp bởi UNIT CORP",
     ),
+    "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "sync_all_lock_atm": MessageLookupByLibrary.simpleMessage(
       "Information on all locked ATM cards",
     ),
