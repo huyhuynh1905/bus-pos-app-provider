@@ -1,9 +1,18 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:objectbox/objectbox.dart';
 
 part 'pos_para_entity.g.dart';
 
 @JsonSerializable()
+@Entity()
 class PosParaEntity {
+
+  //const
+
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @Id()
+  int? localId;
 
   String? settingType;
   String? settingKey;
@@ -14,6 +23,7 @@ class PosParaEntity {
   int? totalCount;
 
   PosParaEntity({
+    this.localId,
     this.settingType,
     this.settingKey,
     this.settingValue,

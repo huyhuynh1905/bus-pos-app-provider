@@ -1,9 +1,15 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:objectbox/objectbox.dart';
 
 part 'ticket_product_entity.g.dart';
 
 @JsonSerializable()
+@Entity()
 class TicketProductEntity {
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @Id()
+  int? localId;
 
   String? name;
   String? code;
@@ -16,10 +22,13 @@ class TicketProductEntity {
   String? temThangType;
   String? objectType;
   bool? isMultiRoutes;
+
+  @JsonKey(name: "id")
   int? id;
   int? totalCount;
 
   TicketProductEntity({
+    this.localId,
     this.name,
     this.code,
     this.amount,

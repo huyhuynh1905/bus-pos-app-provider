@@ -313,9 +313,137 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "5:1155598473494666978",
+      "lastPropertyId": "14:6196654020218650535",
+      "name": "TicketProductEntity",
+      "properties": [
+        {
+          "id": "1:3597716024832984147",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "2:3460861276991028336",
+          "name": "code",
+          "type": 9
+        },
+        {
+          "id": "3:6040327290679865024",
+          "name": "amount",
+          "type": 6
+        },
+        {
+          "id": "4:9087043445929936135",
+          "name": "serialFormat",
+          "type": 9
+        },
+        {
+          "id": "5:5681741404338822700",
+          "name": "routeId",
+          "type": 6
+        },
+        {
+          "id": "6:4432205685805418494",
+          "name": "description",
+          "type": 9
+        },
+        {
+          "id": "7:1550755106852905081",
+          "name": "type",
+          "type": 9
+        },
+        {
+          "id": "8:5581461139515651889",
+          "name": "isActive",
+          "type": 6
+        },
+        {
+          "id": "9:6204720141017004856",
+          "name": "temThangType",
+          "type": 9
+        },
+        {
+          "id": "10:1671950831122431443",
+          "name": "objectType",
+          "type": 9
+        },
+        {
+          "id": "11:7790142092614663181",
+          "name": "isMultiRoutes",
+          "type": 1
+        },
+        {
+          "id": "12:7973058911511075134",
+          "name": "id",
+          "type": 6
+        },
+        {
+          "id": "13:2956540184991091390",
+          "name": "totalCount",
+          "type": 6
+        },
+        {
+          "id": "14:6196654020218650535",
+          "name": "localId",
+          "type": 6,
+          "flags": 1
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "6:7200332477688932786",
+      "lastPropertyId": "8:7127731378070746740",
+      "name": "PosParaEntity",
+      "properties": [
+        {
+          "id": "1:7486021156561874023",
+          "name": "localId",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4506852279797195825",
+          "name": "settingType",
+          "type": 9
+        },
+        {
+          "id": "3:798901798026798888",
+          "name": "settingKey",
+          "type": 9
+        },
+        {
+          "id": "4:3061425840502102422",
+          "name": "settingValue",
+          "type": 9
+        },
+        {
+          "id": "5:3793870747295205534",
+          "name": "description",
+          "type": 9
+        },
+        {
+          "id": "6:1858904308805190989",
+          "name": "companyId",
+          "type": 6
+        },
+        {
+          "id": "7:4337121491059510543",
+          "name": "id",
+          "type": 6
+        },
+        {
+          "id": "8:7127731378070746740",
+          "name": "totalCount",
+          "type": 6
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "4:1578075682486477185",
+  "lastEntityId": "6:7200332477688932786",
   "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",

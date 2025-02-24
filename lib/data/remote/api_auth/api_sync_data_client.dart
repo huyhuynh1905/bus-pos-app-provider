@@ -28,7 +28,7 @@ abstract class APISyncDataClient {
   @POST(ApiSubLink.pathTicketProducts)
   Future<BaseResponse> getTicketProducts(
       @Header(Constants.fieldAuthorization) String accessToken,
-      @Query(Constants.routeId) routeId
+      @Query(Constants.routeId) int? routeId
   );
 
   @GET(ApiSubLink.pathPosPara)

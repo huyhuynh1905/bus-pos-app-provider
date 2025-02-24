@@ -15,9 +15,11 @@ import 'package:objectbox/objectbox.dart' as obx;
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
 import '../../../../domain/entity/bus_stop_entity.dart';
+import '../../../../domain/entity/pos_para_entity.dart';
 import '../../../../domain/entity/route_entity.dart';
 import '../../../../domain/entity/shift_scheduler_entity.dart';
 import '../../../../domain/entity/sumary_schedule_entity.dart';
+import '../../../../domain/entity/ticket_product_entity.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 
@@ -332,6 +334,134 @@ final _entities = <obx_int.ModelEntity>[
             flags: 0)
       ],
       relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(5, 1155598473494666978),
+      name: 'TicketProductEntity',
+      lastPropertyId: const obx_int.IdUid(14, 6196654020218650535),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 3597716024832984147),
+            name: 'name',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 3460861276991028336),
+            name: 'code',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 6040327290679865024),
+            name: 'amount',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 9087043445929936135),
+            name: 'serialFormat',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 5681741404338822700),
+            name: 'routeId',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(6, 4432205685805418494),
+            name: 'description',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(7, 1550755106852905081),
+            name: 'type',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 5581461139515651889),
+            name: 'isActive',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(9, 6204720141017004856),
+            name: 'temThangType',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(10, 1671950831122431443),
+            name: 'objectType',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(11, 7790142092614663181),
+            name: 'isMultiRoutes',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(12, 7973058911511075134),
+            name: 'id',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(13, 2956540184991091390),
+            name: 'totalCount',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(14, 6196654020218650535),
+            name: 'localId',
+            type: 6,
+            flags: 1)
+      ],
+      relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(6, 7200332477688932786),
+      name: 'PosParaEntity',
+      lastPropertyId: const obx_int.IdUid(8, 7127731378070746740),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 7486021156561874023),
+            name: 'localId',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 4506852279797195825),
+            name: 'settingType',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 798901798026798888),
+            name: 'settingKey',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 3061425840502102422),
+            name: 'settingValue',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 3793870747295205534),
+            name: 'description',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(6, 1858904308805190989),
+            name: 'companyId',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(7, 4337121491059510543),
+            name: 'id',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 7127731378070746740),
+            name: 'totalCount',
+            type: 6,
+            flags: 0)
+      ],
+      relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[])
 ];
 
@@ -370,7 +500,7 @@ Future<obx.Store> openStore(
 obx_int.ModelDefinition getObjectBoxModel() {
   final model = obx_int.ModelInfo(
       entities: _entities,
-      lastEntityId: const obx_int.IdUid(4, 1578075682486477185),
+      lastEntityId: const obx_int.IdUid(6, 7200332477688932786),
       lastIndexId: const obx_int.IdUid(0, 0),
       lastRelationId: const obx_int.IdUid(0, 0),
       lastSequenceId: const obx_int.IdUid(0, 0),
@@ -774,6 +904,170 @@ obx_int.ModelDefinition getObjectBoxModel() {
               totalCount: totalCountParam);
 
           return object;
+        }),
+    TicketProductEntity: obx_int.EntityDefinition<TicketProductEntity>(
+        model: _entities[4],
+        toOneRelations: (TicketProductEntity object) => [],
+        toManyRelations: (TicketProductEntity object) => {},
+        getId: (TicketProductEntity object) => object.localId,
+        setId: (TicketProductEntity object, int id) {
+          object.localId = id;
+        },
+        objectToFB: (TicketProductEntity object, fb.Builder fbb) {
+          final nameOffset =
+              object.name == null ? null : fbb.writeString(object.name!);
+          final codeOffset =
+              object.code == null ? null : fbb.writeString(object.code!);
+          final serialFormatOffset = object.serialFormat == null
+              ? null
+              : fbb.writeString(object.serialFormat!);
+          final descriptionOffset = object.description == null
+              ? null
+              : fbb.writeString(object.description!);
+          final typeOffset =
+              object.type == null ? null : fbb.writeString(object.type!);
+          final temThangTypeOffset = object.temThangType == null
+              ? null
+              : fbb.writeString(object.temThangType!);
+          final objectTypeOffset = object.objectType == null
+              ? null
+              : fbb.writeString(object.objectType!);
+          fbb.startTable(15);
+          fbb.addOffset(0, nameOffset);
+          fbb.addOffset(1, codeOffset);
+          fbb.addInt64(2, object.amount);
+          fbb.addOffset(3, serialFormatOffset);
+          fbb.addInt64(4, object.routeId);
+          fbb.addOffset(5, descriptionOffset);
+          fbb.addOffset(6, typeOffset);
+          fbb.addInt64(7, object.isActive);
+          fbb.addOffset(8, temThangTypeOffset);
+          fbb.addOffset(9, objectTypeOffset);
+          fbb.addBool(10, object.isMultiRoutes);
+          fbb.addInt64(11, object.id);
+          fbb.addInt64(12, object.totalCount);
+          fbb.addInt64(13, object.localId ?? 0);
+          fbb.finish(fbb.endTable());
+          return object.localId ?? 0;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final localIdParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 30);
+          final nameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 4);
+          final codeParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final amountParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 8);
+          final serialFormatParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 10);
+          final routeIdParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
+          final descriptionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 14);
+          final typeParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 16);
+          final isActiveParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 18);
+          final temThangTypeParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 20);
+          final objectTypeParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 22);
+          final isMultiRoutesParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 24);
+          final idParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 26);
+          final totalCountParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 28);
+          final object = TicketProductEntity(
+              localId: localIdParam,
+              name: nameParam,
+              code: codeParam,
+              amount: amountParam,
+              serialFormat: serialFormatParam,
+              routeId: routeIdParam,
+              description: descriptionParam,
+              type: typeParam,
+              isActive: isActiveParam,
+              temThangType: temThangTypeParam,
+              objectType: objectTypeParam,
+              isMultiRoutes: isMultiRoutesParam,
+              id: idParam,
+              totalCount: totalCountParam);
+
+          return object;
+        }),
+    PosParaEntity: obx_int.EntityDefinition<PosParaEntity>(
+        model: _entities[5],
+        toOneRelations: (PosParaEntity object) => [],
+        toManyRelations: (PosParaEntity object) => {},
+        getId: (PosParaEntity object) => object.localId,
+        setId: (PosParaEntity object, int id) {
+          object.localId = id;
+        },
+        objectToFB: (PosParaEntity object, fb.Builder fbb) {
+          final settingTypeOffset = object.settingType == null
+              ? null
+              : fbb.writeString(object.settingType!);
+          final settingKeyOffset = object.settingKey == null
+              ? null
+              : fbb.writeString(object.settingKey!);
+          final settingValueOffset = object.settingValue == null
+              ? null
+              : fbb.writeString(object.settingValue!);
+          final descriptionOffset = object.description == null
+              ? null
+              : fbb.writeString(object.description!);
+          fbb.startTable(9);
+          fbb.addInt64(0, object.localId ?? 0);
+          fbb.addOffset(1, settingTypeOffset);
+          fbb.addOffset(2, settingKeyOffset);
+          fbb.addOffset(3, settingValueOffset);
+          fbb.addOffset(4, descriptionOffset);
+          fbb.addInt64(5, object.companyId);
+          fbb.addInt64(6, object.id);
+          fbb.addInt64(7, object.totalCount);
+          fbb.finish(fbb.endTable());
+          return object.localId ?? 0;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final localIdParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+          final settingTypeParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 6);
+          final settingKeyParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 8);
+          final settingValueParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 10);
+          final descriptionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 12);
+          final companyIdParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 14);
+          final idParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 16);
+          final totalCountParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 18);
+          final object = PosParaEntity(
+              localId: localIdParam,
+              settingType: settingTypeParam,
+              settingKey: settingKeyParam,
+              settingValue: settingValueParam,
+              description: descriptionParam,
+              companyId: companyIdParam,
+              id: idParam,
+              totalCount: totalCountParam);
+
+          return object;
         })
   };
 
@@ -1011,4 +1305,98 @@ class SummaryScheduleEntity_ {
   /// See [SummaryScheduleEntity.totalCount].
   static final totalCount = obx.QueryIntegerProperty<SummaryScheduleEntity>(
       _entities[3].properties[16]);
+}
+
+/// [TicketProductEntity] entity fields to define ObjectBox queries.
+class TicketProductEntity_ {
+  /// See [TicketProductEntity.name].
+  static final name =
+      obx.QueryStringProperty<TicketProductEntity>(_entities[4].properties[0]);
+
+  /// See [TicketProductEntity.code].
+  static final code =
+      obx.QueryStringProperty<TicketProductEntity>(_entities[4].properties[1]);
+
+  /// See [TicketProductEntity.amount].
+  static final amount =
+      obx.QueryIntegerProperty<TicketProductEntity>(_entities[4].properties[2]);
+
+  /// See [TicketProductEntity.serialFormat].
+  static final serialFormat =
+      obx.QueryStringProperty<TicketProductEntity>(_entities[4].properties[3]);
+
+  /// See [TicketProductEntity.routeId].
+  static final routeId =
+      obx.QueryIntegerProperty<TicketProductEntity>(_entities[4].properties[4]);
+
+  /// See [TicketProductEntity.description].
+  static final description =
+      obx.QueryStringProperty<TicketProductEntity>(_entities[4].properties[5]);
+
+  /// See [TicketProductEntity.type].
+  static final type =
+      obx.QueryStringProperty<TicketProductEntity>(_entities[4].properties[6]);
+
+  /// See [TicketProductEntity.isActive].
+  static final isActive =
+      obx.QueryIntegerProperty<TicketProductEntity>(_entities[4].properties[7]);
+
+  /// See [TicketProductEntity.temThangType].
+  static final temThangType =
+      obx.QueryStringProperty<TicketProductEntity>(_entities[4].properties[8]);
+
+  /// See [TicketProductEntity.objectType].
+  static final objectType =
+      obx.QueryStringProperty<TicketProductEntity>(_entities[4].properties[9]);
+
+  /// See [TicketProductEntity.isMultiRoutes].
+  static final isMultiRoutes = obx.QueryBooleanProperty<TicketProductEntity>(
+      _entities[4].properties[10]);
+
+  /// See [TicketProductEntity.id].
+  static final id = obx.QueryIntegerProperty<TicketProductEntity>(
+      _entities[4].properties[11]);
+
+  /// See [TicketProductEntity.totalCount].
+  static final totalCount = obx.QueryIntegerProperty<TicketProductEntity>(
+      _entities[4].properties[12]);
+
+  /// See [TicketProductEntity.localId].
+  static final localId = obx.QueryIntegerProperty<TicketProductEntity>(
+      _entities[4].properties[13]);
+}
+
+/// [PosParaEntity] entity fields to define ObjectBox queries.
+class PosParaEntity_ {
+  /// See [PosParaEntity.localId].
+  static final localId =
+      obx.QueryIntegerProperty<PosParaEntity>(_entities[5].properties[0]);
+
+  /// See [PosParaEntity.settingType].
+  static final settingType =
+      obx.QueryStringProperty<PosParaEntity>(_entities[5].properties[1]);
+
+  /// See [PosParaEntity.settingKey].
+  static final settingKey =
+      obx.QueryStringProperty<PosParaEntity>(_entities[5].properties[2]);
+
+  /// See [PosParaEntity.settingValue].
+  static final settingValue =
+      obx.QueryStringProperty<PosParaEntity>(_entities[5].properties[3]);
+
+  /// See [PosParaEntity.description].
+  static final description =
+      obx.QueryStringProperty<PosParaEntity>(_entities[5].properties[4]);
+
+  /// See [PosParaEntity.companyId].
+  static final companyId =
+      obx.QueryIntegerProperty<PosParaEntity>(_entities[5].properties[5]);
+
+  /// See [PosParaEntity.id].
+  static final id =
+      obx.QueryIntegerProperty<PosParaEntity>(_entities[5].properties[6]);
+
+  /// See [PosParaEntity.totalCount].
+  static final totalCount =
+      obx.QueryIntegerProperty<PosParaEntity>(_entities[5].properties[7]);
 }

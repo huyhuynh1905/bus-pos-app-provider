@@ -8,4 +8,5 @@ class PrefsSharedKey {
   static const String keyUser = "keyUser";
   static const String keyAccountInfo = "keyAccountInfo";
   static const String keyCompanyInfo = "keyUser";
+  static const String keyCurrentScheduler = "keyCurrentScheduler";
 }

@@ -10,7 +10,7 @@ TicketResponseEntity _$TicketResponseEntityFromJson(
         Map<String, dynamic> json) =>
     TicketResponseEntity(
       ticketProducts: (json['ticketProducts'] as List<dynamic>?)
-          ?.map((e) => TicketResponseEntity.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => TicketProductEntity.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

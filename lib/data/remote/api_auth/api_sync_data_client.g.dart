@@ -100,10 +100,11 @@ class _APISyncDataClient implements APISyncDataClient {
   @override
   Future<BaseResponse> getTicketProducts(
     String accessToken,
-    dynamic routeId,
+    int? routeId,
   ) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'routeId': routeId.toJson()};
+    final queryParameters = <String, dynamic>{r'routeId': routeId};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{r'Authorization': accessToken};
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;

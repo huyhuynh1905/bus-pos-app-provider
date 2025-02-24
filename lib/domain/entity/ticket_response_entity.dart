@@ -1,3 +1,4 @@
+import 'package:bus_pos_app/domain/entity/ticket_product_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'ticket_response_entity.g.dart';
@@ -5,7 +6,7 @@ part 'ticket_response_entity.g.dart';
 @JsonSerializable()
 class TicketResponseEntity {
 
-  List<TicketResponseEntity>? ticketProducts;
+  List<TicketProductEntity>? ticketProducts;
 
   TicketResponseEntity({
     this.ticketProducts,

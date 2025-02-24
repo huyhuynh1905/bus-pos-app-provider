@@ -13,6 +13,11 @@ class ShiftSchedulerObjectbox {
     _box.putMany(schedulers);
   }
 
+  List<ShiftSchedulerEntity> getAll(){
+    final list = _box.getAll();
+    return list;
+  }
+
   clearAllData(){
     _box.removeAll();
   }

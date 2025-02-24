@@ -2,8 +2,11 @@ import 'package:bus_pos_app/core/common/app_provider.dart';
 import 'package:bus_pos_app/data/local/objectbox/bus_stop_objectbox.dart';
 import 'package:bus_pos_app/data/local/objectbox/gen/objectbox.g.dart';
 import 'package:bus_pos_app/data/local/objectbox/objectbox_db.dart';
+import 'package:bus_pos_app/data/local/objectbox/pos_para_objectbox.dart';
 import 'package:bus_pos_app/data/local/objectbox/route_objectbox.dart';
 import 'package:bus_pos_app/data/local/objectbox/shift_scheduler_objectbox.dart';
+import 'package:bus_pos_app/data/local/objectbox/summary_scheduler_objectbox.dart';
+import 'package:bus_pos_app/data/local/objectbox/ticket_product_objectbox.dart';
 import 'package:bus_pos_app/data/local/prefs_crypt.dart';
 import 'package:bus_pos_app/data/local/prefs_shared.dart';
 import 'package:bus_pos_app/data/remote/api_auth/api_authentication.dart';
@@ -61,6 +64,9 @@ setupLocator() async {
   getIt.registerLazySingleton<BusStopObjectbox>(() => BusStopObjectbox(getIt()));
   getIt.registerLazySingleton<RouteObjectbox>(() => RouteObjectbox(getIt()));
   getIt.registerLazySingleton<ShiftSchedulerObjectbox>(() => ShiftSchedulerObjectbox(getIt()));
+  getIt.registerLazySingleton<SummarySchedulerObjectbox>(() => SummarySchedulerObjectbox(getIt()));
+  getIt.registerLazySingleton<TicketProductObjectbox>(() => TicketProductObjectbox(getIt()));
+  getIt.registerLazySingleton<PosParaObjectbox>(() => PosParaObjectbox(getIt()));
 
   //api-dio
   getIt.registerLazySingleton<AppDio>(() => AppDio());
