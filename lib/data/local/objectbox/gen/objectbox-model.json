@@ -1,0 +1,329 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:5572128848681833480",
+      "lastPropertyId": "14:826441043104099918",
+      "name": "BusStopEntity",
+      "properties": [
+        {
+          "id": "1:7502656264110792574",
+          "name": "routeId",
+          "type": 6
+        },
+        {
+          "id": "2:9178572205151682886",
+          "name": "nameZh",
+          "type": 9
+        },
+        {
+          "id": "3:5920027045941040366",
+          "name": "seqNo",
+          "type": 6
+        },
+        {
+          "id": "4:1721754923174897771",
+          "name": "pgp",
+          "type": 9
+        },
+        {
+          "id": "5:9098297286530728226",
+          "name": "terminal",
+          "type": 9
+        },
+        {
+          "id": "6:8299772259802828037",
+          "name": "districtId",
+          "type": 9
+        },
+        {
+          "id": "7:5422886127877195881",
+          "name": "goBack",
+          "type": 6
+        },
+        {
+          "id": "8:2417663915337966802",
+          "name": "latitude",
+          "type": 8
+        },
+        {
+          "id": "9:2766240152690838411",
+          "name": "longitude",
+          "type": 8
+        },
+        {
+          "id": "10:5460086687114773545",
+          "name": "extVoiceNo",
+          "type": 9
+        },
+        {
+          "id": "11:8838309262769320771",
+          "name": "sid",
+          "type": 6
+        },
+        {
+          "id": "12:5214863171479129451",
+          "name": "ivrNo",
+          "type": 6
+        },
+        {
+          "id": "13:2537072939772868923",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "14:826441043104099918",
+          "name": "totalCount",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:2569887251157679718",
+      "lastPropertyId": "13:6043528938377256168",
+      "name": "RouteEntity",
+      "properties": [
+        {
+          "id": "1:7532857241196733518",
+          "name": "providerId",
+          "type": 9
+        },
+        {
+          "id": "2:119363813908261140",
+          "name": "nameZh",
+          "type": 9
+        },
+        {
+          "id": "3:8891546646709796469",
+          "name": "dDesc",
+          "type": 9
+        },
+        {
+          "id": "4:746594723454022955",
+          "name": "departureZh",
+          "type": 9
+        },
+        {
+          "id": "5:5064768558006940122",
+          "name": "destinationZh",
+          "type": 9
+        },
+        {
+          "id": "6:8350235889217165158",
+          "name": "gxCode",
+          "type": 9
+        },
+        {
+          "id": "7:2217738039845126627",
+          "name": "routeMapImageUrl",
+          "type": 9
+        },
+        {
+          "id": "8:8622005669186621042",
+          "name": "timeScheduleUrlWeight",
+          "type": 9
+        },
+        {
+          "id": "9:2580489037864886376",
+          "name": "opType",
+          "type": 9
+        },
+        {
+          "id": "10:3868659097779025202",
+          "name": "code",
+          "type": 9
+        },
+        {
+          "id": "11:5932857752051927685",
+          "name": "cyberRouteId",
+          "type": 9
+        },
+        {
+          "id": "12:2239653709686965983",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "13:6043528938377256168",
+          "name": "totalCount",
+          "type": 6
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:1924459827300972020",
+      "lastPropertyId": "11:1323221477275705175",
+      "name": "ShiftSchedulerEntity",
+      "properties": [
+        {
+          "id": "1:5741673132365121226",
+          "name": "localId",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:2696365307964522846",
+          "name": "id",
+          "type": 6
+        },
+        {
+          "id": "3:8738919055348533507",
+          "name": "carId",
+          "type": 9
+        },
+        {
+          "id": "4:9218630403460715253",
+          "name": "driverLicense",
+          "type": 9
+        },
+        {
+          "id": "5:3177005099359972245",
+          "name": "goBack",
+          "type": 9
+        },
+        {
+          "id": "6:6068919957852086896",
+          "name": "routeId",
+          "type": 6
+        },
+        {
+          "id": "7:787508785241717215",
+          "name": "scheduleId",
+          "type": 9
+        },
+        {
+          "id": "8:6371051745682202967",
+          "name": "routeCode",
+          "type": 9
+        },
+        {
+          "id": "9:4612036304261981259",
+          "name": "scheduleTime",
+          "type": 9
+        },
+        {
+          "id": "10:652399805691881137",
+          "name": "sellerIdCard",
+          "type": 9
+        },
+        {
+          "id": "11:1323221477275705175",
+          "name": "node",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "4:1578075682486477185",
+      "lastPropertyId": "17:2176824896778438592",
+      "name": "SummaryScheduleEntity",
+      "properties": [
+        {
+          "id": "1:6318944593589912135",
+          "name": "ticketId",
+          "type": 6
+        },
+        {
+          "id": "2:8998123038499798962",
+          "name": "routeId",
+          "type": 6
+        },
+        {
+          "id": "3:9180853443020133973",
+          "name": "scheduleId",
+          "type": 9
+        },
+        {
+          "id": "4:1345480814976546136",
+          "name": "serialTo",
+          "type": 6
+        },
+        {
+          "id": "5:806541167783526618",
+          "name": "totalAmount",
+          "type": 6
+        },
+        {
+          "id": "6:2017557280730257295",
+          "name": "totalQuantity",
+          "type": 6
+        },
+        {
+          "id": "7:8197598392268099461",
+          "name": "goBack",
+          "type": 6
+        },
+        {
+          "id": "8:5841280878880209792",
+          "name": "carId",
+          "type": 9
+        },
+        {
+          "id": "9:1638802726541848330",
+          "name": "driverLicense",
+          "type": 9
+        },
+        {
+          "id": "10:1858545303148273685",
+          "name": "scheduleTime",
+          "type": 10
+        },
+        {
+          "id": "11:8172272902089595553",
+          "name": "node",
+          "type": 9
+        },
+        {
+          "id": "12:7602120046850238046",
+          "name": "sellerIdCard",
+          "type": 9
+        },
+        {
+          "id": "13:480393348967547019",
+          "name": "isSync",
+          "type": 6
+        },
+        {
+          "id": "14:2526891488446740895",
+          "name": "syncDate",
+          "type": 10
+        },
+        {
+          "id": "15:8186337082386453644",
+          "name": "shiftSchedulerId",
+          "type": 6
+        },
+        {
+          "id": "16:7818390062268395652",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "17:2176824896778438592",
+          "name": "totalCount",
+          "type": 6
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "4:1578075682486477185",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}

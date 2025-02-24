@@ -55,6 +55,9 @@ dependencies:
 
   #Utils
   flutter_secure_storage: ^9.2.4
+  path_provider: ^2.1.5
+  objectbox: ^4.1.0
+  objectbox_flutter_libs: any
 
 
 dev_dependencies:
@@ -66,6 +69,7 @@ dev_dependencies:
   json_serializable: ^6.8.0
   flutter_gen_runner:
   change_app_package_name: ^1.4.0
+  objectbox_generator: any
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -141,3 +145,11 @@ flutter_gen:
     flutter_svg: true
     lottie: true
     image: true
+
+
+objectbox:
+  # Writes objectbox-model.json and objectbox.g.dart to lib/custom (and test/custom).
+#  output_dir: data/local/objectbox/gen
+  # Or optionally specify the lib and test output folder separately.
+  output_dir:
+     lib: data/local/objectbox/gen

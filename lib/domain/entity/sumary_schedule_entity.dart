@@ -1,8 +1,10 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:objectbox/objectbox.dart';
 
 part 'sumary_schedule_entity.g.dart';
 
 @JsonSerializable()
+@Entity()
 class SummaryScheduleEntity {
 
   int? ticketId;
@@ -20,6 +22,7 @@ class SummaryScheduleEntity {
   int? isSync;
   DateTime? syncDate;
   int? shiftSchedulerId;
+  @Id()
   int? id;
   int? totalCount;
 

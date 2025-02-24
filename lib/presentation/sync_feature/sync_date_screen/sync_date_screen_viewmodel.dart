@@ -12,6 +12,9 @@ class SyncDateViewModel extends BaseViewModel{
   bool isCanNext = true;
 
   final _syncUseCase = getIt<SyncDataUseCase>();
+
+
+
   List<ShiftSchedulerEntity> shifSchedulers = [];
   List<ShiftSchedulerEntity> uniqueShiftSchedules = [];
 
@@ -28,6 +31,10 @@ class SyncDateViewModel extends BaseViewModel{
   
   @override
   init() async {
+    //xoá data trước
+    db.resetDataSync();
+
+    //
     _startSyncData();
   }
 
@@ -64,6 +71,8 @@ class SyncDateViewModel extends BaseViewModel{
       if(result.dataState?.isNotEmpty==true){
         _updateStatusByType(ItemSyncEntity.typeScheduler, ItemSyncEntity.statusDone);
         shifSchedulers = result.dataState??[];
+        //insert db
+        db.schedulerBox.insertShiftSchedulers(shifSchedulers);
         _convertList(shifSchedulers);
         //chạy list item chưa sync
         _syncRouteInfo();
@@ -80,9 +89,14 @@ class SyncDateViewModel extends BaseViewModel{
     for (var e in uniqueShiftSchedules.toList()) {
       final result = await _syncUseCase.getRouteInfo(e.routeId, e.node);
       if(result is DataSuccess && result.dataState!=null) {
-        final route = result.dataState?.route;
+        final routes = result.dataState?.route;
         final busStops = result.dataState?.busStops;
         final summarySchedules = result.dataState?.summarySchedules;
+        //insert
+        db.routeBox.insertRoute(routes);
+        db.busStopBox.insertBusStops(busStops??[]);
+        db.summarySchedulersBox.insertSummarySchedules(summarySchedules??[]);
+
         uniqueShiftSchedules.remove(e);
       } else {
         break;

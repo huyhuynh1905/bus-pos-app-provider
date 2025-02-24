@@ -1,12 +1,14 @@
-import 'package:bus_pos_app/domain/entity/company_info_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:objectbox/objectbox.dart';
 
 part 'shift_scheduler_entity.g.dart';
 
 @JsonSerializable()
+@Entity()
 class ShiftSchedulerEntity {
 
   @JsonKey(name: 'localId')
+  @Id()
   int? localId;
 
   @JsonKey(name: 'id')

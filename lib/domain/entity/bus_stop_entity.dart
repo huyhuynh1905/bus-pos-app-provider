@@ -1,8 +1,10 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:objectbox/objectbox.dart';
 
 part 'bus_stop_entity.g.dart';
 
 @JsonSerializable()
+@Entity()
 class BusStopEntity {
 
   int? routeId;
@@ -17,6 +19,7 @@ class BusStopEntity {
   String? extVoiceNo;
   int? sid;
   int? ivrNo;
+  @Id()
   int? id;
   int? totalCount;
 

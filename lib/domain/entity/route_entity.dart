@@ -1,8 +1,10 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:objectbox/objectbox.dart';
 
 part 'route_entity.g.dart';
 
 @JsonSerializable()
+@Entity()
 class RouteEntity {
 
   String? providerId;
@@ -16,6 +18,7 @@ class RouteEntity {
   String? opType;
   String? code;
   String? cyberRouteId;
+  @Id()
   int? id;
   int? totalCount;
 

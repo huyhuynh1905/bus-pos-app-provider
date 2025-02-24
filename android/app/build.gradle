@@ -69,6 +69,8 @@ android {
             resValue "string", "app_name", "Vinbus Dev"
         }
     }
+
+    ndkVersion = "25.1.8937393"
 }
 
 flutter {
