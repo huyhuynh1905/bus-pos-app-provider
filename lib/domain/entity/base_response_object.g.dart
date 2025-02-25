@@ -6,14 +6,15 @@ part of 'base_response_object.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-BaseResponse _$BaseResponseFromJson(Map<String, dynamic> json) => BaseResponse(
+BaseResponseObj _$BaseResponseObjFromJson(Map<String, dynamic> json) =>
+    BaseResponseObj(
       json['success'] as bool?,
       json['data'] as Map<String, dynamic>?,
       (json['messages'] as List<dynamic>?)?.map((e) => e as String).toList(),
       json['typeCard'] as String?,
     );
 
-Map<String, dynamic> _$BaseResponseToJson(BaseResponse instance) =>
+Map<String, dynamic> _$BaseResponseObjToJson(BaseResponseObj instance) =>
     <String, dynamic>{
       'success': instance.success,
       'data': instance.data,

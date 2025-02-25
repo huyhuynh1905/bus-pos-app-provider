@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:bus_pos_app/data/local/prefs_crypt.dart';
-import 'package:bus_pos_app/data/local/prefs_shared.dart';
-import 'package:bus_pos_app/data/local/prefs_shared_key.dart';
+import 'package:bus_pos_app/data/local/storage_shared/prefs_crypt.dart';
+import 'package:bus_pos_app/data/local/storage_shared/prefs_shared.dart';
+import 'package:bus_pos_app/data/local/storage_shared/prefs_shared_key.dart';
 import 'package:bus_pos_app/di/locator.dart';
 import 'package:bus_pos_app/domain/entity/authenticate.dart';
 import 'package:bus_pos_app/domain/entity/device_info.dart';

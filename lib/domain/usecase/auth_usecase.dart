@@ -6,6 +6,6 @@ import 'package:bus_pos_app/domain/repository/auth_repository.dart';
 
 class AuthUseCase {
   final _authRepo = getIt.get<AuthRepository>();
-  Future<DataState<BaseResponse>> loginAccount(String username, String password) => _authRepo.loginAccount(username, password);
+  Future<DataState<BaseResponseObj>> loginAccount(String username, String password) => _authRepo.loginAccount(username, password);
   Future<DataState<AccountInfoEntity>> getAccountInfo() => _authRepo.getAccountInfo();
 }

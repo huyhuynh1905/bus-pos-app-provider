@@ -1,4 +1,4 @@
-import 'package:bus_pos_app/data/local/prefs_shared_key.dart';
+import 'package:bus_pos_app/data/local/storage_shared/prefs_shared_key.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PrefsShared {

@@ -12,5 +12,5 @@ abstract class APIPaymentClient {
   factory APIPaymentClient(PaymentDio dio) = _APIPaymentClient;
 
   @POST(ApiSubLink.pathCheckShinhan)
-  Future<BaseResponse> checkFieldShinhan(@Header(Constants.fieldAuthorization) token, @Body() Map<String, dynamic> map);
+  Future<BaseResponseObj> checkFieldShinhan(@Header(Constants.fieldAuthorization) token, @Body() Map<String, dynamic> map);
 }

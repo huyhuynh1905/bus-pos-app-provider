@@ -13,8 +13,8 @@ abstract class APIAuthentication {
   factory APIAuthentication(AppDio dio) = _APIAuthentication;
 
   @POST(ApiSubLink.pathLogin)
-  Future<BaseResponse> authAccount(@Body() Map<String, dynamic> map);
+  Future<BaseResponseObj> authAccount(@Body() Map<String, dynamic> map);
 
   @GET(ApiSubLink.pathAccountInfo)
-  Future<BaseResponse> getAccountInfo(@Header(Constants.fieldAuthorization) String accessToken);
+  Future<BaseResponseObj> getAccountInfo(@Header(Constants.fieldAuthorization) String accessToken);
 }

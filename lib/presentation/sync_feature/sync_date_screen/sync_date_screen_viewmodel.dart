@@ -1,5 +1,6 @@
 import 'package:bus_pos_app/core/base/base_view_model.dart';
 import 'package:bus_pos_app/core/base_handler/base_data_state.dart';
+import 'package:bus_pos_app/data/local/files/files_db.dart';
 import 'package:bus_pos_app/di/locator.dart';
 import 'package:bus_pos_app/domain/entity/bus_stop_entity.dart';
 import 'package:bus_pos_app/domain/entity/route_entity.dart';
@@ -16,6 +17,7 @@ class SyncDateViewModel extends BaseViewModel{
   bool isCanNext = true;
 
   final _syncUseCase = getIt<SyncDataUseCase>();
+  final _fileDb = getIt<FilesDB>();
 
 
 
@@ -63,15 +65,19 @@ class SyncDateViewModel extends BaseViewModel{
         _syncTicketProduct();
         break;
       case ItemSyncEntity.typeLockAtm:
+        _syncTodayBlackATM();
         break;
       case ItemSyncEntity.typeLockAllAtm:
+        _syncAllBlackATM();
         break;
       case ItemSyncEntity.typeObjMonth:
+        _syncObjectTypeMonthCard();
         break;
       case ItemSyncEntity.typeInfoPOS:
         _syncPosPara();
         break;
       case ItemSyncEntity.typeMonthCard:
+        _syncAllWhiteMonthCard();
         break;
     }
   }
@@ -140,8 +146,10 @@ class SyncDateViewModel extends BaseViewModel{
 
   _syncTicketProduct() async {
     List<TicketProductEntity> ticketList = [];
+    List<ShiftSchedulerEntity> forTicket = [];
+    forTicket.addAll(uniqueShiftSchedulesForTicket);
 
-    for (var e in uniqueShiftSchedulesForTicket.toList()) {
+    for (var e in forTicket.toList()) {
       final result = await _syncUseCase.getTicketProduct(e.routeId);
       if(result is DataSuccess && result.dataState!=null) {
         final tickets = result.dataState?.ticketProducts??[];
@@ -149,12 +157,12 @@ class SyncDateViewModel extends BaseViewModel{
           ticket.routeId = e.routeId ?? 0;
           ticketList.add(ticket);
         }
-        uniqueShiftSchedulesForTicket.remove(e);
+        forTicket.remove(e);
       } else {
         break;
       }
     }
-    if(uniqueShiftSchedulesForTicket.isEmpty){
+    if(forTicket.isEmpty){
       //insert
       db.ticketProductBox.insertTicketProducts(ticketList);
       _updateStatusByType(ItemSyncEntity.typeTicket, ItemSyncEntity.statusDone);
@@ -174,6 +182,69 @@ class SyncDateViewModel extends BaseViewModel{
       _updateStatusByType(ItemSyncEntity.typeInfoPOS, ItemSyncEntity.statusDone);
     } else {
       _updateStatusByType(ItemSyncEntity.typeInfoPOS, ItemSyncEntity.statusFailed);
+    }
+  }
+
+  _syncObjectTypeMonthCard() async {
+    final result = await _syncUseCase.getObjectTypeMonthCard();
+    if(result is DataSuccess){
+      if(result.dataState?.isNotEmpty==true){
+        final objectTypeMonths = result.dataState??[];
+        //insert
+        db.objectTypeMonthBox.insertObjectTypeMonth(objectTypeMonths);
+      }
+      _updateStatusByType(ItemSyncEntity.typeObjMonth, ItemSyncEntity.statusDone);
+    } else {
+      _updateStatusByType(ItemSyncEntity.typeObjMonth, ItemSyncEntity.statusFailed);
+    }
+  }
+
+  _syncAllWhiteMonthCard() async {
+    List<ShiftSchedulerEntity> forMonthCard = [];
+    forMonthCard.addAll(uniqueShiftSchedulesForTicket);
+    String alldata = "";
+
+    for (var e in forMonthCard.toList()) {
+      final result = await _syncUseCase.getAllWhiteListMonthCard(e.routeId);
+      if(result is DataSuccess) {
+        final data = result.dataState??"";
+        alldata+=",$data";
+        forMonthCard.remove(e);
+      } else {
+        break;
+      }
+    }
+    if(forMonthCard.isEmpty){
+      //insert
+      _fileDb.saveAllWhiteListMonthCard(alldata);
+
+      _updateStatusByType(ItemSyncEntity.typeMonthCard, ItemSyncEntity.statusDone);
+    } else {
+      _updateStatusByType(ItemSyncEntity.typeMonthCard, ItemSyncEntity.statusFailed);
+    }
+
+
+  }
+
+  _syncAllBlackATM() async {
+    final result = await _syncUseCase.getAllBlackATM();
+    if(result is DataSuccess){
+      final data = result.dataState??"";
+      _fileDb.saveAllBlackATM(data);
+      _updateStatusByType(ItemSyncEntity.typeLockAllAtm, ItemSyncEntity.statusDone);
+    } else {
+      _updateStatusByType(ItemSyncEntity.typeLockAllAtm, ItemSyncEntity.statusFailed);
+    }
+  }
+
+  _syncTodayBlackATM() async {
+    final result = await _syncUseCase.getTodayBlackATM();
+    if(result is DataSuccess){
+      final data = result.dataState??"";
+      _fileDb.saveTodayBlackATM(data);
+      _updateStatusByType(ItemSyncEntity.typeLockAtm, ItemSyncEntity.statusDone);
+    } else {
+      _updateStatusByType(ItemSyncEntity.typeLockAtm, ItemSyncEntity.statusFailed);
     }
   }
 
@@ -223,7 +294,7 @@ class SyncDateViewModel extends BaseViewModel{
   }
 
   _checkAllDone(){
-    isCanNext = !(listSync.any((e)=>e.status!=ItemSyncEntity.statusDone));
+    isCanNext = (listSync.any((e)=>e.status!=ItemSyncEntity.statusDone));
     notifyListeners();
   }
 

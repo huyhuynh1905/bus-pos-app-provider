@@ -22,13 +22,13 @@ class _APIAuthentication implements APIAuthentication {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<BaseResponse> authAccount(Map<String, dynamic> map) async {
+  Future<BaseResponseObj> authAccount(Map<String, dynamic> map) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(map);
-    final _options = _setStreamType<BaseResponse>(Options(
+    final _options = _setStreamType<BaseResponseObj>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -45,9 +45,9 @@ class _APIAuthentication implements APIAuthentication {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late BaseResponse _value;
+    late BaseResponseObj _value;
     try {
-      _value = BaseResponse.fromJson(_result.data!);
+      _value = BaseResponseObj.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -56,13 +56,13 @@ class _APIAuthentication implements APIAuthentication {
   }
 
   @override
-  Future<BaseResponse> getAccountInfo(String accessToken) async {
+  Future<BaseResponseObj> getAccountInfo(String accessToken) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Authorization': accessToken};
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<BaseResponse>(Options(
+    final _options = _setStreamType<BaseResponseObj>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -79,9 +79,9 @@ class _APIAuthentication implements APIAuthentication {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late BaseResponse _value;
+    late BaseResponseObj _value;
     try {
-      _value = BaseResponse.fromJson(_result.data!);
+      _value = BaseResponseObj.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

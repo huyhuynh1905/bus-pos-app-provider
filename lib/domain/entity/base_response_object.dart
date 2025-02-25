@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'base_response_object.g.dart';
 
 @JsonSerializable()
-class BaseResponse {
+class BaseResponseObj {
   @JsonKey(name: 'success')
   bool? success;
 
@@ -16,9 +16,9 @@ class BaseResponse {
   @JsonKey(name: 'typeCard')
   String? typeCard;
 
-  BaseResponse._();
+  BaseResponseObj._();
 
-  BaseResponse(this.success, this.data, this.errors, this.typeCard);
+  BaseResponseObj(this.success, this.data, this.errors, this.typeCard);
 
-  factory BaseResponse.fromJson(Map<String, dynamic> json) => _$BaseResponseFromJson(json);
+  factory BaseResponseObj.fromJson(Map<String, dynamic> json) => _$BaseResponseObjFromJson(json);
 }

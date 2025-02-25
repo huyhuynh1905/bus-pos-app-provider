@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:bus_pos_app/data/local/prefs_shared_key.dart';
+import 'package:bus_pos_app/data/local/storage_shared/prefs_shared_key.dart';
 import 'package:bus_pos_app/domain/entity/account_info_entity.dart';
 import 'package:bus_pos_app/domain/entity/company_info_entity.dart';
 import 'package:bus_pos_app/domain/entity/shift_scheduler_entity.dart';

@@ -18,7 +18,7 @@ class AuthRepositoryImpl extends AuthRepository{
   final utils = getIt<Utils>();
 
   @override
-  Future<DataState<BaseResponse>> loginAccount(String username, String password) async {
+  Future<DataState<BaseResponseObj>> loginAccount(String username, String password) async {
     try {
       final map = {
         Constants.fieldUsername:username,

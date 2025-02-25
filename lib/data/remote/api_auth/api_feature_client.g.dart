@@ -22,7 +22,7 @@ class _APIPaymentClient implements APIPaymentClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<BaseResponse> checkFieldShinhan(
+  Future<BaseResponseObj> checkFieldShinhan(
     dynamic token,
     Map<String, dynamic> map,
   ) async {
@@ -32,7 +32,7 @@ class _APIPaymentClient implements APIPaymentClient {
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     _data.addAll(map);
-    final _options = _setStreamType<BaseResponse>(Options(
+    final _options = _setStreamType<BaseResponseObj>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -49,9 +49,9 @@ class _APIPaymentClient implements APIPaymentClient {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late BaseResponse _value;
+    late BaseResponseObj _value;
     try {
-      _value = BaseResponse.fromJson(_result.data!);
+      _value = BaseResponseObj.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

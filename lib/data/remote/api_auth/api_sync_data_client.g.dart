@@ -60,7 +60,7 @@ class _APISyncDataClient implements APISyncDataClient {
   }
 
   @override
-  Future<BaseResponse> getRouteInfo(
+  Future<BaseResponseObj> getRouteInfo(
     String accessToken,
     Map<String, dynamic> map,
   ) async {
@@ -70,7 +70,7 @@ class _APISyncDataClient implements APISyncDataClient {
     _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     _data.addAll(map);
-    final _options = _setStreamType<BaseResponse>(Options(
+    final _options = _setStreamType<BaseResponseObj>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -87,9 +87,9 @@ class _APISyncDataClient implements APISyncDataClient {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late BaseResponse _value;
+    late BaseResponseObj _value;
     try {
-      _value = BaseResponse.fromJson(_result.data!);
+      _value = BaseResponseObj.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -98,7 +98,7 @@ class _APISyncDataClient implements APISyncDataClient {
   }
 
   @override
-  Future<BaseResponse> getTicketProducts(
+  Future<BaseResponseObj> getTicketProducts(
     String accessToken,
     int? routeId,
   ) async {
@@ -108,7 +108,7 @@ class _APISyncDataClient implements APISyncDataClient {
     final _headers = <String, dynamic>{r'Authorization': accessToken};
     _headers.removeWhere((k, v) => v == null);
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<BaseResponse>(Options(
+    final _options = _setStreamType<BaseResponseObj>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -125,9 +125,9 @@ class _APISyncDataClient implements APISyncDataClient {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late BaseResponse _value;
+    late BaseResponseObj _value;
     try {
-      _value = BaseResponse.fromJson(_result.data!);
+      _value = BaseResponseObj.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -162,6 +162,146 @@ class _APISyncDataClient implements APISyncDataClient {
     late BaseResponseList _value;
     try {
       _value = BaseResponseList.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<BaseResponseList> getObjectTypeMonthCard(String accessToken) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': accessToken};
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<BaseResponseList>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/pos/v1/businesssetting/object-type',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late BaseResponseList _value;
+    try {
+      _value = BaseResponseList.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<BaseResponsePrimitive<String?>> downloadAllWhiteMonthCard(
+    String accessToken,
+    int? routeId,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{r'Authorization': accessToken};
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<BaseResponsePrimitive<String?>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/pos/v1/monthcard/getwhitelist/${routeId}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late BaseResponsePrimitive<String?> _value;
+    try {
+      _value = BaseResponsePrimitive<String?>.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<String?> downloadAllBlackATM(String accessToken) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': accessToken};
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<String>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/pos/v1/blacklistcard/getblacklistfile',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<String>(_options);
+    late String? _value;
+    try {
+      _value = _result.data;
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<String?> downloadTodayBlackATM(String accessToken) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Authorization': accessToken};
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<String>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/pos/v1/blacklistcard/getblacklistfileadd',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<String>(_options);
+    late String? _value;
+    try {
+      _value = _result.data;
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

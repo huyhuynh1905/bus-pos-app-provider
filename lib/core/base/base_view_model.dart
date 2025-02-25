@@ -1,6 +1,6 @@
 import 'package:bus_pos_app/data/local/objectbox/objectbox_db.dart';
-import 'package:bus_pos_app/data/local/prefs_crypt.dart';
-import 'package:bus_pos_app/data/local/prefs_shared.dart';
+import 'package:bus_pos_app/data/local/storage_shared/prefs_crypt.dart';
+import 'package:bus_pos_app/data/local/storage_shared/prefs_shared.dart';
 import 'package:bus_pos_app/di/locator.dart';
 import 'package:bus_pos_app/shared/routers/navigation_services.dart';
 import 'package:bus_pos_app/shared/utils/utils.dart';
