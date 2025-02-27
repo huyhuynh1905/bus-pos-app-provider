@@ -9,6 +9,7 @@ class Constants{
 
   //field:
   static const String fieldAuthorization = "Authorization";
+  static const String fieldTOKEN = "TOKEN";
   static const String fieldBearer = "Bearer ";
   static const String fieldUsername = "username";
   static const String fieldPassword = "password";
@@ -19,8 +20,12 @@ class Constants{
   static const String fieldOS = "osMobile";
   static const String fieldAppVersion = "appVersion";
   static const String fieldDomain = "domain";
+  static const String systemType = "SYSTEM_TYPE";
   static const String sellerIdCard = "sellerIdCard";
   static const String scheduleId = "scheduleId";
+  static const String shiftSchedulerId = "shiftSchedulerId";
+  static const String goBack = "goBack";
+  static const String syncDate = "syncDate";
   static const String scheduleTime = "scheduleTime";
   static const String sessionToken = "sessionToken";
   static const String routeId = "routeId";
@@ -39,4 +44,10 @@ class LocaleConstants {
 class ApiAuthorization {
   // static String authorization =
   //     'Bearer ${APIManagerBackend().getAcceptToken()}';
+}
+
+class TypeSyncDataLog{
+  static const startScheduler = "START_SCHEDULER"; //bắt đầu ca
+  static const endScheduler = "END_SCHEDULER"; //kết ca
+  static const endRoute = "END_ROUTE"; //kết lượt
 }

@@ -1,5 +1,6 @@
 import 'package:bus_pos_app/core/base_handler/base_data_state.dart';
 import 'package:bus_pos_app/domain/entity/account_info_entity.dart';
+import 'package:bus_pos_app/domain/entity/bank_info_entity.dart';
 import 'package:bus_pos_app/domain/entity/base_response_object.dart';
 import 'package:bus_pos_app/domain/entity/object_type_month_entity.dart';
 import 'package:bus_pos_app/domain/entity/pos_para_entity.dart';
@@ -16,4 +17,7 @@ abstract class SyncDataRepository{
   Future<DataState<String?>> getAllWhiteListMonthCard(int? routeId);
   Future<DataState<String?>> getAllBlackATM();
   Future<DataState<String?>> getTodayBlackATM();
+  Future<DataState<dynamic>> requestDataLog(ShiftSchedulerEntity? shiftScheduler, String syncDate, String typeSync);
+  Future<DataState<List<BankInfoEntity>>> getListBankInfos();
+  Future<DataState<String?>> requestPublicKey();
 }

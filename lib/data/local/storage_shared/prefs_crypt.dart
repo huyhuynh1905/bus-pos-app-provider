@@ -53,6 +53,16 @@ class PrefsCrypt {
     await _secureStorage.write(key: PrefsSharedKey.keyCurrentScheduler, value: schedulerStr);
   }
 
+
+  Future<String> getPublicKey() async {
+    final key = await _secureStorage.read(key: PrefsSharedKey.keyPublicKey);
+    return key??"";
+  }
+
+  savePublicKey(String key) async {
+    await _secureStorage.write(key: PrefsSharedKey.keyPublicKey, value: key);
+  }
+
   Future<void> deleteAll() async {
     await _secureStorage.deleteAll();
   }

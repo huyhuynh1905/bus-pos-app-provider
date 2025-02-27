@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'api_feature_client.dart';
+part of 'api_payment_client.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -22,24 +22,66 @@ class _APIPaymentClient implements APIPaymentClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<BaseResponseObj> checkFieldShinhan(
+  Future<String?> requestPublicKey(
     dynamic token,
-    Map<String, dynamic> map,
+    dynamic type,
   ) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Authorization': token};
+    final _headers = <String, dynamic>{
+      r'TOKEN': token,
+      r'SYSTEM_TYPE': type,
+    };
     _headers.removeWhere((k, v) => v == null);
-    final _data = <String, dynamic>{};
-    _data.addAll(map);
-    final _options = _setStreamType<BaseResponseObj>(Options(
-      method: 'POST',
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<String>(Options(
+      method: 'GET',
       headers: _headers,
       extra: _extra,
     )
         .compose(
           _dio.options,
-          '/api/v2/setting/app',
+          '/api/v1/vinbusservices/integration/JWE/GetPublicKey',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<String>(_options);
+    late String? _value;
+    try {
+      _value = _result.data;
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<BaseResponseList> requestBankInfo(
+    dynamic token,
+    dynamic type,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{
+      r'TOKEN': token,
+      r'SYSTEM_TYPE': type,
+    };
+    _headers.removeWhere((k, v) => v == null);
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<BaseResponseList>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/v1/vinbusservices/integration/GetBankBinInfor',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -49,9 +91,9 @@ class _APIPaymentClient implements APIPaymentClient {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late BaseResponseObj _value;
+    late BaseResponseList _value;
     try {
-      _value = BaseResponseObj.fromJson(_result.data!);
+      _value = BaseResponseList.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

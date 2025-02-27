@@ -349,6 +349,26 @@ class S {
   String get settings {
     return Intl.message('Settings', name: 'settings', desc: '', args: []);
   }
+
+  /// `There was a problem retrieving the key.`
+  String get publickey_error {
+    return Intl.message(
+      'There was a problem retrieving the key.',
+      name: 'publickey_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There was a problem retrieving Napas bank information.`
+  String get bank_info_error {
+    return Intl.message(
+      'There was a problem retrieving Napas bank information.',
+      name: 'bank_info_error',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

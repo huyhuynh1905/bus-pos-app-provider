@@ -1,6 +1,7 @@
 import 'package:bus_pos_app/core/common/app_provider.dart';
 import 'package:bus_pos_app/data/local/files/files_db.dart';
 import 'package:bus_pos_app/data/local/files/files_storage.dart';
+import 'package:bus_pos_app/data/local/objectbox/bank_info_objectbox.dart';
 import 'package:bus_pos_app/data/local/objectbox/bus_stop_objectbox.dart';
 import 'package:bus_pos_app/data/local/objectbox/gen/objectbox.g.dart';
 import 'package:bus_pos_app/data/local/objectbox/object_type_month_card_objectbox.dart';
@@ -13,7 +14,7 @@ import 'package:bus_pos_app/data/local/objectbox/ticket_product_objectbox.dart';
 import 'package:bus_pos_app/data/local/storage_shared/prefs_crypt.dart';
 import 'package:bus_pos_app/data/local/storage_shared/prefs_shared.dart';
 import 'package:bus_pos_app/data/remote/api_auth/api_authentication.dart';
-import 'package:bus_pos_app/data/remote/api_auth/api_feature_client.dart';
+import 'package:bus_pos_app/data/remote/api_auth/api_payment_client.dart';
 import 'package:bus_pos_app/data/remote/api_auth/api_sync_data_client.dart';
 import 'package:bus_pos_app/data/remote/app_dio_api.dart';
 import 'package:bus_pos_app/data/remote/payment_dio_api.dart';
@@ -24,6 +25,7 @@ import 'package:bus_pos_app/domain/repository/sync_data_repository.dart';
 import 'package:bus_pos_app/domain/usecase/auth_usecase.dart';
 import 'package:bus_pos_app/domain/usecase/sync_data_usecase.dart';
 import 'package:bus_pos_app/presentation/guidle_feature/sample_component_viewmodel.dart';
+import 'package:bus_pos_app/presentation/main_feature/home_screen/home_screen_viewmodel.dart';
 import 'package:bus_pos_app/presentation/main_feature/settings_screen/settings_screen_viewmodel.dart';
 import 'package:bus_pos_app/presentation/onboard_feature/login_screen/login_viewmodel.dart';
 import 'package:bus_pos_app/presentation/onboard_feature/splash_screen/splash_viewmodel.dart';
@@ -71,6 +73,7 @@ setupLocator() async {
   getIt.registerLazySingleton<TicketProductObjectbox>(() => TicketProductObjectbox(getIt()));
   getIt.registerLazySingleton<PosParaObjectbox>(() => PosParaObjectbox(getIt()));
   getIt.registerLazySingleton<ObjectTypeMonthCardObjectbox>(() => ObjectTypeMonthCardObjectbox(getIt()));
+  getIt.registerLazySingleton<BankInfoObjectbox>(() => BankInfoObjectbox(getIt()));
 
   //file
   getIt.registerLazySingleton<FilesStorage>(() => FilesStorage());
@@ -100,4 +103,5 @@ setupLocator() async {
   getIt.registerFactory(() => LoginViewModel());
   getIt.registerFactory(() => SyncDateViewModel());
   getIt.registerFactory(() => SettingsScreenViewModel());
+  getIt.registerLazySingleton(() => HomeScreenViewModel());
 }

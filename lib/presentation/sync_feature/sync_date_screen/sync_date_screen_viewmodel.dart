@@ -10,6 +10,11 @@ import 'package:bus_pos_app/domain/entity/support_ui/item_sync_entity.dart';
 import 'package:bus_pos_app/domain/entity/ticket_product_entity.dart';
 import 'package:bus_pos_app/domain/usecase/sync_data_usecase.dart';
 import 'package:bus_pos_app/generated/l10n.dart';
+import 'package:bus_pos_app/shared/components/dialog_and_popup/show_popup_service.dart';
+import 'package:bus_pos_app/shared/res/strings.dart';
+import 'package:bus_pos_app/shared/routers/navigation_services.dart';
+import 'package:bus_pos_app/shared/routers/router_constant.dart';
+import 'package:bus_pos_app/shared/utils/common.dart';
 import 'package:bus_pos_app/shared/utils/date_time_utils.dart';
 
 class SyncDateViewModel extends BaseViewModel{
@@ -19,6 +24,10 @@ class SyncDateViewModel extends BaseViewModel{
   final _syncUseCase = getIt<SyncDataUseCase>();
   final _fileDb = getIt<FilesDB>();
 
+  //all done
+  bool isDoneDataLog = false;
+  bool isDoneBankInfo = false;
+  bool isDonePublicKey = false;
 
 
   List<ShiftSchedulerEntity> shifSchedulers = [];
@@ -298,8 +307,78 @@ class SyncDateViewModel extends BaseViewModel{
     notifyListeners();
   }
 
+  nextAction() async {
+    changeLoadingScreen(true);
+    await _requestDataLog();
+    await _requestPublicKey();
+    await _requestBankBIN();
 
-  
-  
-  
+    //check done
+    _checkRequestAllDone();
+  }
+
+  _requestDataLog() async {
+    final todayStr = DateTimeUtils.formatDate(DateTime.now(),outputFm: DateTimeUtils.databaseFm);
+    final result = await _syncUseCase.requestDataLog(currentScheduler, todayStr, TypeSyncDataLog.startScheduler);
+    if(result is DataSuccess){
+      isDoneDataLog = true;
+    } else {
+      isDoneDataLog = false;
+    }
+  }
+
+  _requestPublicKey() async {
+    final result = await _syncUseCase.requestPublicKey();
+    if(result is DataSuccess){
+      if(result.dataState?.isNotEmpty==true) {
+        //lưu khoá
+        prefsScrypt.savePublicKey(result.dataState??"");
+        isDonePublicKey = true;
+      } else {
+        isDonePublicKey = false;
+        showErrorDialog(S.current.publickey_error);
+      }
+    } else {
+      isDonePublicKey = false;
+      showErrorDialog(S.current.publickey_error);
+    }
+  }
+
+  _requestBankBIN() async {
+    db.bankInfoBox.clearAllData();
+    final result = await _syncUseCase.getListBankInfos();
+    if(result is DataSuccess){
+      if(result.dataState?.isNotEmpty==true) {
+        //lưu list
+        db.bankInfoBox.insertBankInfos(result.dataState??[]);
+      }
+      isDoneBankInfo = true;
+    } else {
+      //bank_info_error
+      showErrorDialog(S.current.bank_info_error);
+      isDoneBankInfo = false;
+    }
+  }
+
+  _checkRequestAllDone() {
+    customLog("_checkRequestAllDone ==> $isDoneBankInfo && $isDoneDataLog && $isDonePublicKey");
+    changeLoadingScreen(false);
+    if(isDoneBankInfo && isDoneDataLog && isDonePublicKey){
+      navigationService.navigateTo(RouteConstant.homeScreen,type: NavigationService.pushAndRemoveUntil);
+    }
+  }
+
+
+
+
+  showErrorDialog(String message,{Function? acction}){
+    ShowDialogServices.showOneButtonDialog(
+      context: context,
+      title: S.current.notify,
+      btnTitle: S.current.close,
+      message: message,
+      btnAction: acction
+    );
+  }
+
 }

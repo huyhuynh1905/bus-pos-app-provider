@@ -46,5 +46,7 @@
   "sync_pos_info": "Thông tin cấu hình máy POS",
   "sync_month_card_route": "Danh sách thẻ tháng của tuyến",
   "accinfo_error": "Không thể lấy được thông tin tài khoản.",
-  "settings": "Cài đặt"
+  "settings": "Cài đặt",
+  "publickey_error": "Đã xảy ra vấn đề khi lấy khoá.",
+  "bank_info_error": "Đã xảy ra vấn đề khi lấy thông tin ngân hàng Napas."
 }

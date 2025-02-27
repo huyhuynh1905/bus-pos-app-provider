@@ -92,7 +92,9 @@ class _SyncDateScreenState extends BaseScreenState<SyncDateViewModel> {
                       title: S.current.continue_label,
                       isDisable: provider.isCanNext,
                       action: (){
-
+                        if(!provider.isCanNext){
+                          provider.nextAction();
+                        }
                       }
                     )
                   ],

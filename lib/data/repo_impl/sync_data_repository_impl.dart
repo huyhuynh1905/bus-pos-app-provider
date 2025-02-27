@@ -1,8 +1,9 @@
 import 'package:bus_pos_app/core/base_handler/api_handler.dart';
 import 'package:bus_pos_app/core/base_handler/base_data_state.dart';
-import 'package:bus_pos_app/data/remote/api_auth/api_feature_client.dart';
+import 'package:bus_pos_app/data/remote/api_auth/api_payment_client.dart';
 import 'package:bus_pos_app/data/remote/api_auth/api_sync_data_client.dart';
 import 'package:bus_pos_app/di/locator.dart';
+import 'package:bus_pos_app/domain/entity/bank_info_entity.dart';
 import 'package:bus_pos_app/domain/entity/object_type_month_entity.dart';
 import 'package:bus_pos_app/domain/entity/pos_para_entity.dart';
 import 'package:bus_pos_app/domain/entity/route_info_entity.dart';
@@ -102,6 +103,44 @@ class SyncDataRepositoryImpl extends SyncDataRepository{
     return await ApiHandler.handleResponseBody<String?>(
       named: "getTodayBlackATM",
       callApi: posApi.downloadTodayBlackATM(accessToken),
+    );
+  }
+
+  @override
+  Future<DataState<List<BankInfoEntity>>> getListBankInfos() async {
+    final accessToken = await utils.getTokenNoBearer();
+    return await ApiHandler.handleResponseList<BankInfoEntity>(
+        named: "getListBankInfos",
+        callApi: paymentApi.requestBankInfo(accessToken, Constants.typePOS),
+        fromJson: BankInfoEntity.fromJson
+    );
+  }
+
+  @override
+  Future<DataState<dynamic>> requestDataLog(ShiftSchedulerEntity? shiftScheduler, String syncDate, String typeSync) async {
+    final body = {
+      Constants.sellerIdCard: shiftScheduler?.sellerIdCard,
+      Constants.routeId: shiftScheduler?.routeId,
+      Constants.scheduleId: shiftScheduler?.scheduleId,
+      Constants.goBack: shiftScheduler?.goBack,
+      Constants.syncDate: syncDate,
+      Constants.fieldType: typeSync,
+      Constants.shiftSchedulerId: shiftScheduler?.id,
+    };
+    final accessToken = await utils.getToken();
+
+    return await ApiHandler.handleResponseBody<dynamic>(
+      named: "requestDataLog",
+      callApi: posApi.postSyncDone(accessToken, body),
+    );
+  }
+
+  @override
+  Future<DataState<String?>> requestPublicKey() async {
+    final accessToken = await utils.getTokenNoBearer();
+    return await ApiHandler.handleResponseBody<String?>(
+      named: "requestPublicKey",
+      callApi: paymentApi.requestPublicKey(accessToken, Constants.typePOS),
     );
   }
 

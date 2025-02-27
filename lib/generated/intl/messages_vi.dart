@@ -38,6 +38,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "account_not_valid": MessageLookupByLibrary.simpleMessage(
       "Thông tin tài khoản không hợp lệ",
     ),
+    "bank_info_error": MessageLookupByLibrary.simpleMessage(
+      "Đã xảy ra vấn đề khi lấy thông tin ngân hàng Napas.",
+    ),
     "check": MessageLookupByLibrary.simpleMessage("Check in"),
     "close": MessageLookupByLibrary.simpleMessage("Đóng"),
     "confirm_label": MessageLookupByLibrary.simpleMessage("Xác nhận"),
@@ -68,6 +71,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "proudly_by_unit": MessageLookupByLibrary.simpleMessage(
       "Được cung cấp bởi UNIT CORP",
+    ),
+    "publickey_error": MessageLookupByLibrary.simpleMessage(
+      "Đã xảy ra vấn đề khi lấy khoá.",
     ),
     "settings": MessageLookupByLibrary.simpleMessage("Cài đặt"),
     "sync_all_lock_atm": MessageLookupByLibrary.simpleMessage(

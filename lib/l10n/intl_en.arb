@@ -46,5 +46,7 @@
   "sync_pos_info": "POS machine configuration information",
   "sync_month_card_route": "List of monthly cards of the route",
   "accinfo_error": "Cannot get accoun sale info.",
-  "settings": "Settings"
+  "settings": "Settings",
+  "publickey_error": "There was a problem retrieving the key.",
+  "bank_info_error": "There was a problem retrieving Napas bank information."
 }

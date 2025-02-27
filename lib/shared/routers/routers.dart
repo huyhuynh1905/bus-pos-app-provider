@@ -1,4 +1,5 @@
 import 'package:bus_pos_app/presentation/guidle_feature/sample_component_screen.dart';
+import 'package:bus_pos_app/presentation/main_feature/home_screen/home_screen.dart';
 import 'package:bus_pos_app/presentation/main_feature/settings_screen/settings_screen.dart';
 import 'package:bus_pos_app/presentation/onboard_feature/login_screen/login_screen.dart';
 import 'package:bus_pos_app/presentation/onboard_feature/splash_screen/splash_screen.dart';
@@ -21,6 +22,8 @@ class Routers {
         return MaterialPageRoutePlus(builder: (_) => const SyncDateScreen());
       case RouteConstant.settingsScreen:
         return MaterialPageRoutePlus(builder: (_) => const SettingsScreen());
+      case RouteConstant.homeScreen:
+        return MaterialPageRoutePlus(builder: (_) => const HomeScreen());
       default:
         return MaterialPageRoutePlus(
             builder: (_) => Scaffold(

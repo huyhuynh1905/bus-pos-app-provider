@@ -1,5 +1,6 @@
 import 'package:bus_pos_app/core/base_handler/base_data_state.dart';
 import 'package:bus_pos_app/di/locator.dart';
+import 'package:bus_pos_app/domain/entity/bank_info_entity.dart';
 import 'package:bus_pos_app/domain/entity/object_type_month_entity.dart';
 import 'package:bus_pos_app/domain/entity/pos_para_entity.dart';
 import 'package:bus_pos_app/domain/entity/route_info_entity.dart';
@@ -17,4 +18,7 @@ class SyncDataUseCase {
   Future<DataState<String?>> getAllWhiteListMonthCard(int? routeId) => _syncRepo.getAllWhiteListMonthCard(routeId);
   Future<DataState<String?>> getAllBlackATM() => _syncRepo.getAllBlackATM();
   Future<DataState<String?>> getTodayBlackATM() => _syncRepo.getTodayBlackATM();
+  Future<DataState<dynamic>> requestDataLog(ShiftSchedulerEntity? shiftScheduler, String syncDate, String typeSync) => _syncRepo.requestDataLog(shiftScheduler, syncDate, typeSync);
+  Future<DataState<List<BankInfoEntity>>> getListBankInfos() => _syncRepo.getListBankInfos();
+  Future<DataState<String?>> requestPublicKey() => _syncRepo.requestPublicKey();
 }

@@ -57,4 +57,10 @@ abstract class APISyncDataClient {
   Future<String?> downloadTodayBlackATM(
     @Header(Constants.fieldAuthorization) String accessToken,
   );
+
+  @POST(ApiSubLink.pathInsertDataLog)
+  Future<dynamic> postSyncDone(
+    @Header(Constants.fieldAuthorization) String accessToken,
+    @Body() Map<String, dynamic> map
+  );
 }

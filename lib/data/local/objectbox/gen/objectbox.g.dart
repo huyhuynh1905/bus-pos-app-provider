@@ -14,6 +14,7 @@ import 'package:objectbox/internal.dart'
 import 'package:objectbox/objectbox.dart' as obx;
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
+import '../../../../domain/entity/bank_info_entity.dart';
 import '../../../../domain/entity/bus_stop_entity.dart';
 import '../../../../domain/entity/object_type_month_entity.dart';
 import '../../../../domain/entity/pos_para_entity.dart';
@@ -507,6 +508,40 @@ final _entities = <obx_int.ModelEntity>[
             flags: 0)
       ],
       relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(8, 4219329390948335669),
+      name: 'BankInfoEntity',
+      lastPropertyId: const obx_int.IdUid(5, 4456903312103760485),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 2207731534187078965),
+            name: 'localId',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 1624929475729926250),
+            name: 'code',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 161070816167302141),
+            name: 'benId',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 8455586010402380125),
+            name: 'bankBin',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 4456903312103760485),
+            name: 'shortName',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[])
 ];
 
@@ -545,7 +580,7 @@ Future<obx.Store> openStore(
 obx_int.ModelDefinition getObjectBoxModel() {
   final model = obx_int.ModelInfo(
       entities: _entities,
-      lastEntityId: const obx_int.IdUid(7, 705052935884752666),
+      lastEntityId: const obx_int.IdUid(8, 4219329390948335669),
       lastIndexId: const obx_int.IdUid(0, 0),
       lastRelationId: const obx_int.IdUid(0, 0),
       lastSequenceId: const obx_int.IdUid(0, 0),
@@ -1176,6 +1211,55 @@ obx_int.ModelDefinition getObjectBoxModel() {
               id: idParam);
 
           return object;
+        }),
+    BankInfoEntity: obx_int.EntityDefinition<BankInfoEntity>(
+        model: _entities[7],
+        toOneRelations: (BankInfoEntity object) => [],
+        toManyRelations: (BankInfoEntity object) => {},
+        getId: (BankInfoEntity object) => object.localId,
+        setId: (BankInfoEntity object, int id) {
+          object.localId = id;
+        },
+        objectToFB: (BankInfoEntity object, fb.Builder fbb) {
+          final codeOffset =
+              object.code == null ? null : fbb.writeString(object.code!);
+          final benIdOffset =
+              object.benId == null ? null : fbb.writeString(object.benId!);
+          final bankBinOffset =
+              object.bankBin == null ? null : fbb.writeString(object.bankBin!);
+          final shortNameOffset = object.shortName == null
+              ? null
+              : fbb.writeString(object.shortName!);
+          fbb.startTable(6);
+          fbb.addInt64(0, object.localId ?? 0);
+          fbb.addOffset(1, codeOffset);
+          fbb.addOffset(2, benIdOffset);
+          fbb.addOffset(3, bankBinOffset);
+          fbb.addOffset(4, shortNameOffset);
+          fbb.finish(fbb.endTable());
+          return object.localId ?? 0;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final localIdParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 4);
+          final codeParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final benIdParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 8);
+          final bankBinParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 10);
+          final shortNameParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 12);
+          final object = BankInfoEntity(
+              localId: localIdParam,
+              code: codeParam,
+              benId: benIdParam,
+              bankBin: bankBinParam,
+              shortName: shortNameParam);
+
+          return object;
         })
   };
 
@@ -1538,4 +1622,27 @@ class ObjectTypeMonthEntity_ {
   /// See [ObjectTypeMonthEntity.id].
   static final id = obx.QueryIntegerProperty<ObjectTypeMonthEntity>(
       _entities[6].properties[6]);
+}
+
+/// [BankInfoEntity] entity fields to define ObjectBox queries.
+class BankInfoEntity_ {
+  /// See [BankInfoEntity.localId].
+  static final localId =
+      obx.QueryIntegerProperty<BankInfoEntity>(_entities[7].properties[0]);
+
+  /// See [BankInfoEntity.code].
+  static final code =
+      obx.QueryStringProperty<BankInfoEntity>(_entities[7].properties[1]);
+
+  /// See [BankInfoEntity.benId].
+  static final benId =
+      obx.QueryStringProperty<BankInfoEntity>(_entities[7].properties[2]);
+
+  /// See [BankInfoEntity.bankBin].
+  static final bankBin =
+      obx.QueryStringProperty<BankInfoEntity>(_entities[7].properties[3]);
+
+  /// See [BankInfoEntity.shortName].
+  static final shortName =
+      obx.QueryStringProperty<BankInfoEntity>(_entities[7].properties[4]);
 }

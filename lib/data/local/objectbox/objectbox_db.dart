@@ -1,3 +1,4 @@
+import 'package:bus_pos_app/data/local/objectbox/bank_info_objectbox.dart';
 import 'package:bus_pos_app/data/local/objectbox/bus_stop_objectbox.dart';
 import 'package:bus_pos_app/data/local/objectbox/object_type_month_card_objectbox.dart';
 import 'package:bus_pos_app/data/local/objectbox/pos_para_objectbox.dart';
@@ -16,6 +17,7 @@ class ObjectBoxDB {
   final ticketProductBox = getIt<TicketProductObjectbox>();
   final posParaBox = getIt<PosParaObjectbox>();
   final objectTypeMonthBox = getIt<ObjectTypeMonthCardObjectbox>();
+  final bankInfoBox = getIt<BankInfoObjectbox>();
 
   resetDataSync(){
     schedulerBox.clearAllData();

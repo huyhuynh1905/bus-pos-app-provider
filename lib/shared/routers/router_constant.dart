@@ -6,4 +6,5 @@ class RouteConstant {
   static const String sampleScreen = 'sampleScreen';
   static const String syncDateScreen = 'syncDateScreen';
   static const String settingsScreen = 'settingsScreen';
+  static const String homeScreen = 'homeScreen';
 }
