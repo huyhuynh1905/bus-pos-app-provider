@@ -41,17 +41,27 @@ class MessageLookup extends MessageLookupByLibrary {
     "bank_info_error": MessageLookupByLibrary.simpleMessage(
       "Đã xảy ra vấn đề khi lấy thông tin ngân hàng Napas.",
     ),
+    "bus_stop_list": MessageLookupByLibrary.simpleMessage(
+      "Danh sách trạm dừng",
+    ),
     "check": MessageLookupByLibrary.simpleMessage("Check in"),
+    "check_month_card": MessageLookupByLibrary.simpleMessage(
+      "Kiểm tra thông tin thẻ",
+    ),
     "close": MessageLookupByLibrary.simpleMessage("Đóng"),
     "confirm_label": MessageLookupByLibrary.simpleMessage("Xác nhận"),
     "continue_label": MessageLookupByLibrary.simpleMessage("Tiếp tục"),
+    "dark_mode": MessageLookupByLibrary.simpleMessage("Chế độ tối"),
     "email_invalid": MessageLookupByLibrary.simpleMessage(
       "Email không đúng định dạng",
     ),
     "error_when_login": m0,
+    "exit_app": MessageLookupByLibrary.simpleMessage("Thoát ứng dụng"),
     "field_not_empty": MessageLookupByLibrary.simpleMessage(
       "Thông tin này không được để trống",
     ),
+    "history_order": MessageLookupByLibrary.simpleMessage("Lịch sử bán vé"),
+    "info": MessageLookupByLibrary.simpleMessage("Thông tin chung"),
     "input_info": MessageLookupByLibrary.simpleMessage("Nhập thông tin"),
     "input_phone_number": MessageLookupByLibrary.simpleMessage("Số điện thoại"),
     "label_des_splash": MessageLookupByLibrary.simpleMessage(
@@ -60,6 +70,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "label_title_splash": MessageLookupByLibrary.simpleMessage(
       "Phương tiện giao thông công cộng thân thiện với môi trường.",
     ),
+    "language": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
+    "log_out": MessageLookupByLibrary.simpleMessage("Đăng xuất"),
     "login_label": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
     "notify": MessageLookupByLibrary.simpleMessage("Thông báo"),
     "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
@@ -75,7 +87,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "publickey_error": MessageLookupByLibrary.simpleMessage(
       "Đã xảy ra vấn đề khi lấy khoá.",
     ),
+    "saleman_info": MessageLookupByLibrary.simpleMessage("Thông tin tiếp viên"),
     "settings": MessageLookupByLibrary.simpleMessage("Cài đặt"),
+    "sn_device": MessageLookupByLibrary.simpleMessage("S/N thiết bị"),
+    "support": MessageLookupByLibrary.simpleMessage("Hỗ trợ"),
     "sync_all_lock_atm": MessageLookupByLibrary.simpleMessage(
       "Thông tin toàn bộ thẻ ATM bị khoá",
     ),
@@ -102,5 +117,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "username": MessageLookupByLibrary.simpleMessage("Tên tài khoản"),
     "version": m1,
+    "version_line": MessageLookupByLibrary.simpleMessage("Phiên bản"),
   };
 }

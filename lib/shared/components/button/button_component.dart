@@ -13,6 +13,7 @@ class ButtonComponent extends StatelessWidget {
   final double? width;
   final Color? backgroundColor;
   final Color? disableBackgroundColor;
+  final Color? borderColor;
   final bool isDisable;
   final bool isOutline;
   final bool isGrad;
@@ -32,6 +33,7 @@ class ButtonComponent extends StatelessWidget {
     this.backgroundColor,
     this.disableBackgroundColor,
     this.gradientColor,
+    this.borderColor,
   });
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,7 @@ class ButtonComponent extends StatelessWidget {
       decoration: BoxDecoration(
         color: isGrad ? null : isOutline ? AppThemesColors.current.surface : isDisable ? disableBackgroundColor??AppThemesColors.current.outlineVar : backgroundColor??AppThemesColors.current.primary,
         borderRadius: BorderRadius.circular(borderRadius),
-        border: isGrad ? null : isOutline ? Border.all(color: AppThemesColors.current.primary) : null,
+        border: isGrad ? null : isOutline ? Border.all(color: borderColor??AppThemesColors.current.primary) : null,
         gradient: gradientColor
       ),
       child: ElevatedButton(
@@ -68,7 +70,7 @@ class ButtonComponent extends StatelessWidget {
           ),
           child: TextDefault(
             text: title,
-            textColor: isOutline ? AppThemesColors.current.onSurface : textColor ?? (isDisable ? AppThemesColors.current.onSurface : AppThemesColors.current.onPrimary),
+            textColor: isOutline ? borderColor??AppThemesColors.current.primary : textColor ?? (isDisable ? AppThemesColors.current.onSurface : AppThemesColors.current.onPrimary),
           ),
         ),
       ),

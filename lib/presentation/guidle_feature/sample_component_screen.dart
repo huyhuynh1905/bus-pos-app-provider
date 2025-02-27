@@ -38,7 +38,7 @@ class _SampleComponentScreenState extends BaseScreenState<SampleComponentViewMod
       backgroundColor: AppThemesColors.current.surface,
       appBar: AppbarComponent(
         title: "Sample Component",
-        showIconBack: false,
+        showIconBack: true,
         rightIcon: GestureDetector(
           onTap: (){
             //đổi theme

@@ -1,3 +1,4 @@
+import 'package:bus_pos_app/core/common/app_provider.dart';
 import 'package:bus_pos_app/data/local/objectbox/objectbox_db.dart';
 import 'package:bus_pos_app/data/local/storage_shared/prefs_crypt.dart';
 import 'package:bus_pos_app/data/local/storage_shared/prefs_shared.dart';
@@ -17,6 +18,7 @@ class BaseViewModel extends ChangeNotifier {
   final prefShared = getIt.get<PrefsShared>();
   final prefsScrypt = getIt.get<PrefsCrypt>();
   final db = getIt.get<ObjectBoxDB>();
+  late AppProvider appProvider;
 
   init(){
 

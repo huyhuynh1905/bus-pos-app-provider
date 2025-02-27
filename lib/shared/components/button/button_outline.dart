@@ -6,6 +6,7 @@ class ButtonOutline extends ButtonComponent{
     super.key,
     required super.title,
     required super.action,
+    super.borderColor,
     super.height
   }) : super(
     isOutline: true,

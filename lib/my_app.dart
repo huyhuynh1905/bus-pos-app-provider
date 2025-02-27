@@ -1,9 +1,8 @@
 import 'package:bus_pos_app/core/common/app_provider.dart';
 import 'package:bus_pos_app/core/common/multi_provider.dart';
-import 'package:bus_pos_app/shared/res/themes_and_color/app_themes.dart';
-import 'package:bus_pos_app/shared/res/themes_and_color/colors.dart';
 import 'package:bus_pos_app/shared/res/dimens.dart';
 import 'package:bus_pos_app/shared/res/strings.dart';
+import 'package:bus_pos_app/shared/res/themes_and_color/app_themes.dart';
 import 'package:bus_pos_app/shared/res/themes_and_color/themes_custom.dart';
 import 'package:bus_pos_app/shared/routers/navigation_services.dart';
 import 'package:bus_pos_app/shared/routers/router_constant.dart';

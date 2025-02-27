@@ -48,5 +48,17 @@
   "accinfo_error": "Không thể lấy được thông tin tài khoản.",
   "settings": "Cài đặt",
   "publickey_error": "Đã xảy ra vấn đề khi lấy khoá.",
-  "bank_info_error": "Đã xảy ra vấn đề khi lấy thông tin ngân hàng Napas."
+  "bank_info_error": "Đã xảy ra vấn đề khi lấy thông tin ngân hàng Napas.",
+  "info": "Thông tin chung",
+  "saleman_info": "Thông tin tiếp viên",
+  "bus_stop_list": "Danh sách trạm dừng",
+  "history_order": "Lịch sử bán vé",
+  "version_line": "Phiên bản",
+  "sn_device": "S/N thiết bị",
+  "support": "Hỗ trợ",
+  "check_month_card": "Kiểm tra thông tin thẻ",
+  "language": "Ngôn ngữ",
+  "dark_mode": "Chế độ tối",
+  "exit_app": "Thoát ứng dụng",
+  "log_out": "Đăng xuất"
 }

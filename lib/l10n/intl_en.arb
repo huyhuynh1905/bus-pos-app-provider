@@ -48,5 +48,17 @@
   "accinfo_error": "Cannot get accoun sale info.",
   "settings": "Settings",
   "publickey_error": "There was a problem retrieving the key.",
-  "bank_info_error": "There was a problem retrieving Napas bank information."
+  "bank_info_error": "There was a problem retrieving Napas bank information.",
+  "info": "General information",
+  "saleman_info": "Salesman information",
+  "bus_stop_list": "Stop list",
+  "history_order": "Ticket sales history",
+  "version_line": "Version",
+  "sn_device": "Device S/N",
+  "support": "Support",
+  "check_month_card": "Check card information",
+  "language": "Language",
+  "dark_mode": "Dark mode",
+  "exit_app": "Exit app",
+  "log_out": "Log out"
 }

@@ -369,6 +369,86 @@ class S {
       args: [],
     );
   }
+
+  /// `General information`
+  String get info {
+    return Intl.message(
+      'General information',
+      name: 'info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Salesman information`
+  String get saleman_info {
+    return Intl.message(
+      'Salesman information',
+      name: 'saleman_info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stop list`
+  String get bus_stop_list {
+    return Intl.message('Stop list', name: 'bus_stop_list', desc: '', args: []);
+  }
+
+  /// `Ticket sales history`
+  String get history_order {
+    return Intl.message(
+      'Ticket sales history',
+      name: 'history_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Version`
+  String get version_line {
+    return Intl.message('Version', name: 'version_line', desc: '', args: []);
+  }
+
+  /// `Device S/N`
+  String get sn_device {
+    return Intl.message('Device S/N', name: 'sn_device', desc: '', args: []);
+  }
+
+  /// `Support`
+  String get support {
+    return Intl.message('Support', name: 'support', desc: '', args: []);
+  }
+
+  /// `Check card information`
+  String get check_month_card {
+    return Intl.message(
+      'Check card information',
+      name: 'check_month_card',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message('Language', name: 'language', desc: '', args: []);
+  }
+
+  /// `Dark mode`
+  String get dark_mode {
+    return Intl.message('Dark mode', name: 'dark_mode', desc: '', args: []);
+  }
+
+  /// `Exit app`
+  String get exit_app {
+    return Intl.message('Exit app', name: 'exit_app', desc: '', args: []);
+  }
+
+  /// `Log out`
+  String get log_out {
+    return Intl.message('Log out', name: 'log_out', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -41,17 +41,27 @@ class MessageLookup extends MessageLookupByLibrary {
     "bank_info_error": MessageLookupByLibrary.simpleMessage(
       "There was a problem retrieving Napas bank information.",
     ),
+    "bus_stop_list": MessageLookupByLibrary.simpleMessage("Stop list"),
     "check": MessageLookupByLibrary.simpleMessage("Check in"),
+    "check_month_card": MessageLookupByLibrary.simpleMessage(
+      "Check card information",
+    ),
     "close": MessageLookupByLibrary.simpleMessage("Đóng"),
     "confirm_label": MessageLookupByLibrary.simpleMessage("Xác nhận"),
     "continue_label": MessageLookupByLibrary.simpleMessage("Continue"),
+    "dark_mode": MessageLookupByLibrary.simpleMessage("Dark mode"),
     "email_invalid": MessageLookupByLibrary.simpleMessage(
       "Email không đúng định dạng",
     ),
     "error_when_login": m0,
+    "exit_app": MessageLookupByLibrary.simpleMessage("Exit app"),
     "field_not_empty": MessageLookupByLibrary.simpleMessage(
       "Thông tin này không được để trống",
     ),
+    "history_order": MessageLookupByLibrary.simpleMessage(
+      "Ticket sales history",
+    ),
+    "info": MessageLookupByLibrary.simpleMessage("General information"),
     "input_info": MessageLookupByLibrary.simpleMessage("Nhập thông tin"),
     "input_phone_number": MessageLookupByLibrary.simpleMessage("Số điện thoại"),
     "label_des_splash": MessageLookupByLibrary.simpleMessage(
@@ -60,6 +70,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "label_title_splash": MessageLookupByLibrary.simpleMessage(
       "Environmentally friendly public transport.",
     ),
+    "language": MessageLookupByLibrary.simpleMessage("Language"),
+    "log_out": MessageLookupByLibrary.simpleMessage("Log out"),
     "login_label": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
     "notify": MessageLookupByLibrary.simpleMessage("Thông báo"),
     "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
@@ -75,7 +87,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "publickey_error": MessageLookupByLibrary.simpleMessage(
       "There was a problem retrieving the key.",
     ),
+    "saleman_info": MessageLookupByLibrary.simpleMessage(
+      "Salesman information",
+    ),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+    "sn_device": MessageLookupByLibrary.simpleMessage("Device S/N"),
+    "support": MessageLookupByLibrary.simpleMessage("Support"),
     "sync_all_lock_atm": MessageLookupByLibrary.simpleMessage(
       "Information on all locked ATM cards",
     ),
@@ -108,5 +125,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "username": MessageLookupByLibrary.simpleMessage("Username"),
     "version": m1,
+    "version_line": MessageLookupByLibrary.simpleMessage("Version"),
   };
 }

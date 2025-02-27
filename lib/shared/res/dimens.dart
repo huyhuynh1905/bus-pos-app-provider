@@ -53,6 +53,7 @@ class Dimens {
   static const double bigSize = 18;
   static const double bigerSize = 20;
 
+  static const double size_2 = 2;
   static const double size_2half = 2.5;
   static const double size_3 = 3;
   static const double size_4 = 4;
@@ -93,6 +94,9 @@ class Dimens {
   static const double miniItemSize = 32;
   static const double scrolltextSize = 100;
   static const double iconSyncSize = 35;
+  static const double heightItemSettings = 55;
+  static const double heightSwitch = 45;
+  static const double widthSwitch = 55;
 
   //radius
   static const double radiusBottomSheet = 25;

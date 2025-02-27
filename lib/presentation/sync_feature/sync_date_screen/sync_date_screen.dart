@@ -37,7 +37,7 @@ class _SyncDateScreenState extends BaseScreenState<SyncDateViewModel> {
       appBar: AppbarComponent(
         title: S.current.sync_date,
         showIconBack: false,
-        rightIcon: const SettingsIcon(),
+        rightIcon: SettingsIcon(),
       ),
       body: Consumer<SyncDateViewModel>(
         builder: (context,model,child) {

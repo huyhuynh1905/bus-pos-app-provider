@@ -5,7 +5,12 @@ import 'package:bus_pos_app/shared/utils/common.dart';
 import 'package:flutter/material.dart';
 
 class SettingsIcon extends StatelessWidget {
-  const SettingsIcon({super.key});
+  SettingsIcon({
+    super.key,
+    this.iconColor,
+  });
+
+  Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +26,7 @@ class SettingsIcon extends StatelessWidget {
         padding: const EdgeInsets.all(Dimens.spaXxsPadding),
         child: Icon(
           Icons.settings,
-          color: AppThemesColors.current.onPrimary,
+          color: iconColor??AppThemesColors.current.onPrimary,
         ),
       ),
     );

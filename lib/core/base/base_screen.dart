@@ -1,3 +1,4 @@
+import 'package:bus_pos_app/core/common/app_provider.dart';
 import 'package:bus_pos_app/shared/res/themes_and_color/themes_custom.dart';
 import 'package:bus_pos_app/shared/routers/navigation_services.dart';
 import 'package:bus_pos_app/shared/utils/supports.dart';
@@ -29,6 +30,7 @@ abstract class BaseScreenState<T extends BaseViewModel> extends State<BaseScreen
     provider.navigationService = getIt<NavigationService>();
     provider.context = context;
     provider.utilsCommon = getIt<Utils>();
+    provider.appProvider = getIt.get<AppProvider>();
     if (ModalRoute.of(context)?.settings.arguments != null) {
       provider.arguments = ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
     } else {
