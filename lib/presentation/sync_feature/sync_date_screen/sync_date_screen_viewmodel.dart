@@ -364,6 +364,17 @@ class SyncDateViewModel extends BaseViewModel{
     customLog("_checkRequestAllDone ==> $isDoneBankInfo && $isDoneDataLog && $isDonePublicKey");
     changeLoadingScreen(false);
     if(isDoneBankInfo && isDoneDataLog && isDonePublicKey){
+      //lưa data
+      final todayUTCStr = DateTimeUtils.formatDate(DateTime.now().toUtc().subtract(const Duration(minutes: 2)),outputFm: DateTimeUtils.databaseFm);
+      final todayStr = DateTimeUtils.formatDate(DateTime.now().subtract(const Duration(minutes: 2)),outputFm: DateTimeUtils.databaseFm);
+      prefShared.saveTimeLastSyncUTC(todayUTCStr);
+      prefShared.saveTimeLastSync(todayStr);
+      prefShared.saveIsSynced(false);
+      prefShared.saveIsBlockScreen(false);
+
+
+
+      //next to home screen
       navigationService.navigateTo(RouteConstant.homeScreen,type: NavigationService.pushAndRemoveUntil);
     }
   }

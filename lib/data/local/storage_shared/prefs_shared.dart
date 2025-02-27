@@ -19,6 +19,31 @@ class PrefsShared {
     return _sharedPreference.setBool(PrefsSharedKey.keyThemesMode, isDarkMode);
   }
 
+  Future<bool> saveTimeLastSyncUTC(String lastSync) {
+    return _sharedPreference.setString(PrefsSharedKey.keyLastSyncTimeUTC, lastSync);
+  }
+
+  String get lastSyncDateUTC => _sharedPreference.getString(PrefsSharedKey.keyLastSyncTimeUTC) ?? '';
+
+  Future<bool> saveTimeLastSync(String lastSync) {
+    return _sharedPreference.setString(PrefsSharedKey.keyLastSyncTime, lastSync);
+  }
+
+  String get lastSyncDate => _sharedPreference.getString(PrefsSharedKey.keyLastSyncTime) ?? '';
+
+  Future<bool> saveIsBlockScreen(bool isBlockScreen) {
+    return _sharedPreference.setBool(PrefsSharedKey.keyIsBlockScreen, isBlockScreen);
+  }
+
+  bool get isBlockScreen => _sharedPreference.getBool(PrefsSharedKey.keyIsBlockScreen) ?? false;
+
+  Future<bool> saveIsSynced(bool isSynced) {
+    return _sharedPreference.setBool(PrefsSharedKey.keyIsSynced, isSynced);
+  }
+
+  bool get isSynced => _sharedPreference.getBool(PrefsSharedKey.keyIsSynced) ?? false;
+
+
   Future<void> deleteAll() async {
     await _sharedPreference.clear();
   }

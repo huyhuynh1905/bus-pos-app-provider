@@ -1,7 +1,6 @@
-import 'package:bus_pos_app/core/common/app_provider.dart';
-import 'package:bus_pos_app/di/locator.dart';
 import 'package:bus_pos_app/shared/res/dimens.dart';
 import 'package:bus_pos_app/shared/res/themes_and_color/themes_custom.dart';
+import 'package:bus_pos_app/shared/routers/router_constant.dart';
 import 'package:bus_pos_app/shared/utils/common.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +14,7 @@ class SettingsIcon extends StatelessWidget {
       onTap: (){
         //đi đến màn hình settings
         customLog("SettingsIcon => click");
-        getIt<AppProvider>().onChangesThemes();
+        Navigator.pushNamed(context, RouteConstant.settingsScreen);
       },
       child: Container(
         color: Colors.transparent,

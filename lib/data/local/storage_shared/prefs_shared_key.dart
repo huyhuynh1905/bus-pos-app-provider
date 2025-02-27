@@ -10,4 +10,8 @@ class PrefsSharedKey {
   static const String keyCompanyInfo = "keyUser";
   static const String keyCurrentScheduler = "keyCurrentScheduler";
   static const String keyPublicKey = "keyPublicKey";
+  static const String keyLastSyncTime = "keyLastSyncTime";
+  static const String keyLastSyncTimeUTC = "keyLastSyncTimeUTC";
+  static const String keyIsBlockScreen = "keyIsBlockScreen";
+  static const String keyIsSynced = "keyIsSynced";
 }
